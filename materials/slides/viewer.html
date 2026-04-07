@@ -114,7 +114,7 @@
     <!-- Navigation -->
     <div class="nav-bar">
       <button id="btn-prev" title="Previous (\u2190)">Prev</button>
-      <span class="slide-counter" id="counter">1 / 55</span>
+      <span class="slide-counter" id="counter">1 / 56</span>
       <button id="btn-next" title="Next (\u2192)">Next</button>
       <button class="btn-fullscreen" id="btn-fs" title="Fullscreen (F)">&#x26F6;</button>
     </div>
@@ -2911,7 +2911,7 @@
       <div class=&quot;card-body&quot;>
         <p class=&quot;card-name&quot;>team-attention/harness</p>
         <p class=&quot;card-desc&quot;><strong style=&quot;color:#F5F5F0&quot;>materials/slides</strong> 강의자료 · <strong style=&quot;color:#F5F5F0&quot;>harness-checklist.md</strong> 기본 체크리스트</p>
-        <a class=&quot;card-link&quot; href=&quot;https://github.com/team-attention/harness&quot; target=&quot;_blank&quot;>github.com/team-attention/harness</a>
+        <a class=&quot;card-link&quot; href=&quot;https://github.com/team-attention/harness&quot; target=&quot;_blank&quot;>[Link]</a>
       </div>
       <div class=&quot;card-tags&quot;><span class=&quot;tag&quot;>Plugin</span><span class=&quot;tag&quot;>Slides</span></div>
     </div>
@@ -2920,7 +2920,7 @@
       <div class=&quot;card-body&quot;>
         <p class=&quot;card-name&quot;>team-attention/hoyeon</p>
         <p class=&quot;card-desc&quot;>제 개인 Harness 전체 구성이 궁금하신 분은 이 레포를 참고하세요.</p>
-        <a class=&quot;card-link&quot; href=&quot;https://github.com/team-attention/hoyeon&quot; target=&quot;_blank&quot;>github.com/team-attention/hoyeon</a>
+        <a class=&quot;card-link&quot; href=&quot;https://github.com/team-attention/hoyeon&quot; target=&quot;_blank&quot;>[Link]</a>
       </div>
       <div class=&quot;card-tags&quot;><span class=&quot;tag&quot;>Example</span></div>
     </div>
@@ -2929,7 +2929,7 @@
       <div class=&quot;card-body&quot;>
         <p class=&quot;card-name&quot;>plugins-for-claude-natives</p>
         <p class=&quot;card-desc&quot;>Team Attention에서 자주 쓰는 플러그인 모음. 실무에서 검증된 도구들.</p>
-        <a class=&quot;card-link&quot; href=&quot;https://github.com/team-attention/plugins-for-claude-natives&quot; target=&quot;_blank&quot;>github.com/team-attention/plugins-for-claude-natives</a>
+        <a class=&quot;card-link&quot; href=&quot;https://github.com/team-attention/plugins-for-claude-natives&quot; target=&quot;_blank&quot;>[Link]</a>
       </div>
       <div class=&quot;card-tags&quot;><span class=&quot;tag&quot;>Plugins</span></div>
     </div>
@@ -4453,17 +4453,19 @@
       <p class=&quot;tool-cmd&quot;>/scaffold</p>
       <p class=&quot;tool-type&quot;>Skill · Harness Plugin</p>
       <p class=&quot;tool-desc&quot;>프로젝트 초기 구성을 자동으로 잡아주는 스킬. CLAUDE.md, rules, 폴더 구조까지 한 번에 생성.</p>
+      <a class=&quot;tool-link&quot; href=&quot;https://github.com/team-attention/harness&quot; target=&quot;_blank&quot;>[Link]</a>
     </div>
     <div class=&quot;tool&quot;>
       <p class=&quot;tool-cmd&quot;>/check-harness</p>
       <p class=&quot;tool-type&quot;>Skill · Harness Plugin</p>
       <p class=&quot;tool-desc&quot;>현재 프로젝트의 Harness 상태를 체크리스트로 진단. 빠진 설정, 개선 포인트를 알려준다.</p>
+      <a class=&quot;tool-link&quot; href=&quot;https://github.com/team-attention/harness&quot; target=&quot;_blank&quot;>[Link]</a>
     </div>
     <div class=&quot;tool&quot;>
       <p class=&quot;tool-cmd&quot;>/skill-creator</p>
       <p class=&quot;tool-type&quot;>Anthropic 공식 Plugin</p>
       <p class=&quot;tool-desc&quot;>스킬을 만들고 성능을 높이세요. Anthropic에서 제공하는 공식 스킬 생성 도구.</p>
-      <a class=&quot;tool-link&quot; href=&quot;https://github.com/anthropics/skills/tree/main/skills/skill-creator&quot; target=&quot;_blank&quot;>github.com/anthropics/skills/.../skill-creator</a>
+      <a class=&quot;tool-link&quot; href=&quot;https://github.com/anthropics/skills/tree/main/skills/skill-creator&quot; target=&quot;_blank&quot;>[Link]</a>
     </div>
   </div>
   <div class=&quot;tip&quot;><strong>Harness 플러그인</strong>을 설치하면 /scaffold, /check-harness를 바로 쓸 수 있습니다</div>
@@ -6352,6 +6354,217 @@
   body {
     width: 720pt; height: 405pt;
     font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 32pt 48pt 24pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
+  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 10pt; }
+  .content { display: flex; gap: 14pt; flex: 1; }
+  .left { flex: 1; display: flex; flex-direction: column; gap: 8pt; }
+  .check-card { border-radius: 6pt; padding: 12pt 14pt; }
+  .cc-1 { background: #1A1A1A; color: #F5F5F0; }
+  .cc-2 { background: #E8E8E3; }
+  .cc-title { font-size: 12pt; font-weight: 700; margin-bottom: 4pt; }
+  .cc-1 .cc-title { color: #F5F5F0; }
+  .cc-desc { font-size: 9.5pt; line-height: 1.5; }
+  .cc-1 .cc-desc { color: #999999; }
+  .cc-2 .cc-desc { color: #666666; }
+  .cc-prompt { font-family: monospace; font-size: 8.5pt; color: #6B9B6B; background: #2A2A2A; padding: 6pt 8pt; border-radius: 4pt; margin-top: 6pt; line-height: 1.4; }
+  .cc-2 .cc-prompt { background: #D4D4D0; color: #555555; }
+  .right { width: 240pt; flex-shrink: 0; display: flex; flex-direction: column; gap: 6pt; }
+  .screenshot { width: 100%; border-radius: 6pt; border: 1pt solid #E8E8E3; }
+  .caption { font-size: 8pt; color: #999999; text-align: center; }
+  .bottom { margin-top: 6pt; font-size: 10pt; color: #999999; text-align: center; }
+  .bottom strong { color: #1A1A1A; }
+</style>
+</head>
+<body>
+  <p class=&quot;section-label&quot;>맥락(Context Engineering)</p>
+  <h1>주기적으로 점검하기</h1>
+  <div class=&quot;content&quot;>
+    <div class=&quot;left&quot;>
+      <div class=&quot;check-card cc-1&quot;>
+        <p class=&quot;cc-title&quot;>Skill · MCP는 Context를 먹는다</p>
+        <p class=&quot;cc-desc&quot;>Skill, MCP는 생각보다 context를 많이 차지하고 pollution이 생길 수 있다. 안 쓰는 것들은 주기적으로 점검해서 정리하기.</p>
+        <p class=&quot;cc-prompt&quot;>/context 로 현재 사용량 확인</p>
+      </div>
+      <div class=&quot;check-card cc-2&quot;>
+        <p class=&quot;cc-title&quot;>CLAUDE.md가 비대해질 때</p>
+        <p class=&quot;cc-desc&quot;>관리 안 되면 중복·대치되는 내용이 쌓인다. AI한테 직접 점검을 시키자.</p>
+        <p class=&quot;cc-prompt&quot;>&quot;CLAUDE.md, .claude/rules를 분석해서 논리적으로 문제가 없는지 + 중복되거나 대치되는 내용은 없는지 분석해줘&quot;</p>
+      </div>
+    </div>
+    <div class=&quot;right&quot;>
+      <img class=&quot;screenshot&quot; src=&quot;./assets/context-usage.png&quot; alt=&quot;/context 명령어 결과&quot;>
+      <p class=&quot;caption&quot;>/context — 카테고리별 토큰 사용량 확인</p>
+    </div>
+  </div>
+  <div class=&quot;bottom&quot;><strong>쌓는 것</strong>만큼 <strong>점검하고 비우는 것</strong>도 Context Engineering이다</div>
+</body>
+</html>
+" sandbox="allow-same-origin"></iframe>
+        <iframe class="slide-frame" data-slide="30" srcdoc="<!DOCTYPE html>
+<html lang=&quot;ko&quot;>
+<head>
+<base href=&quot;./&quot;>
+<script>
+(() => {
+  const slideFile = &quot;slide-30.html&quot;;
+  const localAssetPrefix = &quot;./assets/&quot;;
+  const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
+  const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
+  const prefix = '[slides-grab:image]';
+
+  function describeElement(element) {
+    if (!element || element.nodeType !== Node.ELEMENT_NODE) return '';
+    if (element === document.body) return 'body';
+
+    const parts = [];
+    let current = element;
+    while (current &amp;&amp; current.nodeType === Node.ELEMENT_NODE &amp;&amp; current !== document.body) {
+      let part = current.tagName.toLowerCase();
+      if (current.id) {
+        part += '#' + current.id;
+        parts.unshift(part);
+        break;
+      }
+      if (current.classList.length > 0) {
+        part += '.' + Array.from(current.classList).slice(0, 2).join('.');
+      }
+      parts.unshift(part);
+      current = current.parentElement;
+    }
+    return 'body > ' + parts.join(' > ');
+  }
+
+  function warn(message, detail) {
+    console.warn(prefix + ' ' + slideFile + ': ' + message, detail);
+  }
+
+  function fail(message, detail) {
+    console.error(prefix + ' ' + slideFile + ': ' + message, detail);
+  }
+
+  function validateAssetSource(kind, source, { allowEmpty = true, onNoncanonical = 'warn' } = {}) {
+    const value = (source || '').trim();
+    if (!value) {
+      return allowEmpty;
+    }
+    if (value.startsWith('data:')) {
+      return true;
+    }
+    if (value.startsWith('https://')) {
+      fail('remote ' + kind + ' URL is unsupported in saved slides; download it into ./assets/<file>', { src: value });
+      return false;
+    }
+    if (value.startsWith('http://')) {
+      fail('remote http:// ' + kind + ' URL is unsupported in saved slides; download it into ./assets/<file>', { src: value });
+      return false;
+    }
+    if (absolutePathRe.test(value) || value.startsWith('/')) {
+      fail('non-portable ' + kind + ' path is unsupported', { src: value });
+      return false;
+    }
+    if (schemeRe.test(value)) {
+      fail('unsupported ' + kind + ' URL scheme in saved slides; download it into ./assets/<file>', { src: value });
+      return false;
+    }
+    if (!value.startsWith(localAssetPrefix)) {
+      const report = onNoncanonical === 'fail' ? fail : warn;
+      report('noncanonical local ' + kind + ' path should use ./assets/<file>', { src: value });
+    }
+    return true;
+  }
+
+  function getVideoSources(video) {
+    const sources = [];
+    const directSrc = (video.getAttribute('src') || '').trim();
+    if (directSrc) {
+      sources.push(directSrc);
+    }
+    for (const source of video.querySelectorAll('source[src]')) {
+      const src = (source.getAttribute('src') || '').trim();
+      if (src) {
+        sources.push(src);
+      }
+    }
+    return sources;
+  }
+
+  window.addEventListener('error', (event) => {
+    const target = event.target;
+    if (target instanceof HTMLImageElement) {
+      const src = (target.getAttribute('src') || target.currentSrc || '').trim();
+      if (!src || src.startsWith('data:')) return;
+      if (src.startsWith(localAssetPrefix)) {
+        fail('missing local asset', { src });
+        return;
+      }
+      fail('image failed to load', { src });
+      return;
+    }
+
+    if (target instanceof HTMLVideoElement) {
+      const sources = getVideoSources(target);
+      if (sources.some((src) => src.startsWith(localAssetPrefix))) {
+        fail('missing local video asset', { sources });
+        return;
+      }
+      fail('video failed to load', { sources });
+      return;
+    }
+
+    if (target instanceof HTMLSourceElement &amp;&amp; target.parentElement instanceof HTMLVideoElement) {
+      const src = (target.getAttribute('src') || '').trim();
+      if (!src) return;
+      if (src.startsWith(localAssetPrefix)) {
+        fail('missing local video asset', { src });
+        return;
+      }
+      fail('video source failed to load', { src });
+    }
+  }, true);
+
+  window.addEventListener('DOMContentLoaded', () => {
+    for (const image of document.querySelectorAll('img[src]')) {
+      const src = (image.getAttribute('src') || '').trim();
+      validateAssetSource('image', src);
+    }
+
+    for (const video of document.querySelectorAll('video')) {
+      for (const src of getVideoSources(video)) {
+        validateAssetSource('video', src);
+      }
+
+      const poster = (video.getAttribute('poster') || '').trim();
+      if (poster) {
+        validateAssetSource('image', poster);
+      }
+    }
+
+    for (const element of document.body.querySelectorAll('*')) {
+      if (element === document.body) continue;
+      const backgroundImage = window.getComputedStyle(element).backgroundImage;
+      if (!backgroundImage || backgroundImage === 'none' || !backgroundImage.includes('url(')) continue;
+      fail('non-body background-image is not supported for slide content', {
+        element: describeElement(element),
+        backgroundImage,
+      });
+    }
+  });
+})();
+</script>
+<meta charset=&quot;UTF-8&quot;>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
     background: #1A1A1A;
     color: #F5F5F0;
     display: flex;
@@ -6372,13 +6585,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="30" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="31" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-30.html&quot;;
+  const slideFile = &quot;slide-31.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -6710,13 +6923,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="31" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="32" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-31.html&quot;;
+  const slideFile = &quot;slide-32.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -6929,13 +7142,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="32" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="33" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-32.html&quot;;
+  const slideFile = &quot;slide-33.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -7159,13 +7372,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="33" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="34" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-33.html&quot;;
+  const slideFile = &quot;slide-34.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -7397,13 +7610,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="34" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="35" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-34.html&quot;;
+  const slideFile = &quot;slide-35.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -7590,30 +7803,32 @@
       <p class=&quot;tool-cmd&quot;>/specify</p>
       <p class=&quot;tool-type&quot;>Skill · Harness Plugin</p>
       <p class=&quot;tool-desc&quot;>스펙 파일을 더 잘 얻기 위한 스킬. 인터뷰 → 요구사항 도출 → 플랜 파일까지 자동화.</p>
+      <a class=&quot;tool-link&quot; href=&quot;https://github.com/team-attention/harness&quot; target=&quot;_blank&quot;>[Link]</a>
     </div>
     <div class=&quot;tool&quot;>
       <p class=&quot;tool-cmd&quot;>/deep-interview</p>
       <p class=&quot;tool-type&quot;>Skill · Harness Plugin</p>
       <p class=&quot;tool-desc&quot;>깊이 있는 인터뷰로 unknown-unknown을 줄인다. 미처 생각 못한 엣지 케이스까지 끌어낸다.</p>
+      <a class=&quot;tool-link&quot; href=&quot;https://github.com/team-attention/harness&quot; target=&quot;_blank&quot;>[Link]</a>
     </div>
     <div class=&quot;tool&quot;>
       <p class=&quot;tool-cmd&quot;>/clarify</p>
       <p class=&quot;tool-type&quot;>Plugin · plugins-for-claude-natives</p>
       <p class=&quot;tool-desc&quot;>요구사항을 명확하게 하고 싶을 때. 모호한 지시를 구체적인 스펙으로 변환.</p>
-      <a class=&quot;tool-link&quot; href=&quot;https://github.com/team-attention/plugins-for-claude-natives/tree/main/plugins/clarify&quot; target=&quot;_blank&quot;>github.com/.../plugins/clarify</a>
+      <a class=&quot;tool-link&quot; href=&quot;https://github.com/team-attention/plugins-for-claude-natives/tree/main/plugins/clarify&quot; target=&quot;_blank&quot;>[Link]</a>
     </div>
   </div>
   <div class=&quot;tip&quot;>계획 단계에서 <strong>모호함을 줄이는 것</strong>이 실행 품질을 결정한다</div>
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="35" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="36" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-35.html&quot;;
+  const slideFile = &quot;slide-36.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -7785,13 +8000,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="36" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="37" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-36.html&quot;;
+  const slideFile = &quot;slide-37.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -8035,13 +8250,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="37" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="38" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-37.html&quot;;
+  const slideFile = &quot;slide-38.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -8249,13 +8464,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="38" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="39" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-38.html&quot;;
+  const slideFile = &quot;slide-39.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -8488,13 +8703,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="39" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="40" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-39.html&quot;;
+  const slideFile = &quot;slide-40.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -8725,13 +8940,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="40" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="41" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-40.html&quot;;
+  const slideFile = &quot;slide-41.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -8918,31 +9133,32 @@
       <p class=&quot;tool-cmd&quot;>/agent-orchestrate</p>
       <p class=&quot;tool-type&quot;>Skill · Harness Plugin</p>
       <p class=&quot;tool-desc&quot;>현재 문제에 최적화된 오케스트레이션 패턴을 자동 적용. 단일/병렬/파이프라인 등 상황에 맞게 선택.</p>
+      <a class=&quot;tool-link&quot; href=&quot;https://github.com/team-attention/harness&quot; target=&quot;_blank&quot;>[Link]</a>
     </div>
     <div class=&quot;tool&quot;>
       <p class=&quot;tool-cmd&quot;>ralph</p>
       <p class=&quot;tool-type&quot;>Claude Code 공식 Plugin</p>
       <p class=&quot;tool-desc&quot;>실행 결과를 자동 검증하는 공식 플러그인. Claude Code에서 바로 사용 가능.</p>
-      <a class=&quot;tool-link&quot; href=&quot;https://github.com/anthropics/claude-code/tree/main/plugins/ralph-wiggum&quot; target=&quot;_blank&quot;>github.com/.../plugins/ralph-wiggum</a>
+      <a class=&quot;tool-link&quot; href=&quot;https://github.com/anthropics/claude-code/tree/main/plugins/ralph-wiggum&quot; target=&quot;_blank&quot;>[Link]</a>
     </div>
     <div class=&quot;tool&quot;>
       <p class=&quot;tool-cmd&quot;>autoresearch</p>
       <p class=&quot;tool-type&quot;>karpathy · 자율 실험</p>
       <p class=&quot;tool-desc&quot;>사람은 방향만 정하고 AI가 밤새 실험. 수정→실행→평가→반복 루프를 자율적으로 돌린다.</p>
-      <a class=&quot;tool-link&quot; href=&quot;https://github.com/karpathy/autoresearch&quot; target=&quot;_blank&quot;>github.com/karpathy/autoresearch</a>
+      <a class=&quot;tool-link&quot; href=&quot;https://github.com/karpathy/autoresearch&quot; target=&quot;_blank&quot;>[Link]</a>
     </div>
   </div>
   <div class=&quot;tip&quot;>실행은 <strong>패턴 선택 + 자율성 범위 설정</strong>이 핵심이다</div>
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="41" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="42" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-41.html&quot;;
+  const slideFile = &quot;slide-42.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -9114,13 +9330,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="42" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="43" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-42.html&quot;;
+  const slideFile = &quot;slide-43.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -9328,13 +9544,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="43" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="44" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-43.html&quot;;
+  const slideFile = &quot;slide-44.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -9551,13 +9767,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="44" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="45" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-44.html&quot;;
+  const slideFile = &quot;slide-45.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -9766,13 +9982,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="45" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="46" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-45.html&quot;;
+  const slideFile = &quot;slide-46.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -9978,13 +10194,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="46" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="47" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-46.html&quot;;
+  const slideFile = &quot;slide-47.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -10171,25 +10387,26 @@
       <p class=&quot;tool-cmd&quot;>/qa</p>
       <p class=&quot;tool-type&quot;>Skill · Harness Plugin</p>
       <p class=&quot;tool-desc&quot;>Browser Agent, Computer Use 도구를 활용해서 QA를 자동화하는 스킬. 화면을 직접 보고, 클릭하고, 검증한다.</p>
+      <a class=&quot;tool-link&quot; href=&quot;https://github.com/team-attention/harness&quot; target=&quot;_blank&quot;>[Link]</a>
     </div>
     <div class=&quot;tool&quot;>
       <p class=&quot;tool-cmd&quot;>verify 레퍼런스</p>
       <p class=&quot;tool-type&quot;>Reference · team-attention/hoyeon</p>
       <p class=&quot;tool-desc&quot;>검증 스킬을 더 깊이 이해하고 싶다면 레퍼런스를 참고하세요. 검증 전략, 패턴, 실제 적용 사례가 정리되어 있습니다.</p>
-      <a class=&quot;tool-link&quot; href=&quot;https://github.com/team-attention/hoyeon/tree/main/skills/execute/references&quot; target=&quot;_blank&quot;>github.com/.../skills/execute/references</a>
+      <a class=&quot;tool-link&quot; href=&quot;https://github.com/team-attention/hoyeon/tree/main/skills/execute/references&quot; target=&quot;_blank&quot;>[Link]</a>
     </div>
   </div>
   <div class=&quot;tip&quot;><strong>검증을 자동화</strong>하면 사람은 판단에만 집중할 수 있다</div>
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="47" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="48" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-47.html&quot;;
+  const slideFile = &quot;slide-48.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -10391,13 +10608,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="48" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="49" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-48.html&quot;;
+  const slideFile = &quot;slide-49.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -10569,13 +10786,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="49" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="50" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-49.html&quot;;
+  const slideFile = &quot;slide-50.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -10792,13 +11009,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="50" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="51" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-50.html&quot;;
+  const slideFile = &quot;slide-51.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -10990,13 +11207,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="51" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="52" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-51.html&quot;;
+  const slideFile = &quot;slide-52.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -11250,13 +11467,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="52" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="53" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-52.html&quot;;
+  const slideFile = &quot;slide-53.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -11459,19 +11676,19 @@
         <p class=&quot;feature-desc&quot;>CLAUDE.md, docs 업데이트 필요 항목 감지</p>
       </div>
     </div>
-    <a class=&quot;card-link&quot; href=&quot;https://github.com/team-attention/plugins-for-claude-natives/tree/main/plugins/session-wrap&quot; target=&quot;_blank&quot;>github.com/.../plugins/session-wrap</a>
+    <a class=&quot;card-link&quot; href=&quot;https://github.com/team-attention/plugins-for-claude-natives/tree/main/plugins/session-wrap&quot; target=&quot;_blank&quot;>[Link]</a>
   </div>
   <div class=&quot;tip&quot;><strong>세션 분석 → 패턴 발견 → Skill/Rule 추가</strong> — 이것이 개선 루프의 핵심</div>
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="53" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="54" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-53.html&quot;;
+  const slideFile = &quot;slide-54.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -11688,13 +11905,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="54" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="55" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-54.html&quot;;
+  const slideFile = &quot;slide-55.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -11906,13 +12123,13 @@
 </body>
 </html>
 " sandbox="allow-same-origin"></iframe>
-        <iframe class="slide-frame" data-slide="55" srcdoc="<!DOCTYPE html>
+        <iframe class="slide-frame" data-slide="56" srcdoc="<!DOCTYPE html>
 <html lang=&quot;ko&quot;>
 <head>
 <base href=&quot;./&quot;>
 <script>
 (() => {
-  const slideFile = &quot;slide-55.html&quot;;
+  const slideFile = &quot;slide-56.html&quot;;
   const localAssetPrefix = &quot;./assets/&quot;;
   const absolutePathRe = /^(file:\/\/|\/Users\/|\/home\/|\/var\/|\/tmp\/|\/private\/|\/Volumes\/|[A-Za-z]:[\\/]|\\\\)/i;
   const schemeRe = /^[a-z][a-z0-9+\-.]*:/i;
@@ -12092,7 +12309,7 @@
   </div>
 
   <script>
-    const TOTAL = 55;
+    const TOTAL = 56;
     let current = 1;
 
     const frames = document.querySelectorAll('.slide-frame');

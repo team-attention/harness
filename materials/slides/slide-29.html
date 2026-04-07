@@ -8,22 +8,55 @@
   body {
     width: 720pt; height: 405pt;
     font-family: 'Pretendard', sans-serif;
-    background: #1A1A1A;
-    color: #F5F5F0;
+    background: #F5F5F0;
+    color: #1A1A1A;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 60pt 72pt;
+    padding: 32pt 48pt 24pt;
     overflow: hidden;
   }
-  .num { font-size: 44pt; font-weight: 700; color: #333333; margin-bottom: 8pt; line-height: 1.2; }
-  h1 { font-size: 36pt; font-weight: 700; line-height: 1.2; margin-bottom: 12pt; }
-  .sub { font-size: 15pt; font-weight: 400; color: #666666; }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
+  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 10pt; }
+  .content { display: flex; gap: 14pt; flex: 1; }
+  .left { flex: 1; display: flex; flex-direction: column; gap: 8pt; }
+  .check-card { border-radius: 6pt; padding: 12pt 14pt; }
+  .cc-1 { background: #1A1A1A; color: #F5F5F0; }
+  .cc-2 { background: #E8E8E3; }
+  .cc-title { font-size: 12pt; font-weight: 700; margin-bottom: 4pt; }
+  .cc-1 .cc-title { color: #F5F5F0; }
+  .cc-desc { font-size: 9.5pt; line-height: 1.5; }
+  .cc-1 .cc-desc { color: #999999; }
+  .cc-2 .cc-desc { color: #666666; }
+  .cc-prompt { font-family: monospace; font-size: 8.5pt; color: #6B9B6B; background: #2A2A2A; padding: 6pt 8pt; border-radius: 4pt; margin-top: 6pt; line-height: 1.4; }
+  .cc-2 .cc-prompt { background: #D4D4D0; color: #555555; }
+  .right { width: 240pt; flex-shrink: 0; display: flex; flex-direction: column; gap: 6pt; }
+  .screenshot { width: 100%; border-radius: 6pt; border: 1pt solid #E8E8E3; }
+  .caption { font-size: 8pt; color: #999999; text-align: center; }
+  .bottom { margin-top: 6pt; font-size: 10pt; color: #999999; text-align: center; }
+  .bottom strong { color: #1A1A1A; }
 </style>
 </head>
 <body>
-  <p class="num">03</p>
-  <h1>계획</h1>
-  <p class="sub">AI에게 일을 시키기 전에, 무엇을 할지 함께 정하기</p>
+  <p class="section-label">맥락(Context Engineering)</p>
+  <h1>주기적으로 점검하기</h1>
+  <div class="content">
+    <div class="left">
+      <div class="check-card cc-1">
+        <p class="cc-title">Skill · MCP는 Context를 먹는다</p>
+        <p class="cc-desc">Skill, MCP는 생각보다 context를 많이 차지하고 pollution이 생길 수 있다. 안 쓰는 것들은 주기적으로 점검해서 정리하기.</p>
+        <p class="cc-prompt">/context 로 현재 사용량 확인</p>
+      </div>
+      <div class="check-card cc-2">
+        <p class="cc-title">CLAUDE.md가 비대해질 때</p>
+        <p class="cc-desc">관리 안 되면 중복·대치되는 내용이 쌓인다. AI한테 직접 점검을 시키자.</p>
+        <p class="cc-prompt">"CLAUDE.md, .claude/rules를 분석해서 논리적으로 문제가 없는지 + 중복되거나 대치되는 내용은 없는지 분석해줘"</p>
+      </div>
+    </div>
+    <div class="right">
+      <img class="screenshot" src="./assets/context-usage.png" alt="/context 명령어 결과">
+      <p class="caption">/context — 카테고리별 토큰 사용량 확인</p>
+    </div>
+  </div>
+  <div class="bottom"><strong>쌓는 것</strong>만큼 <strong>점검하고 비우는 것</strong>도 Context Engineering이다</div>
 </body>
 </html>

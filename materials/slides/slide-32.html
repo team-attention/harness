@@ -12,70 +12,59 @@
     color: #1A1A1A;
     display: flex;
     flex-direction: column;
-    padding: 36pt 48pt 28pt;
+    padding: 40pt 56pt 32pt;
     overflow: hidden;
   }
   .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
-  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 12pt; }
-  .content { display: flex; gap: 16pt; flex: 1; }
-  .chat { flex: 1.2; display: flex; flex-direction: column; gap: 4pt; background: #1A1A1A; border-radius: 8pt; padding: 10pt 12pt; overflow: hidden; }
-  .msg { border-radius: 6pt; padding: 6pt 8pt; font-size: 9pt; line-height: 1.4; max-width: 90%; }
-  .msg-user { background: #333333; color: #F5F5F0; align-self: flex-end; }
-  .msg-ai { background: #2A2A2A; color: #CCCCCC; align-self: flex-start; border: 1pt solid #333333; }
-  .msg-label { font-size: 7pt; font-weight: 700; color: #666666; margin-bottom: 2pt; }
-  .msg strong { color: #F5F5F0; font-weight: 700; }
-  .right { flex: 0.8; display: flex; flex-direction: column; gap: 6pt; }
-  .principle { padding: 8pt 10pt; border-radius: 6pt; }
-  .p1 { background: #E8E8E3; }
-  .p2 { background: #FFFFFF; border: 1pt solid #E8E8E3; }
-  .p-title { font-size: 11pt; font-weight: 700; margin-bottom: 4pt; }
-  .p-desc { font-size: 9pt; color: #666666; line-height: 1.5; }
-  .code-hint { padding: 8pt 10pt; background: #1A1A1A; border-radius: 6pt; font-family: monospace; font-size: 8.5pt; color: #999999; line-height: 1.5; }
-  .code-hint strong { color: #F5F5F0; }
-  .bottom { margin-top: 8pt; font-size: 10pt; color: #999999; text-align: center; }
-  .bottom strong { color: #1A1A1A; }
+  h1 { font-size: 22pt; font-weight: 700; line-height: 1.2; margin-bottom: 16pt; }
+  .content { flex: 1; display: flex; gap: 16pt; }
+  .col { flex: 1; border-radius: 8pt; padding: 16pt; display: flex; flex-direction: column; }
+  .col-bad { background: #E8E8E3; }
+  .col-good { background: #1A1A1A; color: #F5F5F0; }
+  .col-label { font-size: 10pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5pt; margin-bottom: 12pt; }
+  .col-bad .col-label { color: #999999; }
+  .col-good .col-label { color: #666666; }
+  .flow-step { font-size: 11pt; line-height: 1.5; margin-bottom: 6pt; }
+  .col-bad .flow-step { color: #666666; }
+  .col-good .flow-step { color: #CCCCCC; }
+  .flow-arrow { font-size: 10pt; color: #D4D4D0; margin-bottom: 6pt; }
+  .col-good .flow-arrow { color: #555555; }
+  .result { margin-top: auto; padding-top: 10pt; border-top: 1pt solid; font-size: 12pt; font-weight: 700; }
+  .col-bad .result { border-color: #D4D4D0; color: #999999; }
+  .col-good .result { border-color: #444444; color: #F5F5F0; }
+  .note { margin-top: 10pt; font-size: 11pt; color: #999999; text-align: center; }
+  .note strong { color: #1A1A1A; }
 </style>
 </head>
 <body>
-  <p class="section-label">계획(Planning)</p>
-  <h1>나에게 질문하게 하기 — AskUserQuestion</h1>
+  <p class="section-label">계획</p>
+  <h1>계획 세우게 하기 — "해줘"의 함정</h1>
   <div class="content">
-    <div class="chat">
-      <div class="msg msg-user">
-        <p class="msg-label">USER</p>
-        나 결제 시스템을 리팩토링하려고 해.<br>너가 지금 이해한 게 뭔지 정리해주고,<br>모호한 점이 없도록 <strong>내게 계속 질문</strong>해서 명확하게 해줘
-      </div>
-      <div class="msg msg-ai">
-        <p class="msg-label">AI</p>
-        이해한 것: 결제 모듈의 기존 구조를 개선하려는 것<br><br>
-        <strong>질문 1:</strong> 현재 PG사 연동이 단일인가요, 멀티인가요?<br>
-        <strong>질문 2:</strong> 구독 결제도 포함되나요?<br>
-        <strong>질문 3:</strong> DB 스키마 변경도 허용 범위인가요?
-      </div>
-      <div class="msg msg-user">
-        <p class="msg-label">USER</p>
-        멀티 PG, 구독 포함, DB 스키마는 건드리지 마
-      </div>
-      <div class="msg msg-ai">
-        <p class="msg-label">AI</p>
-        명확해졌습니다. 그러면 계획을 세우겠습니다...
-      </div>
+    <div class="col col-bad">
+      <p class="col-label">안티패턴: "해줘"</p>
+      <p class="flow-step">"이거 만들어줘"</p>
+      <p class="flow-arrow">↓</p>
+      <p class="flow-step">AI가 알아서 만듦</p>
+      <p class="flow-arrow">↓</p>
+      <p class="flow-step">검수 → "아닌데..."</p>
+      <p class="flow-arrow">↓</p>
+      <p class="flow-step">다시 시킴 → 검수 → 다시...</p>
+      <p class="flow-arrow">↓</p>
+      <p class="result">시간만 날림</p>
     </div>
-    <div class="right">
-      <div class="principle p1">
-        <p class="p-title">왜 질문이 중요한가</p>
-        <p class="p-desc">사람은 자기 머릿속의 전제를 프롬프트에 다 담지 못한다. AI가 질문을 해야 빠진 맥락이 드러난다.</p>
-      </div>
-      <div class="principle p2">
-        <p class="p-title">커스텀 Plan 스킬에서</p>
-        <p class="p-desc">인터뷰 단계를 넣으면 AI가 자동으로 AskUserQuestion을 사용해 모호한 점을 물어본다.</p>
-      </div>
-      <div class="code-hint">
-        스킬 프롬프트에 이렇게 쓴다:<br>
-        <strong>"이해한 것을 미러링하고,<br>모호한 점을 질문해서 명확하게 해줘"</strong>
-      </div>
+    <div class="col col-good">
+      <p class="col-label">같이 계획부터</p>
+      <p class="flow-step">"~~할 건데 같이 계획 세워보자"</p>
+      <p class="flow-arrow">↓</p>
+      <p class="flow-step">AI가 계획 작성</p>
+      <p class="flow-arrow">↓</p>
+      <p class="flow-step">사람이 검토 → 수정 → 승인</p>
+      <p class="flow-arrow">↓</p>
+      <p class="flow-step">승인된 계획대로 실행</p>
+      <p class="flow-arrow">↓</p>
+      <p class="result">높은 성공률</p>
     </div>
   </div>
-  <p class="bottom"><strong>"해줘"가 아니라 "물어봐"</strong> — AI가 스스로 맥락을 채우게 하기</p>
+  <p class="note"><strong>계획과 실행을 분리</strong>하면 검수 횟수가 줄고, 결과의 예측 가능성이 올라간다</p>
 </body>
 </html>

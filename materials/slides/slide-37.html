@@ -12,54 +12,90 @@
     color: #1A1A1A;
     display: flex;
     flex-direction: column;
-    padding: 40pt 48pt 28pt;
+    padding: 40pt 56pt 32pt;
     overflow: hidden;
   }
   .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
-  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 14pt; }
-  .scenarios { display: flex; gap: 10pt; flex: 1; }
-  .scenario { flex: 1; display: flex; flex-direction: column; border-radius: 8pt; overflow: hidden; }
-  .sc-header { padding: 8pt 12pt; font-size: 11pt; font-weight: 700; }
-  .sc-1 { background: #E8E8E3; }
-  .sc-2 { background: #D4D4D0; }
-  .sc-3 { background: #1A1A1A; color: #F5F5F0; }
-  .sc-body { flex: 1; padding: 10pt 12pt; display: flex; flex-direction: column; gap: 8pt; background: #FFFFFF; border: 1pt solid #E8E8E3; border-top: none; border-radius: 0 0 8pt 8pt; }
-  .sc-3 + .sc-body { border-color: #1A1A1A; }
-  .sc-situation { font-size: 10pt; color: #666666; line-height: 1.4; padding: 8pt; background: #F5F5F0; border-radius: 4pt; }
-  .sc-situation strong { color: #1A1A1A; }
-  .sc-prompt { font-size: 9pt; color: #1A1A1A; background: #E8E8E3; padding: 8pt 10pt; border-radius: 4pt; line-height: 1.5; font-style: italic; flex: 1; }
-  .sc-how { font-size: 8pt; color: #999999; margin-top: auto; line-height: 1.4; }
-  .sc-how strong { color: #666666; }
+  h1 { font-size: 22pt; font-weight: 700; line-height: 1.2; margin-bottom: 20pt; }
+  .patterns { display: flex; gap: 14pt; flex: 1; }
+  .pattern { flex: 1; display: flex; flex-direction: column; border-radius: 8pt; overflow: hidden; }
+  .pattern-header { padding: 10pt 14pt; font-size: 12pt; font-weight: 700; }
+  .ph-single { background: #E8E8E3; }
+  .ph-sub { background: #D4D4D0; }
+  .ph-team { background: #1A1A1A; color: #F5F5F0; }
+  .pattern-body { flex: 1; padding: 12pt 14pt; background: #FFFFFF; border: 1pt solid #E8E8E3; border-top: none; border-radius: 0 0 8pt 8pt; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6pt; }
+  .ph-team + .pattern-body { border-color: #1A1A1A; }
+  /* Single: one box */
+  .agent-box { width: 56pt; height: 28pt; border-radius: 4pt; background: #E8E8E3; display: flex; align-items: center; justify-content: center; font-size: 9pt; font-weight: 600; color: #666666; }
+  .agent-box.dark { background: #1A1A1A; color: #F5F5F0; }
+  .agent-box.mid { background: #D4D4D0; }
+  /* arrows */
+  .diagram-arrow { font-size: 10pt; color: #D4D4D0; }
+  /* Sub: boss + workers */
+  .sub-diagram { display: flex; flex-direction: column; align-items: center; gap: 4pt; }
+  .sub-row { display: flex; gap: 6pt; }
+  /* Team: mesh */
+  .team-diagram { display: flex; flex-direction: column; align-items: center; gap: 4pt; position: relative; }
+  .team-row { display: flex; gap: 6pt; }
+  .team-lines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  .pattern-desc { font-size: 9pt; color: #999999; text-align: center; margin-top: 6pt; line-height: 1.3; }
+  .stats-row { display: flex; gap: 14pt; margin-top: 10pt; }
+  .stat-box { flex: 1; padding: 8pt; background: #E8E8E3; border-radius: 6pt; text-align: center; }
+  .stat-val { font-size: 18pt; font-weight: 700; }
+  .stat-lbl { font-size: 9pt; color: #666666; margin-top: 2pt; }
 </style>
 </head>
 <body>
   <p class="section-label">실행</p>
-  <h1>상황별 오케스트레이션 패턴</h1>
-  <div class="scenarios">
-    <div class="scenario">
-      <div class="sc-header sc-1">순차 파이프라인</div>
-      <div class="sc-body">
-        <div class="sc-situation"><strong>상황:</strong> 블로그 글을 쓰려는데 조사 → 초안 → 퇴고 → 발행 순서가 중요하다</div>
-        <div class="sc-prompt">"AI 에이전트 트렌드 조사해서 → 초안 작성하고 → 퇴고까지 순서대로 진행해줘"</div>
-        <p class="sc-how"><strong>동작:</strong> TaskCreate로 체크박스 생성, 하나씩 직렬 수행</p>
+  <h1>실행 패턴: 혼자 vs 부하 파견 vs 팀</h1>
+  <div class="patterns">
+    <div class="pattern">
+      <div class="pattern-header ph-single">혼자 · Single</div>
+      <div class="pattern-body">
+        <div class="agent-box">AI</div>
+        <p class="diagram-arrow">↓</p>
+        <div class="agent-box mid" style="font-size: 8pt;">결과물</div>
+        <p class="pattern-desc">단순 작업<br>대부분의 일상</p>
       </div>
     </div>
-    <div class="scenario">
-      <div class="sc-header sc-2">병렬 Subagent</div>
-      <div class="sc-body">
-        <div class="sc-situation"><strong>상황:</strong> 경쟁사 3곳의 랜딩 페이지를 동시에 분석하고 싶다. 서로 독립적.</div>
-        <div class="sc-prompt">"A사, B사, C사 랜딩 페이지를 각각 에이전트 파견해서 동시에 분석해줘. 끝나면 비교표 만들어"</div>
-        <p class="sc-how"><strong>동작:</strong> Agent 3개 spawn, 병렬 분석 후 메인이 취합</p>
+    <div class="pattern">
+      <div class="pattern-header ph-sub">부하 파견 · Subagent</div>
+      <div class="pattern-body">
+        <div class="sub-diagram">
+          <div class="agent-box dark">메인</div>
+          <p class="diagram-arrow">↓ 위임</p>
+          <div class="sub-row">
+            <div class="agent-box" style="width: 44pt; font-size: 8pt;">조사</div>
+            <div class="agent-box" style="width: 44pt; font-size: 8pt;">작업</div>
+            <div class="agent-box" style="width: 44pt; font-size: 8pt;">검증</div>
+          </div>
+          <p class="diagram-arrow">↑ 종합</p>
+          <div class="agent-box mid" style="font-size: 8pt;">결과 종합</div>
+        </div>
+        <p class="pattern-desc">병렬/전문화<br>위임 → 종합</p>
       </div>
     </div>
-    <div class="scenario">
-      <div class="sc-header sc-3">Team Mode</div>
-      <div class="sc-body">
-        <div class="sc-situation"><strong>상황:</strong> 새 기능을 설계하면서 동시에 구현하고 리뷰도 받아야 한다. 에이전트끼리 소통이 필요.</div>
-        <div class="sc-prompt">"Team 켜서 설계자, 구현자, 리뷰어 3명으로 팀 꾸려줘. 설계 나오면 구현자가 바로 시작해"</div>
-        <p class="sc-how"><strong>동작:</strong> TeamCreate로 팀 생성, 에이전트 간 직접 소통</p>
+    <div class="pattern">
+      <div class="pattern-header ph-team">팀 협업 · Team Mode</div>
+      <div class="pattern-body">
+        <div class="team-diagram">
+          <div class="team-row">
+            <div class="agent-box dark" style="width: 44pt; font-size: 8pt;">PM</div>
+            <div class="agent-box dark" style="width: 44pt; font-size: 8pt;">개발</div>
+          </div>
+          <p class="diagram-arrow">↕ 소통</p>
+          <div class="team-row">
+            <div class="agent-box dark" style="width: 44pt; font-size: 8pt;">디자인</div>
+            <div class="agent-box dark" style="width: 44pt; font-size: 8pt;">QA</div>
+          </div>
+        </div>
+        <p class="pattern-desc">다관점 · 복잡<br>에이전트 간 소통</p>
       </div>
     </div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-box"><p class="stat-val">90%</p><p class="stat-lbl">단일/서브에이전트로 충분</p></div>
+    <div class="stat-box"><p class="stat-val">~7x</p><p class="stat-lbl">팀 모드 토큰 비용</p></div>
   </div>
 </body>
 </html>

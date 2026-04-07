@@ -8,49 +8,56 @@
   body {
     width: 720pt; height: 405pt;
     font-family: 'Pretendard', sans-serif;
-    background: #1A1A1A;
-    color: #F5F5F0;
+    background: #F5F5F0;
+    color: #1A1A1A;
     display: flex;
     flex-direction: column;
-    padding: 32pt 48pt 24pt;
+    padding: 44pt 56pt 32pt;
     overflow: hidden;
   }
-  a { color: inherit; }
-  .header { display: flex; align-items: center; gap: 10pt; margin-bottom: 4pt; }
-  .badge { display: inline-block; padding: 4pt 10pt; background: #6B9B6B; color: #F5F5F0; border-radius: 4pt; font-size: 9pt; font-weight: 700; letter-spacing: 1pt; text-transform: uppercase; }
-  .section-tag { font-size: 9pt; color: #777777; }
-  h1 { font-size: 20pt; font-weight: 700; margin-bottom: 4pt; }
-  .subtitle { font-size: 10pt; color: #777777; margin-bottom: 14pt; }
-  .tools { display: flex; gap: 10pt; flex: 1; }
-  .tool { flex: 1; background: #2A2A2A; border-radius: 8pt; padding: 16pt; display: flex; flex-direction: column; }
-  .tool-cmd { font-family: monospace; font-size: 18pt; font-weight: 700; color: #6B9B6B; margin-bottom: 6pt; }
-  .tool-type { font-size: 8pt; font-weight: 600; color: #555555; text-transform: uppercase; letter-spacing: 0.5pt; margin-bottom: 8pt; padding-bottom: 6pt; border-bottom: 1pt solid #333333; }
-  .tool-desc { font-size: 10pt; color: #999999; line-height: 1.5; flex: 1; }
-  .tool-link { font-size: 8pt; color: #6B9B6B; text-decoration: underline; margin-top: 8pt; display: inline-block; }
-  .tip { margin-top: 10pt; padding: 8pt 14pt; border-left: 3pt solid #6B9B6B; font-size: 10pt; color: #999999; }
-  .tip strong { color: #F5F5F0; }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
+  .principle-num { font-size: 32pt; font-weight: 700; color: #E8E8E3; line-height: 1.2; margin-bottom: 6pt; }
+  h1 { font-size: 22pt; font-weight: 700; line-height: 1.2; margin-bottom: 14pt; }
+  .subtitle { font-size: 11pt; color: #999999; margin-bottom: 14pt; }
+  .tools { display: flex; gap: 14pt; flex: 1; }
+  .tool-card { flex: 1; border-radius: 8pt; padding: 16pt; display: flex; flex-direction: column; }
+  .tc-1 { background: #1A1A1A; color: #F5F5F0; }
+  .tc-2 { background: #E8E8E3; }
+  .tc-name { font-size: 14pt; font-weight: 700; margin-bottom: 6pt; }
+  .tc-type { font-size: 9pt; font-weight: 600; opacity: 0.5; margin-bottom: 8pt; text-transform: uppercase; letter-spacing: 0.5pt; }
+  .tc-desc { font-size: 10pt; line-height: 1.5; }
+  .tc-1 .tc-desc { color: #999999; }
+  .tc-2 .tc-desc { color: #666666; }
+  .tc-example { margin-top: auto; padding-top: 8pt; font-size: 9pt; font-family: monospace; opacity: 0.5; }
+  .bottom { margin-top: 10pt; font-size: 11pt; color: #666666; text-align: center; }
+  .bottom strong { color: #1A1A1A; }
 </style>
 </head>
 <body>
-  <div class="header">
-    <span class="badge">Try it</span>
-    <span class="section-tag">검증(Verification)</span>
-  </div>
-  <h1>검증을 도와주는 도구들</h1>
-  <p class="subtitle">브라우저·컴퓨터 사용 도구로 QA를 자동화하고, 검증 전략을 참고하세요</p>
+  <p class="section-label">검증</p>
+  <p class="principle-num">04</p>
+  <h1>에이전트에게 눈을 달아주기</h1>
+  <p class="subtitle">코드만 검증하는 게 아니라, 화면도 직접 보고 확인할 수 있어야 한다</p>
   <div class="tools">
-    <div class="tool">
-      <p class="tool-cmd">/qa</p>
-      <p class="tool-type">Skill · Harness Plugin</p>
-      <p class="tool-desc">Browser Agent, Computer Use 도구를 활용해서 QA를 자동화하는 스킬. 화면을 직접 보고, 클릭하고, 검증한다.</p>
+    <div class="tool-card tc-1">
+      <p class="tc-name">Browser Agent</p>
+      <p class="tc-type">chrome-cdp / agent-browser</p>
+      <p class="tc-desc">실제 Chrome 브라우저를 제어. DOM 탐색, 클릭, 스크린샷, 네비게이션. 웹앱의 UX를 직접 검증.</p>
+      <p class="tc-example">chrome-cdp · agent-browser</p>
     </div>
-    <div class="tool">
-      <p class="tool-cmd">verify 레퍼런스</p>
-      <p class="tool-type">Reference · team-attention/hoyeon</p>
-      <p class="tool-desc">검증 스킬을 더 깊이 이해하고 싶다면 레퍼런스를 참고하세요. 검증 전략, 패턴, 실제 적용 사례가 정리되어 있습니다.</p>
-      <a class="tool-link" href="https://github.com/team-attention/hoyeon/tree/main/skills/execute/references" target="_blank">github.com/.../skills/execute/references</a>
+    <div class="tool-card tc-2">
+      <p class="tc-name">Computer Use</p>
+      <p class="tc-type">Built-in MCP</p>
+      <p class="tc-desc">스크린샷 + 마우스/키보드로 모든 앱 제어. 웹이 아닌 네이티브 앱, 디자인 도구도 검증 가능.</p>
+      <p class="tc-example">computer-use MCP (built-in)</p>
+    </div>
+    <div class="tool-card tc-2">
+      <p class="tc-name">시각 검증 루프</p>
+      <p class="tc-type">Pattern</p>
+      <p class="tc-desc">만든다 → 스크린샷 찍는다 → 보고 판단한다 → 수정한다. 사람이 눈으로 하는 것을 AI가 대신.</p>
+      <p class="tc-example">generate → screenshot → evaluate</p>
     </div>
   </div>
-  <div class="tip"><strong>검증을 자동화</strong>하면 사람은 판단에만 집중할 수 있다</div>
+  <p class="bottom"><strong>검증 범위를 코드에서 화면까지 확장</strong>하면 사람이 끼어들 일이 줄어든다</p>
 </body>
 </html>

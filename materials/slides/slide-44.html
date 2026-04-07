@@ -17,50 +17,58 @@
   }
   .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
   .principle-num { font-size: 32pt; font-weight: 700; color: #E8E8E3; line-height: 1.2; margin-bottom: 6pt; }
-  h1 { font-size: 24pt; font-weight: 700; line-height: 1.2; margin-bottom: 16pt; }
-  .models { display: flex; gap: 12pt; flex: 1; }
-  .model { flex: 1; border-radius: 8pt; padding: 14pt; display: flex; flex-direction: column; }
-  .m-code { background: #1A1A1A; color: #F5F5F0; }
-  .m-doc { background: #444444; color: #F5F5F0; }
-  .m-tier { background: #E8E8E3; }
-  .model-name { font-size: 16pt; font-weight: 700; margin-bottom: 4pt; }
-  .model-role { font-size: 11pt; margin-bottom: 8pt; }
-  .m-code .model-role, .m-doc .model-role { color: #999999; }
-  .m-tier .model-role { color: #666666; }
-  .model-detail { font-size: 9pt; line-height: 1.5; margin-top: auto; }
-  .m-code .model-detail, .m-doc .model-detail { color: #666666; }
-  .m-tier .model-detail { color: #999999; }
-  .warning { margin-top: 10pt; padding: 10pt 14pt; background: #E8E8E3; border-radius: 6pt; border-left: 3pt solid #1A1A1A; }
-  .warning-text { font-size: 10pt; color: #666666; line-height: 1.5; font-style: italic; }
-  .warning-text strong { color: #1A1A1A; font-style: normal; }
-  .bottom { margin-top: 10pt; font-size: 11pt; color: #999999; text-align: center; }
+  h1 { font-size: 24pt; font-weight: 700; line-height: 1.2; margin-bottom: 12pt; }
+  .source { font-size: 10pt; color: #999999; margin-bottom: 14pt; }
+  .source a { color: #999999; text-decoration: underline; }
+  .content { flex: 1; display: flex; gap: 20pt; align-items: center; }
+  .visual { flex: 1; display: flex; align-items: center; justify-content: center; gap: 14pt; }
+  .agent-card { padding: 18pt 20pt; border-radius: 8pt; text-align: center; width: 140pt; }
+  .agent-maker { background: #E8E8E3; }
+  .agent-checker { background: #1A1A1A; color: #F5F5F0; }
+  .agent-label { font-size: 14pt; font-weight: 700; margin-bottom: 4pt; }
+  .agent-desc { font-size: 10pt; color: #666666; line-height: 1.4; }
+  .agent-checker .agent-desc { color: #999999; }
+  .divider { width: 2pt; height: 80pt; background: #D4D4D0; position: relative; }
+  .divider-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #F5F5F0; padding: 4pt 8pt; font-size: 9pt; color: #999999; white-space: nowrap; }
+  .quotes { flex: 1; display: flex; flex-direction: column; gap: 10pt; }
+  .quote-item { padding: 12pt 14pt; background: #E8E8E3; border-radius: 6pt; border-left: 3pt solid #1A1A1A; }
+  .quote-text { font-size: 10pt; color: #666666; line-height: 1.5; font-style: italic; }
+  .quote-text strong { color: #1A1A1A; font-style: normal; }
+  .bottom { margin-top: 10pt; font-size: 11pt; color: #666666; text-align: center; }
   .bottom strong { color: #1A1A1A; }
 </style>
 </head>
 <body>
   <p class="section-label">검증 원칙</p>
-  <p class="principle-num">03</p>
-  <h1>모델도 나누고, 역할도 나눈다</h1>
-  <div class="models">
-    <div class="model m-code">
-      <p class="model-name">Codex</p>
-      <p class="model-role">코드 리뷰</p>
-      <p class="model-detail">로직 오류, 보안 취약점,<br>테스트 누락 검출</p>
+  <p class="principle-num">02</p>
+  <h1>컨텍스트를 나누고, 관점을 분리한다</h1>
+  <p class="source">Anthropic — Harness design for long-running application development</p>
+  <div class="content">
+    <div class="visual">
+      <div class="agent-card agent-maker">
+        <p class="agent-label">Generator</p>
+        <p class="agent-desc">결과물을 만드는 AI</p>
+      </div>
+      <div class="divider">
+        <p class="divider-label">분리</p>
+      </div>
+      <div class="agent-card agent-checker">
+        <p class="agent-label">Evaluator</p>
+        <p class="agent-desc">결과물을 평가하는 AI</p>
+      </div>
     </div>
-    <div class="model m-doc">
-      <p class="model-name">Gemini</p>
-      <p class="model-role">문서 리뷰</p>
-      <p class="model-detail">일관성, 정확성,<br>구조 검증</p>
-    </div>
-    <div class="model m-tier">
-      <p class="model-name">Opus / Sonnet</p>
-      <p class="model-role">성능별 분업</p>
-      <p class="model-detail">Opus: 복잡한 판단, 아키텍처<br>Sonnet: 빠른 확인, 반복 검증</p>
+    <div class="quotes">
+      <div class="quote-item">
+        <p class="quote-text">"자기 작업을 평가하면 <strong>quality가 mediocre해도 자신있게 칭찬</strong>한다"</p>
+      </div>
+      <div class="quote-item">
+        <p class="quote-text">"만든 AI와 확인하는 AI를 분리하는 것이 <strong>가장 강력한 레버</strong>"</p>
+      </div>
+      <div class="quote-item">
+        <p class="quote-text">"Evaluator를 회의적으로 튜닝하는 게, Generator를 자기비판적으로 만드는 것보다 <strong>훨씬 쉽다</strong>"</p>
+      </div>
     </div>
   </div>
-  <div class="warning">
-    <p class="warning-text">"Out of the box, Claude is a poor QA agent." — <strong>검증 에이전트도 튜닝이 필요하다.</strong> 기준을 구체적으로, 회의적으로 설정해야 쓸 수 있다.</p>
-  </div>
-  <p class="bottom"><strong>다른 모델, 다른 역할</strong>로 교차 검증 — 한 모델의 맹점을 다른 모델이 잡는다</p>
+  <p class="bottom"><strong>핵심: 같은 컨텍스트에서 만들고 평가하면 안 된다</strong> — 관점을 물리적으로 분리해야 한다</p>
 </body>
 </html>

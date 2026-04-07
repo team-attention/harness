@@ -8,52 +8,50 @@
   body {
     width: 720pt; height: 405pt;
     font-family: 'Pretendard', sans-serif;
-    background: #F5F5F0;
-    color: #1A1A1A;
+    background: #1A1A1A;
+    color: #F5F5F0;
     display: flex;
     flex-direction: column;
-    padding: 44pt 56pt 36pt;
+    padding: 32pt 48pt 24pt;
     overflow: hidden;
   }
-  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
-  h1 { font-size: 24pt; font-weight: 700; line-height: 1.2; margin-bottom: 20pt; }
-  .safeguards { display: flex; gap: 16pt; flex: 1; }
-  .sg { flex: 1; border-radius: 8pt; padding: 16pt; display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .sg-1 { background: #1A1A1A; color: #F5F5F0; }
-  .sg-2 { background: #E8E8E3; }
-  .sg-icon { font-size: 28pt; font-weight: 700; margin-bottom: 8pt; opacity: 0.4; }
-  .sg-title { font-size: 14pt; font-weight: 700; margin-bottom: 8pt; }
-  .sg-desc { font-size: 11pt; line-height: 1.5; }
-  .sg-1 .sg-desc { color: #999999; }
-  .sg-2 .sg-desc { color: #666666; }
-  .sg-example { margin-top: auto; padding-top: 8pt; font-size: 10pt; font-family: monospace; opacity: 0.5; }
-  .core { margin-top: 12pt; padding: 12pt 16pt; background: #E8E8E3; border-radius: 6pt; font-size: 13pt; color: #666666; text-align: center; }
-  .core strong { color: #1A1A1A; font-weight: 700; }
+  a { color: inherit; }
+  .header { display: flex; align-items: center; gap: 10pt; margin-bottom: 4pt; }
+  .badge { display: inline-block; padding: 4pt 10pt; background: #6B9B6B; color: #F5F5F0; border-radius: 4pt; font-size: 9pt; font-weight: 700; letter-spacing: 1pt; text-transform: uppercase; }
+  .section-tag { font-size: 9pt; color: #777777; }
+  h1 { font-size: 20pt; font-weight: 700; margin-bottom: 4pt; }
+  .subtitle { font-size: 10pt; color: #777777; margin-bottom: 14pt; }
+  .tools { display: flex; gap: 10pt; flex: 1; }
+  .tool { flex: 1; background: #2A2A2A; border-radius: 8pt; padding: 16pt; display: flex; flex-direction: column; }
+  .tool-cmd { font-family: monospace; font-size: 18pt; font-weight: 700; color: #6B9B6B; margin-bottom: 6pt; }
+  .tool-type { font-size: 8pt; font-weight: 600; color: #555555; text-transform: uppercase; letter-spacing: 0.5pt; margin-bottom: 8pt; padding-bottom: 6pt; border-bottom: 1pt solid #333333; }
+  .tool-desc { font-size: 10pt; color: #999999; line-height: 1.5; flex: 1; }
+  .tool-link { font-size: 8pt; color: #6B9B6B; text-decoration: underline; margin-top: 8pt; display: inline-block; }
+  .tip { margin-top: 10pt; padding: 8pt 14pt; border-left: 3pt solid #6B9B6B; font-size: 10pt; color: #999999; }
+  .tip strong { color: #F5F5F0; }
 </style>
 </head>
 <body>
-  <p class="section-label">검증</p>
-  <h1>안전장치</h1>
-  <div class="safeguards">
-    <div class="sg sg-1">
-      <p class="sg-icon">&#x1f6e1;</p>
-      <p class="sg-title">되돌릴 수 있는 환경</p>
-      <p class="sg-desc">브랜치/Worktree 격리에서 작업. 실수해도 메인은 안전.</p>
-      <p class="sg-example">git worktree add</p>
+  <div class="header">
+    <span class="badge">Try it</span>
+    <span class="section-tag">검증(Verification)</span>
+  </div>
+  <h1>검증을 도와주는 도구들</h1>
+  <p class="subtitle">브라우저·컴퓨터 사용 도구로 QA를 자동화하고, 검증 전략을 참고하세요</p>
+  <div class="tools">
+    <div class="tool">
+      <p class="tool-cmd">/qa</p>
+      <p class="tool-type">Skill · Harness Plugin</p>
+      <p class="tool-desc">Browser Agent, Computer Use 도구를 활용해서 QA를 자동화하는 스킬. 화면을 직접 보고, 클릭하고, 검증한다.</p>
+      <a class="tool-link" href="https://github.com/team-attention/harness" target="_blank">[Link]</a>
     </div>
-    <div class="sg sg-2">
-      <p class="sg-icon">&#x1f6a7;</p>
-      <p class="sg-title">위험한 건 사람이 확인</p>
-      <p class="sg-desc">삭제, 배포, 외부 발송 같은 작업은 승인 후 실행.</p>
-      <p class="sg-example">Runtime Gate</p>
-    </div>
-    <div class="sg sg-2">
-      <p class="sg-icon">&#x1f4cb;</p>
-      <p class="sg-title">Dry-run 먼저</p>
-      <p class="sg-desc">"이렇게 할 건데 맞나?" 미리보기 후 실행.</p>
-      <p class="sg-example">--dry-run</p>
+    <div class="tool">
+      <p class="tool-cmd">verify 레퍼런스</p>
+      <p class="tool-type">Reference · team-attention/hoyeon</p>
+      <p class="tool-desc">검증 스킬을 더 깊이 이해하고 싶다면 레퍼런스를 참고하세요. 검증 전략, 패턴, 실제 적용 사례가 정리되어 있습니다.</p>
+      <a class="tool-link" href="https://github.com/team-attention/hoyeon/tree/main/skills/execute/references" target="_blank">[Link]</a>
     </div>
   </div>
-  <p class="core"><strong>"실수해도 괜찮은 구조"</strong>를 만드는 것이 핵심</p>
+  <div class="tip"><strong>검증을 자동화</strong>하면 사람은 판단에만 집중할 수 있다</div>
 </body>
 </html>

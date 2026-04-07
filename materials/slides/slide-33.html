@@ -12,78 +12,70 @@
     color: #1A1A1A;
     display: flex;
     flex-direction: column;
-    padding: 40pt 56pt 32pt;
+    padding: 36pt 48pt 28pt;
     overflow: hidden;
   }
   .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
-  h1 { font-size: 22pt; font-weight: 700; line-height: 1.2; margin-bottom: 14pt; }
-  .content { flex: 1; display: flex; gap: 20pt; }
-  .left { flex: 1; display: flex; flex-direction: column; gap: 6pt; }
-  .left-title { font-size: 11pt; font-weight: 700; color: #999999; margin-bottom: 4pt; }
-  .stage { display: flex; align-items: center; gap: 10pt; padding: 10pt 12pt; border-radius: 6pt; }
-  .s1 { background: #E8E8E3; }
-  .s2 { background: #1A1A1A; color: #F5F5F0; }
-  .stage-num { font-size: 18pt; font-weight: 700; opacity: 0.25; min-width: 24pt; }
-  .stage-title { font-size: 12pt; font-weight: 700; }
-  .stage-desc { font-size: 9pt; color: #666666; }
-  .s2 .stage-desc { color: #999999; }
-  .arrow { text-align: center; font-size: 10pt; color: #D4D4D0; }
-  .right { flex: 1; display: flex; flex-direction: column; }
-  .right-title { font-size: 11pt; font-weight: 700; color: #999999; margin-bottom: 8pt; }
-  .custom-box { background: #1A1A1A; color: #F5F5F0; border-radius: 8pt; padding: 16pt; flex: 1; display: flex; flex-direction: column; gap: 8pt; }
-  .custom-step { display: flex; align-items: center; gap: 8pt; }
-  .cs-num { width: 22pt; height: 22pt; border-radius: 50%; background: #333333; display: flex; align-items: center; justify-content: center; font-size: 9pt; font-weight: 700; flex-shrink: 0; }
-  .cs-text { font-size: 11pt; color: #CCCCCC; }
-  .cs-text strong { color: #F5F5F0; }
-  .cs-arrow { font-size: 9pt; color: #555555; padding-left: 30pt; }
-  .custom-name { font-size: 12pt; font-weight: 700; margin-bottom: 4pt; }
-  .custom-code { font-family: monospace; font-size: 9pt; color: #666666; margin-top: auto; padding-top: 6pt; }
-  .note { margin-top: 8pt; font-size: 11pt; color: #999999; text-align: center; }
-  .note strong { color: #1A1A1A; }
+  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 12pt; }
+  .content { display: flex; gap: 16pt; flex: 1; }
+  .chat { flex: 1.2; display: flex; flex-direction: column; gap: 4pt; background: #1A1A1A; border-radius: 8pt; padding: 10pt 12pt; overflow: hidden; }
+  .msg { border-radius: 6pt; padding: 6pt 8pt; font-size: 9pt; line-height: 1.4; max-width: 90%; }
+  .msg-user { background: #333333; color: #F5F5F0; align-self: flex-end; }
+  .msg-ai { background: #2A2A2A; color: #CCCCCC; align-self: flex-start; border: 1pt solid #333333; }
+  .msg-label { font-size: 7pt; font-weight: 700; color: #666666; margin-bottom: 2pt; }
+  .msg strong { color: #F5F5F0; font-weight: 700; }
+  .right { flex: 0.8; display: flex; flex-direction: column; gap: 6pt; }
+  .principle { padding: 8pt 10pt; border-radius: 6pt; }
+  .p1 { background: #E8E8E3; }
+  .p2 { background: #FFFFFF; border: 1pt solid #E8E8E3; }
+  .p-title { font-size: 11pt; font-weight: 700; margin-bottom: 4pt; }
+  .p-desc { font-size: 9pt; color: #666666; line-height: 1.5; }
+  .code-hint { padding: 8pt 10pt; background: #1A1A1A; border-radius: 6pt; font-family: monospace; font-size: 8.5pt; color: #999999; line-height: 1.5; }
+  .code-hint strong { color: #F5F5F0; }
+  .bottom { margin-top: 8pt; font-size: 10pt; color: #999999; text-align: center; }
+  .bottom strong { color: #1A1A1A; }
 </style>
 </head>
 <body>
-  <p class="section-label">계획</p>
-  <h1>계획의 진화 — 커스텀 Plan 스킬</h1>
+  <p class="section-label">계획(Planning)</p>
+  <h1>나에게 질문하게 하기 — AskUserQuestion</h1>
   <div class="content">
-    <div class="left">
-      <p class="left-title">기본 Plan Mode의 한계</p>
-      <div class="stage s1">
-        <span class="stage-num">1</span>
-        <div><p class="stage-title">Plan Mode</p><p class="stage-desc">계획과 실행을 분리. 하지만 사람이 모든 걸 프롬프트에 담을 수 없다.</p></div>
+    <div class="chat">
+      <div class="msg msg-user">
+        <p class="msg-label">USER</p>
+        나 결제 시스템을 리팩토링하려고 해.<br>너가 지금 이해한 게 뭔지 정리해주고,<br>모호한 점이 없도록 <strong>내게 계속 질문</strong>해서 명확하게 해줘
       </div>
-      <p class="arrow">↓ 한계를 느끼면</p>
-      <div class="stage s2">
-        <span class="stage-num">2</span>
-        <div><p class="stage-title">커스텀 Plan 스킬</p><p class="stage-desc">인터뷰 + 요구사항 도출 + 플랜 파일까지 자동화하는 전용 스킬을 만든다.</p></div>
+      <div class="msg msg-ai">
+        <p class="msg-label">AI</p>
+        이해한 것: 결제 모듈의 기존 구조를 개선하려는 것<br><br>
+        <strong>질문 1:</strong> 현재 PG사 연동이 단일인가요, 멀티인가요?<br>
+        <strong>질문 2:</strong> 구독 결제도 포함되나요?<br>
+        <strong>질문 3:</strong> DB 스키마 변경도 허용 범위인가요?
+      </div>
+      <div class="msg msg-user">
+        <p class="msg-label">USER</p>
+        멀티 PG, 구독 포함, DB 스키마는 건드리지 마
+      </div>
+      <div class="msg msg-ai">
+        <p class="msg-label">AI</p>
+        명확해졌습니다. 그러면 계획을 세우겠습니다...
       </div>
     </div>
     <div class="right">
-      <p class="right-title">커스텀 Plan 스킬 예시: /specify</p>
-      <div class="custom-box">
-        <div class="custom-step">
-          <div class="cs-num">1</div>
-          <p class="cs-text"><strong>목표 확인</strong> — 사용자의 의도를 미러링</p>
-        </div>
-        <p class="cs-arrow">↓</p>
-        <div class="custom-step">
-          <div class="cs-num">2</div>
-          <p class="cs-text"><strong>인터뷰</strong> — 모호한 지점을 질문으로 끌어내기</p>
-        </div>
-        <p class="cs-arrow">↓</p>
-        <div class="custom-step">
-          <div class="cs-num">3</div>
-          <p class="cs-text"><strong>요구사항 + 태스크 도출</strong></p>
-        </div>
-        <p class="cs-arrow">↓</p>
-        <div class="custom-step">
-          <div class="cs-num">4</div>
-          <p class="cs-text"><strong>플랜 파일로 떨구기</strong> → /execute로 실행</p>
-        </div>
-        <p class="custom-code">implicit(머릿속) → explicit(플랜 파일)</p>
+      <div class="principle p1">
+        <p class="p-title">왜 질문이 중요한가</p>
+        <p class="p-desc">사람은 자기 머릿속의 전제를 프롬프트에 다 담지 못한다. AI가 질문을 해야 빠진 맥락이 드러난다.</p>
+      </div>
+      <div class="principle p2">
+        <p class="p-title">커스텀 Plan 스킬에서</p>
+        <p class="p-desc">인터뷰 단계를 넣으면 AI가 자동으로 AskUserQuestion을 사용해 모호한 점을 물어본다.</p>
+      </div>
+      <div class="code-hint">
+        스킬 프롬프트에 이렇게 쓴다:<br>
+        <strong>"이해한 것을 미러링하고,<br>모호한 점을 질문해서 명확하게 해줘"</strong>
       </div>
     </div>
   </div>
-  <p class="note"><strong>기본 Plan으로 부족하면</strong> 프로젝트에 맞는 계획 스킬을 만든다</p>
+  <p class="bottom"><strong>"해줘"가 아니라 "물어봐"</strong> — AI가 스스로 맥락을 채우게 하기</p>
 </body>
 </html>

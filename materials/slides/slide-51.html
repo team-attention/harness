@@ -12,100 +12,38 @@
     color: #1A1A1A;
     display: flex;
     flex-direction: column;
-    padding: 36pt 56pt 28pt;
+    padding: 44pt 56pt 36pt;
     overflow: hidden;
   }
   .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
-  h1 { font-size: 22pt; font-weight: 700; line-height: 1.2; margin-bottom: 16pt; }
-  .columns { display: flex; gap: 14pt; flex: 1; }
-  .col { flex: 1; border-radius: 8pt; padding: 16pt; display: flex; flex-direction: column; gap: 10pt; }
-  .col-good { background: #1A1A1A; color: #F5F5F0; }
-  .col-bad { background: #E8E8E3; }
-  .col-label { font-size: 10pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5pt; margin-bottom: 4pt; }
-  .col-good .col-label { color: #666666; }
-  .col-bad .col-label { color: #999999; }
-  .signal { display: flex; gap: 10pt; align-items: flex-start; }
-  .signal-icon { font-size: 14pt; min-width: 18pt; text-align: center; flex-shrink: 0; line-height: 1.3; }
-  .signal-text { font-size: 11pt; line-height: 1.4; }
-  .col-good .signal-text { color: #CCCCCC; }
-  .col-bad .signal-text { color: #666666; }
-  .signal-text strong { font-weight: 700; }
-  .col-good .signal-text strong { color: #F5F5F0; }
-  .col-bad .signal-text strong { color: #1A1A1A; }
-  .signal-meaning { font-size: 8.5pt; margin-top: 1pt; }
-  .col-good .signal-meaning { color: #777777; }
-  .col-bad .signal-meaning { color: #999999; }
-  .bottom { margin-top: 10pt; font-size: 11pt; color: #999999; text-align: center; }
-  .bottom strong { color: #1A1A1A; }
+  h1 { font-size: 24pt; font-weight: 700; line-height: 1.2; margin-bottom: 20pt; }
+  .rules { display: flex; flex-direction: column; gap: 12pt; flex: 1; }
+  .rule { display: flex; gap: 16pt; align-items: center; }
+  .rule-icon { width: 44pt; height: 44pt; background: #1A1A1A; color: #F5F5F0; border-radius: 6pt; display: flex; align-items: center; justify-content: center; font-size: 14pt; font-weight: 700; flex-shrink: 0; }
+  .rule-icon.light { background: #E8E8E3; color: #1A1A1A; }
+  .rule-text { font-size: 14pt; font-weight: 400; color: #666666; line-height: 1.5; }
+  .rule-text strong { color: #1A1A1A; font-weight: 700; }
+  .bottom { margin-top: auto; padding: 12pt 16pt; background: #E8E8E3; border-radius: 6pt; font-size: 12pt; color: #666666; text-align: center; font-style: italic; }
+  .bottom strong { color: #1A1A1A; font-style: normal; }
 </style>
 </head>
 <body>
   <p class="section-label">개선</p>
-  <h1>잘 가고 있나? — 자가 진단</h1>
-  <div class="columns">
-    <div class="col col-good">
-      <p class="col-label">잘 가고 있다는 신호</p>
-      <div class="signal">
-        <span class="signal-icon">+</span>
-        <div>
-          <p class="signal-text"><strong>같은 말을 두 번 하지 않는다</strong></p>
-          <p class="signal-meaning">맥락 전달이 잘 되고 있다</p>
-        </div>
-      </div>
-      <div class="signal">
-        <span class="signal-icon">+</span>
-        <div>
-          <p class="signal-text"><strong>실수가 규칙이 된다</strong></p>
-          <p class="signal-meaning">개선 루프가 돌고 있다</p>
-        </div>
-      </div>
-      <div class="signal">
-        <span class="signal-icon">+</span>
-        <div>
-          <p class="signal-text"><strong>차단 장치가 뭔가를 막고 있다</strong></p>
-          <p class="signal-meaning">사고가 구조적으로 예방되고 있다</p>
-        </div>
-      </div>
-      <div class="signal">
-        <span class="signal-icon">+</span>
-        <div>
-          <p class="signal-text"><strong>불필요한 것이 줄어든다</strong></p>
-          <p class="signal-meaning">복잡해지는 게 아니라 단순해지고 있다</p>
-        </div>
-      </div>
+  <h1>단순화하기</h1>
+  <div class="rules">
+    <div class="rule">
+      <div class="rule-icon">-1</div>
+      <p class="rule-text"><strong>안 쓰는 건 치운다</strong> — 필요 없어진 Skill, MCP, Rule은 바로 삭제. 쌓이면 AI slop.</p>
     </div>
-    <div class="col col-bad">
-      <p class="col-label">실패하고 있다는 징후</p>
-      <div class="signal">
-        <span class="signal-icon">-</span>
-        <div>
-          <p class="signal-text"><strong>검수에 시간이 더 오래 걸린다</strong></p>
-          <p class="signal-meaning">검증 자동화가 필요하다는 신호</p>
-        </div>
-      </div>
-      <div class="signal">
-        <span class="signal-icon">-</span>
-        <div>
-          <p class="signal-text"><strong>시켰는데 원하는 결과가 안 나온다</strong></p>
-          <p class="signal-meaning">맥락 전달 또는 계획 단계가 부족</p>
-        </div>
-      </div>
-      <div class="signal">
-        <span class="signal-icon">-</span>
-        <div>
-          <p class="signal-text"><strong>스킬·에이전트가 많은데 잘 안 쓴다</strong></p>
-          <p class="signal-meaning">context pollution + 제대로 동작 안 함</p>
-        </div>
-      </div>
-      <div class="signal">
-        <span class="signal-icon">-</span>
-        <div>
-          <p class="signal-text"><strong>가이드 파일이 길어지고 관리 안 된다</strong></p>
-          <p class="signal-meaning">CLAUDE.md·docs 분리/정리 없이 쌓임</p>
-        </div>
-      </div>
+    <div class="rule">
+      <div class="rule-icon light">↑</div>
+      <p class="rule-text"><strong>모델이 좋아지면 Harness를 재평가</strong> — 예전에 필요했던 가드레일이 지금은 불필요할 수 있다.</p>
+    </div>
+    <div class="rule">
+      <div class="rule-icon light">!</div>
+      <p class="rule-text"><strong>과설계 신호를 인식하기</strong> — 설정이 너무 복잡하면 뭔가 잘못된 것. 점점 단순해져야 정상.</p>
     </div>
   </div>
-  <div class="bottom"><strong>좋은 Harness는 점점 단순해진다.</strong> 복잡해지고 있다면 뭔가 잘못된 것.</div>
+  <div class="bottom"><strong>Anthropic</strong> — "Harness의 공간은 모델이 좋아져도 줄어들지 않는다. 이동할 뿐이다."</div>
 </body>
 </html>
