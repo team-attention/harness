@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 40pt 56pt 28pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
+  h1 { font-size: 22pt; font-weight: 700; line-height: 1.2; margin-bottom: 4pt; }
+  .subtitle { font-size: 11pt; color: #999999; margin-bottom: 16pt; }
+  .content { flex: 1; display: flex; gap: 24pt; }
+  /* Left: simple loop */
+  .loop-side { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8pt; }
+  .loop-step { width: 160pt; padding: 12pt; border-radius: 6pt; text-align: center; font-size: 13pt; font-weight: 700; }
+  .ls-1 { background: #1A1A1A; color: #F5F5F0; }
+  .ls-2 { background: #666666; color: #F5F5F0; }
+  .ls-3 { background: #E8E8E3; }
+  .loop-arrow-down { font-size: 14pt; color: #D4D4D0; }
+  .loop-back { display: flex; align-items: center; gap: 6pt; margin-top: 4pt; }
+  .loop-back-line { width: 120pt; border-top: 2pt dashed #D4D4D0; }
+  .loop-back-label { font-size: 9pt; color: #999999; }
+  /* Right: example */
+  .example-side { flex: 1; display: flex; flex-direction: column; gap: 6pt; }
+  .ex-title { font-size: 12pt; font-weight: 700; color: #999999; margin-bottom: 4pt; }
+  .ex-dod { padding: 10pt 12pt; background: #1A1A1A; color: #F5F5F0; border-radius: 6pt; font-size: 10pt; line-height: 1.5; margin-bottom: 4pt; }
+  .ex-rounds { display: flex; flex-direction: column; gap: 4pt; }
+  .ex-round { display: flex; align-items: center; gap: 8pt; }
+  .ex-num { width: 20pt; height: 20pt; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9pt; font-weight: 700; flex-shrink: 0; }
+  .ex-fail { background: #E8E8E3; color: #999999; }
+  .ex-pass { background: #1A1A1A; color: #F5F5F0; }
+  .ex-text { font-size: 9pt; color: #666666; }
+  .ex-summary { margin-top: auto; font-size: 10pt; color: #999999; font-style: italic; }
+  .note { margin-top: 8pt; font-size: 12pt; color: #666666; text-align: center; }
+  .note strong { color: #1A1A1A; }
+</style>
+</head>
+<body>
+  <p class="section-label">실행</p>
+  <h1>Ralph Loop — 될 때까지 반복</h1>
+  <p class="subtitle">완료 기준을 정하고, 충족할 때까지 AI가 알아서 돈다</p>
+  <div class="content">
+    <div class="loop-side">
+      <div class="loop-step ls-1">1. 완료 기준 합의</div>
+      <p class="loop-arrow-down">↓</p>
+      <div class="loop-step ls-2">2. AI가 작업</div>
+      <p class="loop-arrow-down">↓</p>
+      <div class="loop-step ls-3">3. 기준 충족?</div>
+      <div class="loop-back">
+        <span class="loop-back-label">NO →</span>
+        <div class="loop-back-line"></div>
+        <span class="loop-back-label">→ 2번으로</span>
+      </div>
+    </div>
+    <div class="example-side">
+      <p class="ex-title">예시: "랜딩 페이지 만들어줘"</p>
+      <div class="ex-dod">완료 기준: 모바일 반응형 + Lighthouse 90점 이상 + 카피 3번 이상 퇴고</div>
+      <div class="ex-rounds">
+        <div class="ex-round">
+          <div class="ex-num ex-fail">1</div>
+          <span class="ex-text">페이지 완성, Lighthouse 72점</span>
+        </div>
+        <div class="ex-round">
+          <div class="ex-num ex-fail">2</div>
+          <span class="ex-text">92점, 모바일 레이아웃 깨짐</span>
+        </div>
+        <div class="ex-round">
+          <div class="ex-num ex-fail">3</div>
+          <span class="ex-text">레이아웃 수정, 카피 퇴고 2회만</span>
+        </div>
+        <div class="ex-round">
+          <div class="ex-num ex-pass">4</div>
+          <span class="ex-text">전항목 충족 — PASS</span>
+        </div>
+      </div>
+      <p class="ex-summary">사람이 한 일: 기준 정하기 1번. 나머진 AI가 알아서.</p>
+    </div>
+  </div>
+  <p class="note"><strong>"뭐가 되면 끝인지"만 정해주면</strong> AI가 될 때까지 계속 돈다</p>
+</body>
+</html>

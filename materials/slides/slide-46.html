@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 44pt 56pt 36pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
+  h1 { font-size: 24pt; font-weight: 700; line-height: 1.2; margin-bottom: 20pt; }
+  .rules { display: flex; flex-direction: column; gap: 12pt; flex: 1; }
+  .rule { display: flex; gap: 16pt; align-items: center; }
+  .rule-icon { width: 44pt; height: 44pt; background: #1A1A1A; color: #F5F5F0; border-radius: 6pt; display: flex; align-items: center; justify-content: center; font-size: 14pt; font-weight: 700; flex-shrink: 0; }
+  .rule-icon.light { background: #E8E8E3; color: #1A1A1A; }
+  .rule-text { font-size: 14pt; font-weight: 400; color: #666666; line-height: 1.5; }
+  .rule-text strong { color: #1A1A1A; font-weight: 700; }
+  .bottom { margin-top: auto; padding: 12pt 16pt; background: #E8E8E3; border-radius: 6pt; font-size: 12pt; color: #666666; text-align: center; font-style: italic; }
+  .bottom strong { color: #1A1A1A; font-style: normal; }
+</style>
+</head>
+<body>
+  <p class="section-label">개선</p>
+  <h1>단순화하기</h1>
+  <div class="rules">
+    <div class="rule">
+      <div class="rule-icon">-1</div>
+      <p class="rule-text"><strong>안 쓰는 건 치운다</strong> — 필요 없어진 Skill, MCP, Rule은 바로 삭제. 쌓이면 AI slop.</p>
+    </div>
+    <div class="rule">
+      <div class="rule-icon light">↑</div>
+      <p class="rule-text"><strong>모델이 좋아지면 Harness를 재평가</strong> — 예전에 필요했던 가드레일이 지금은 불필요할 수 있다.</p>
+    </div>
+    <div class="rule">
+      <div class="rule-icon light">!</div>
+      <p class="rule-text"><strong>과설계 신호를 인식하기</strong> — 설정이 너무 복잡하면 뭔가 잘못된 것. 점점 단순해져야 정상.</p>
+    </div>
+  </div>
+  <div class="bottom"><strong>Anthropic</strong> — "Harness의 공간은 모델이 좋아져도 줄어들지 않는다. 이동할 뿐이다."</div>
+</body>
+</html>

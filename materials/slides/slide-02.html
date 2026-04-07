@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    align-items: center;
+    padding: 48pt 72pt;
+    overflow: hidden;
+    gap: 36pt;
+  }
+  .avatar { width: 140pt; height: 140pt; border-radius: 12pt; object-fit: cover; flex-shrink: 0; }
+  .info { flex: 1; }
+  .accent-bar { width: 36pt; height: 3pt; background: #1A1A1A; margin-bottom: 16pt; }
+  h1 { font-size: 32pt; font-weight: 700; margin-bottom: 16pt; }
+  .role { font-size: 16pt; font-weight: 700; color: #1A1A1A; margin-bottom: 12pt; }
+  .history { list-style: none; }
+  .history li { font-size: 13pt; font-weight: 400; color: #666666; line-height: 1.8; padding-left: 14pt; position: relative; }
+  .history li::before { content: ''; position: absolute; left: 0; top: 10pt; width: 4pt; height: 4pt; border-radius: 50%; background: #D4D4D0; }
+</style>
+</head>
+<body>
+  <img class="avatar" src="./assets/avatar.png" alt="이호연">
+  <div class="info">
+    <div class="accent-bar"></div>
+    <h1>이호연</h1>
+    <p class="role">Builder, Team Attention</p>
+    <ul class="history">
+      <li>전) Contents Technologies, Tech Lead</li>
+      <li>전) Terminal X, Tech Lead</li>
+      <li>전) Socar, Senior Data Engineer</li>
+    </ul>
+  </div>
+</body>
+</html>

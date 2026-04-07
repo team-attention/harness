@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 44pt 56pt 36pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
+  h1 { font-size: 24pt; font-weight: 700; line-height: 1.2; margin-bottom: 8pt; }
+  .subtitle { font-size: 12pt; color: #999999; margin-bottom: 16pt; }
+  .rows { display: flex; flex-direction: column; gap: 10pt; flex: 1; }
+  .row { display: flex; align-items: center; gap: 14pt; padding: 14pt 18pt; border-radius: 8pt; }
+  .r1 { background: #E8E8E3; }
+  .r2 { background: #1A1A1A; color: #F5F5F0; }
+  .r3 { background: #D4D4D0; }
+  .row-what { font-size: 14pt; font-weight: 700; min-width: 120pt; }
+  .row-how { font-size: 11pt; line-height: 1.4; flex: 1; }
+  .r1 .row-how, .r3 .row-how { color: #666666; }
+  .r2 .row-how { color: #999999; }
+  .row-file { font-family: monospace; font-size: 9pt; min-width: 140pt; text-align: right; }
+  .r1 .row-file, .r3 .row-file { color: #999999; }
+  .r2 .row-file { color: #666666; }
+  .bottom { margin-top: auto; padding: 10pt 16pt; background: #E8E8E3; border-radius: 6pt; font-size: 11pt; color: #666666; text-align: center; }
+  .bottom strong { color: #1A1A1A; }
+</style>
+</head>
+<body>
+  <p class="section-label">구조(Scaffolding)</p>
+  <h1>경계 설정하기</h1>
+  <p class="subtitle">AI가 뭘 알고, 뭘 할 수 있고, 뭘 하면 안 되는지를 정해주는 것</p>
+  <div class="rows">
+    <div class="row r1">
+      <span class="row-what">뭘 알려줄까</span>
+      <span class="row-how">CLAUDE.md에 프로젝트 규칙, 코딩 스타일, 금기사항 작성</span>
+      <span class="row-file">CLAUDE.md · rules/</span>
+    </div>
+    <div class="row r2">
+      <span class="row-what">어디까지 허용할까</span>
+      <span class="row-how">Permission Mode로 자동 허용 범위 설정 (plan / auto / bypass)</span>
+      <span class="row-file">settings.json</span>
+    </div>
+    <div class="row r3">
+      <span class="row-what">뭘 막을까</span>
+      <span class="row-how">Hook으로 위험한 명령을 실행 전에 자동 차단</span>
+      <span class="row-file">.claude/hooks/</span>
+    </div>
+  </div>
+  <div class="bottom"><strong>예:</strong> CLAUDE.md에 "직접 main push 금지" 작성 + Hook으로 <code>git push --force</code> 차단 → 이중 안전장치</div>
+</body>
+</html>

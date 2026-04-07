@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 36pt 56pt 28pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
+  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 12pt; }
+  .content { display: flex; gap: 20pt; flex: 1; }
+  .col { flex: 1; display: flex; flex-direction: column; gap: 10pt; }
+  .arch-box { border-radius: 8pt; padding: 14pt 16pt; flex: 1; display: flex; flex-direction: column; }
+  .a-bad { background: #E8E8E3; }
+  .a-good { background: #1A1A1A; color: #F5F5F0; }
+  .arch-label { font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5pt; margin-bottom: 6pt; }
+  .a-bad .arch-label { color: #999999; }
+  .a-good .arch-label { color: #666666; }
+  .arch-title { font-size: 13pt; font-weight: 700; margin-bottom: 6pt; }
+  .arch-items { font-size: 10pt; line-height: 1.6; }
+  .a-bad .arch-items { color: #666666; }
+  .a-good .arch-items { color: #999999; }
+  .arch-result { margin-top: auto; padding-top: 8pt; border-top: 1pt solid; font-size: 11pt; font-weight: 700; }
+  .a-bad .arch-result { border-color: #D4D4D0; color: #999999; }
+  .a-good .arch-result { border-color: #333333; color: #F5F5F0; }
+  .timeline { display: flex; align-items: center; justify-content: center; gap: 8pt; margin-top: 10pt; padding: 10pt 16pt; background: #E8E8E3; border-radius: 6pt; }
+  .time-label { font-size: 10pt; color: #999999; }
+  .time-bar { flex: 1; height: 6pt; background: #D4D4D0; border-radius: 3pt; position: relative; }
+  .time-fill-bad { position: absolute; left: 0; top: 0; height: 100%; width: 30%; background: #999999; border-radius: 3pt; }
+  .time-fill-good { position: absolute; left: 0; top: 0; height: 100%; width: 85%; background: #1A1A1A; border-radius: 3pt; }
+  .time-note { font-size: 10pt; font-weight: 700; min-width: 40pt; text-align: right; }
+</style>
+</head>
+<body>
+  <p class="section-label">구조(Scaffolding)</p>
+  <h1>아키텍처가 퀄리티를 결정한다</h1>
+  <div class="content">
+    <div class="col">
+      <div class="arch-box a-bad">
+        <p class="arch-label">구조 없음</p>
+        <p class="arch-title">모든 게 src/ 하나에</p>
+        <p class="arch-items">파일 100개가 평면적으로 나열<br>비즈니스 로직과 유틸이 혼재<br>테스트가 소스 옆에 산재</p>
+        <p class="arch-result">시간이 갈수록 AI 산출물 품질 하락</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="arch-box a-good">
+        <p class="arch-label">클린 아키텍처</p>
+        <p class="arch-title">레이어별 명확한 책임</p>
+        <p class="arch-items">도메인 / 서비스 / 인프라 분리<br>의존성 방향이 일관적<br>새 기능 = 기존 패턴 복제</p>
+        <p class="arch-result">시간이 갈수록 AI 산출물 품질 상승</p>
+      </div>
+    </div>
+  </div>
+  <div class="timeline">
+    <span class="time-label">3개월 후</span>
+    <div class="time-bar"><div class="time-fill-bad"></div></div>
+    <span class="time-note" style="color:#999999;">30%</span>
+    <div class="time-bar"><div class="time-fill-good"></div></div>
+    <span class="time-note">85%</span>
+  </div>
+</body>
+</html>

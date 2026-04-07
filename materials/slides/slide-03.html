@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    overflow: hidden;
+  }
+  .left {
+    width: 310pt;
+    padding: 48pt 40pt 48pt 52pt;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .accent-bar {
+    width: 36pt;
+    height: 3pt;
+    background: #1A1A1A;
+    margin-bottom: 20pt;
+  }
+  h1 {
+    font-size: 30pt;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5pt;
+    margin-bottom: 8pt;
+  }
+  .subtitle {
+    font-size: 11pt;
+    font-weight: 400;
+    color: #888888;
+    line-height: 1.4;
+    margin-bottom: 28pt;
+  }
+  .highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 10pt;
+  }
+  .highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10pt;
+  }
+  .highlight-icon {
+    width: 22pt;
+    height: 22pt;
+    border-radius: 4pt;
+    background: #1A1A1A;
+    color: #F5F5F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10pt;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 1pt;
+  }
+  .highlight-text {
+    font-size: 12pt;
+    font-weight: 400;
+    color: #444444;
+    line-height: 1.45;
+  }
+  .highlight-text strong {
+    font-weight: 600;
+    color: #1A1A1A;
+  }
+  .right {
+    width: 410pt;
+    height: 405pt;
+    display: flex;
+    flex-direction: column;
+    gap: 8pt;
+    padding: 24pt 24pt 24pt 0;
+  }
+  .photo-wrapper {
+    flex: 1;
+    border-radius: 8pt;
+    overflow: hidden;
+    position: relative;
+  }
+  .photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .photo-top img {
+    object-position: center 60%;
+  }
+  .photo-bottom img {
+    object-position: center 35%;
+  }
+  .photo-caption {
+    position: absolute;
+    bottom: 6pt;
+    left: 6pt;
+    background: rgba(26, 26, 26, 0.75);
+    color: #F5F5F0;
+    font-size: 8pt;
+    font-weight: 400;
+    padding: 3pt 8pt;
+    border-radius: 3pt;
+    backdrop-filter: blur(4px);
+  }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="accent-bar"></div>
+    <h1>Team Attention</h1>
+    <p class="subtitle">대한민국 No.1 AI Native Team</p>
+
+    <div class="highlights">
+      <div class="highlight-item">
+        <div class="highlight-icon">01</div>
+        <p class="highlight-text">매달 <strong>AI 해커톤 및 행사</strong> 기획·운영</p>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">02</div>
+        <p class="highlight-text">SF · Seoul 동시 해커톤 <strong>"랄프톤"</strong> 개최<br/><strong>90팀+</strong> 참여</p>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">03</div>
+        <p class="highlight-text"><strong>Show and Prove Club</strong> 운영<br/>실전 Harness, Claude Code as OS 등</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="photo-wrapper photo-top">
+      <img src="./assets/team-seoul.jpeg" alt="팀 서울 단체사진">
+      <span class="photo-caption">Show and Prove · Seoul</span>
+    </div>
+    <div class="photo-wrapper photo-bottom">
+      <img src="./assets/ralphton-group.jpeg" alt="랄프톤 단체사진">
+      <span class="photo-caption">Ralphton · SF</span>
+    </div>
+  </div>
+</body>
+</html>

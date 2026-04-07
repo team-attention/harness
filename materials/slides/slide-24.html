@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 44pt 72pt 36pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
+  h1 { font-size: 24pt; font-weight: 700; line-height: 1.2; margin-bottom: 24pt; }
+  .principles { display: flex; gap: 16pt; flex: 1; }
+  .principle { flex: 1; padding: 18pt 16pt; border-radius: 8pt; display: flex; flex-direction: column; }
+  .p1 { background: #1A1A1A; color: #F5F5F0; }
+  .p2 { background: #E8E8E3; }
+  .p-title { font-size: 14pt; font-weight: 700; margin-bottom: 8pt; }
+  .p-desc { font-size: 11pt; font-weight: 400; color: #666666; line-height: 1.5; }
+  .p1 .p-desc { color: #999999; }
+  .highlight { margin-top: 16pt; padding: 14pt 18pt; background: #E8E8E3; border-radius: 6pt; font-size: 14pt; font-weight: 400; color: #666666; text-align: center; }
+  .highlight strong { color: #1A1A1A; font-weight: 700; }
+</style>
+</head>
+<body>
+  <p class="section-label">맥락</p>
+  <h1>맥락 관리의 핵심 원칙</h1>
+  <div class="principles">
+    <div class="principle p1">
+      <p class="p-title">Progressive Disclosure</p>
+      <p class="p-desc">필요한 것만 필요할 때 보여주기. 다음 슬라이드에서 자세히.</p>
+    </div>
+    <div class="principle p2">
+      <p class="p-title">.claude/rules/</p>
+      <p class="p-desc">상황별 세분화된 규칙. CLAUDE.md가 길어지면 분리.</p>
+    </div>
+    <div class="principle p2">
+      <p class="p-title">Scope 계층</p>
+      <p class="p-desc">User / Project / Folder 각 레벨에 맞는 정보 배치.</p>
+    </div>
+  </div>
+  <div class="highlight"><strong>"한꺼번에 다 주면 AI도 헷갈린다"</strong></div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Playground / scratch
+.playground/
+
+# Session state (runtime)
+.hoyeon/

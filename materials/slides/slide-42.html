@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 44pt 56pt 32pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
+  .principle-num { font-size: 32pt; font-weight: 700; color: #E8E8E3; line-height: 1.2; margin-bottom: 6pt; }
+  h1 { font-size: 22pt; font-weight: 700; line-height: 1.2; margin-bottom: 14pt; }
+  .subtitle { font-size: 11pt; color: #999999; margin-bottom: 14pt; }
+  .tools { display: flex; gap: 14pt; flex: 1; }
+  .tool-card { flex: 1; border-radius: 8pt; padding: 16pt; display: flex; flex-direction: column; }
+  .tc-1 { background: #1A1A1A; color: #F5F5F0; }
+  .tc-2 { background: #E8E8E3; }
+  .tc-name { font-size: 14pt; font-weight: 700; margin-bottom: 6pt; }
+  .tc-type { font-size: 9pt; font-weight: 600; opacity: 0.5; margin-bottom: 8pt; text-transform: uppercase; letter-spacing: 0.5pt; }
+  .tc-desc { font-size: 10pt; line-height: 1.5; }
+  .tc-1 .tc-desc { color: #999999; }
+  .tc-2 .tc-desc { color: #666666; }
+  .tc-example { margin-top: auto; padding-top: 8pt; font-size: 9pt; font-family: monospace; opacity: 0.5; }
+  .bottom { margin-top: 10pt; font-size: 11pt; color: #666666; text-align: center; }
+  .bottom strong { color: #1A1A1A; }
+</style>
+</head>
+<body>
+  <p class="section-label">검증</p>
+  <p class="principle-num">04</p>
+  <h1>에이전트에게 눈을 달아주기</h1>
+  <p class="subtitle">코드만 검증하는 게 아니라, 화면도 직접 보고 확인할 수 있어야 한다</p>
+  <div class="tools">
+    <div class="tool-card tc-1">
+      <p class="tc-name">Browser Agent</p>
+      <p class="tc-type">chrome-cdp / agent-browser</p>
+      <p class="tc-desc">실제 Chrome 브라우저를 제어. DOM 탐색, 클릭, 스크린샷, 네비게이션. 웹앱의 UX를 직접 검증.</p>
+      <p class="tc-example">chrome-cdp · agent-browser</p>
+    </div>
+    <div class="tool-card tc-2">
+      <p class="tc-name">Computer Use</p>
+      <p class="tc-type">Built-in MCP</p>
+      <p class="tc-desc">스크린샷 + 마우스/키보드로 모든 앱 제어. 웹이 아닌 네이티브 앱, 디자인 도구도 검증 가능.</p>
+      <p class="tc-example">computer-use MCP (built-in)</p>
+    </div>
+    <div class="tool-card tc-2">
+      <p class="tc-name">시각 검증 루프</p>
+      <p class="tc-type">Pattern</p>
+      <p class="tc-desc">만든다 → 스크린샷 찍는다 → 보고 판단한다 → 수정한다. 사람이 눈으로 하는 것을 AI가 대신.</p>
+      <p class="tc-example">generate → screenshot → evaluate</p>
+    </div>
+  </div>
+  <p class="bottom"><strong>검증 범위를 코드에서 화면까지 확장</strong>하면 사람이 끼어들 일이 줄어든다</p>
+</body>
+</html>

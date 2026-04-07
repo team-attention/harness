@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 44pt 56pt 32pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
+  .principle-num { font-size: 32pt; font-weight: 700; color: #E8E8E3; line-height: 1.2; margin-bottom: 6pt; }
+  h1 { font-size: 24pt; font-weight: 700; line-height: 1.2; margin-bottom: 12pt; }
+  .source { font-size: 10pt; color: #999999; margin-bottom: 14pt; }
+  .source a { color: #999999; text-decoration: underline; }
+  .content { flex: 1; display: flex; gap: 20pt; align-items: center; }
+  .visual { flex: 1; display: flex; align-items: center; justify-content: center; gap: 14pt; }
+  .agent-card { padding: 18pt 20pt; border-radius: 8pt; text-align: center; width: 140pt; }
+  .agent-maker { background: #E8E8E3; }
+  .agent-checker { background: #1A1A1A; color: #F5F5F0; }
+  .agent-label { font-size: 14pt; font-weight: 700; margin-bottom: 4pt; }
+  .agent-desc { font-size: 10pt; color: #666666; line-height: 1.4; }
+  .agent-checker .agent-desc { color: #999999; }
+  .divider { width: 2pt; height: 80pt; background: #D4D4D0; position: relative; }
+  .divider-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #F5F5F0; padding: 4pt 8pt; font-size: 9pt; color: #999999; white-space: nowrap; }
+  .quotes { flex: 1; display: flex; flex-direction: column; gap: 10pt; }
+  .quote-item { padding: 12pt 14pt; background: #E8E8E3; border-radius: 6pt; border-left: 3pt solid #1A1A1A; }
+  .quote-text { font-size: 10pt; color: #666666; line-height: 1.5; font-style: italic; }
+  .quote-text strong { color: #1A1A1A; font-style: normal; }
+  .bottom { margin-top: 10pt; font-size: 11pt; color: #666666; text-align: center; }
+  .bottom strong { color: #1A1A1A; }
+</style>
+</head>
+<body>
+  <p class="section-label">검증 원칙</p>
+  <p class="principle-num">02</p>
+  <h1>컨텍스트를 나누고, 관점을 분리한다</h1>
+  <p class="source">Anthropic — Harness design for long-running application development</p>
+  <div class="content">
+    <div class="visual">
+      <div class="agent-card agent-maker">
+        <p class="agent-label">Generator</p>
+        <p class="agent-desc">결과물을 만드는 AI</p>
+      </div>
+      <div class="divider">
+        <p class="divider-label">분리</p>
+      </div>
+      <div class="agent-card agent-checker">
+        <p class="agent-label">Evaluator</p>
+        <p class="agent-desc">결과물을 평가하는 AI</p>
+      </div>
+    </div>
+    <div class="quotes">
+      <div class="quote-item">
+        <p class="quote-text">"자기 작업을 평가하면 <strong>quality가 mediocre해도 자신있게 칭찬</strong>한다"</p>
+      </div>
+      <div class="quote-item">
+        <p class="quote-text">"만든 AI와 확인하는 AI를 분리하는 것이 <strong>가장 강력한 레버</strong>"</p>
+      </div>
+      <div class="quote-item">
+        <p class="quote-text">"Evaluator를 회의적으로 튜닝하는 게, Generator를 자기비판적으로 만드는 것보다 <strong>훨씬 쉽다</strong>"</p>
+      </div>
+    </div>
+  </div>
+  <p class="bottom"><strong>핵심: 같은 컨텍스트에서 만들고 평가하면 안 된다</strong> — 관점을 물리적으로 분리해야 한다</p>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 48pt 56pt 36pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
+  .principle-num { font-size: 32pt; font-weight: 700; color: #E8E8E3; line-height: 1.2; margin-bottom: 6pt; }
+  h1 { font-size: 26pt; font-weight: 700; line-height: 1.2; margin-bottom: 16pt; }
+  .content { flex: 1; display: flex; gap: 20pt; align-items: center; }
+  .left { flex: 1; }
+  .principle-box { padding: 16pt; background: #1A1A1A; color: #F5F5F0; border-radius: 8pt; margin-bottom: 12pt; }
+  .pb-title { font-size: 14pt; font-weight: 700; margin-bottom: 6pt; }
+  .pb-desc { font-size: 11pt; color: #999999; line-height: 1.5; }
+  .right { flex: 1; display: flex; flex-direction: column; gap: 10pt; }
+  .check-item { display: flex; gap: 10pt; align-items: flex-start; }
+  .check-icon { width: 28pt; height: 28pt; border-radius: 50%; background: #E8E8E3; display: flex; align-items: center; justify-content: center; font-size: 12pt; font-weight: 700; color: #999999; flex-shrink: 0; }
+  .check-text { font-size: 11pt; color: #666666; line-height: 1.5; padding-top: 4pt; }
+  .check-text strong { color: #1A1A1A; }
+  .loop-hint { padding: 10pt 14pt; background: #E8E8E3; border-radius: 6pt; font-size: 10pt; color: #666666; text-align: center; margin-top: auto; }
+  .loop-hint strong { color: #1A1A1A; }
+  .bottom { margin-top: 12pt; font-size: 11pt; color: #999999; text-align: center; }
+</style>
+</head>
+<body>
+  <p class="section-label">검증 원칙</p>
+  <p class="principle-num">01</p>
+  <h1>기준이 있어야 검증이 가능하다</h1>
+  <div class="content">
+    <div class="left">
+      <div class="principle-box">
+        <p class="pb-title">Sprint Contract</p>
+        <p class="pb-desc">작업 전에 "뭘 만들고 어떻게 검증할지" 합의한다. 기준 없이 시키면 AI가 끝없이 하거나 대충 끝냈다고 한다.</p>
+      </div>
+      <div class="loop-hint"><strong>Ralph Loop</strong> — 기준 달성까지 반복시킨다. 기준이 명확하면 자동화가 가능.</div>
+    </div>
+    <div class="right">
+      <div class="check-item">
+        <div class="check-icon">1</div>
+        <p class="check-text"><strong>완료 조건을 먼저 정한다</strong><br>"이 3가지가 되면 끝" — 시작 전에 합의</p>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">2</div>
+        <p class="check-text"><strong>조건을 측정 가능하게 쓴다</strong><br>"잘 되게" 말고 "테스트 통과 + 빌드 성공"</p>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">3</div>
+        <p class="check-text"><strong>미달이면 다시 돌린다</strong><br>기준이 있으니 자동 반복이 가능해진다</p>
+      </div>
+    </div>
+  </div>
+  <p class="bottom">"뭐가 되면 끝인가"를 작업 시작 전에 정한다</p>
+</body>
+</html>

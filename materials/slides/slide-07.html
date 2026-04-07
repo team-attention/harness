@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 32pt 48pt 24pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
+  h1 { font-size: 19pt; font-weight: 700; line-height: 1.2; margin-bottom: 10pt; }
+  .cases { display: flex; gap: 8pt; flex: 1; }
+  .case { flex: 1; border-radius: 6pt; padding: 10pt 10pt 8pt; display: flex; flex-direction: column; }
+  .c1 { background: #1A1A1A; color: #F5F5F0; }
+  .c2 { background: #2E2E2E; color: #F5F5F0; }
+  .c3 { background: #E8E8E3; }
+  .c4 { background: #FFFFFF; border: 1pt solid #E8E8E3; }
+  .case-logo { font-size: 10pt; font-weight: 700; opacity: 0.5; margin-bottom: 4pt; }
+  .c1 .case-logo, .c2 .case-logo { color: #999999; }
+  .c3 .case-logo, .c4 .case-logo { color: #999999; }
+  .case-metric { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 4pt; }
+  .c3 .case-metric, .c4 .case-metric { color: #1A1A1A; }
+  .case-sub { font-size: 8.5pt; font-weight: 400; line-height: 1.4; margin-bottom: 6pt; }
+  .c1 .case-sub, .c2 .case-sub { color: #888888; }
+  .c3 .case-sub, .c4 .case-sub { color: #666666; }
+  .case-detail { font-size: 7.5pt; line-height: 1.4; margin-top: auto; padding-top: 6pt; border-top: 1pt solid; }
+  .c1 .case-detail { border-color: #333333; color: #666666; }
+  .c2 .case-detail { border-color: #444444; color: #666666; }
+  .c3 .case-detail { border-color: #D4D4D0; color: #999999; }
+  .c4 .case-detail { border-color: #E8E8E3; color: #999999; }
+  .quote { margin-top: 8pt; padding: 8pt 12pt; background: #1A1A1A; color: #F5F5F0; border-radius: 4pt; font-size: 10pt; font-weight: 400; text-align: center; line-height: 1.4; }
+  .quote strong { font-weight: 700; }
+</style>
+</head>
+<body>
+  <p class="section-label">Harness Engineering이란</p>
+  <h1>이미 빠른 테크 회사들은 Harness를 구성하고 있다</h1>
+  <div class="cases">
+    <div class="case c1">
+      <p class="case-logo">LangChain</p>
+      <p class="case-metric">+14%p</p>
+      <p class="case-sub">같은 모델, 하네스만 변경<br>30위 → Top 5</p>
+      <p class="case-detail">GPT-5.2-Codex 고정. 셀프 검증 루프 + 컨텍스트 자동 수집 + 둠 루프 탐지 추가. TerminalBench 52.8→66.5%</p>
+    </div>
+    <div class="case c2">
+      <p class="case-logo">OpenAI</p>
+      <p class="case-metric">100만 줄</p>
+      <p class="case-sub">인간 코드 0줄<br>엔지니어 3~7명, 5개월</p>
+      <p class="case-detail">5개월을 쓴 곳: 코딩이 아니라 하네스 설계. 5가지 교훈 중 "더 좋은 모델 써라"는 없다. 전부 환경 설계.</p>
+    </div>
+    <div class="case c3">
+      <p class="case-logo">Anthropic</p>
+      <p class="case-metric">$9 vs $200</p>
+      <p class="case-sub">$9는 비기능, $200은 완성<br>차이는 모델이 아니라 하네스</p>
+      <p class="case-detail">싱글 에이전트 20분/$9 → 실패. 3에이전트 하네스 6h/$200 → 완전 동작. 간소화 버전 $124로 품질 유지.</p>
+    </div>
+    <div class="case c4">
+      <p class="case-logo">Stripe</p>
+      <p class="case-metric">1,000 PR/주</p>
+      <p class="case-sub">완전 무인 자동 머지<br>전문화된 소형 에이전트 다수</p>
+      <p class="case-detail">매 스텝 검증 게이트 + 정밀 컨텍스트 관리. 하네스 없이는 불가능한 규모.</p>
+    </div>
+  </div>
+  <div class="quote">모델 교체로 5% 개선하는 것보다, <strong>하네스 설계로 15% 개선하는 것이 현실적</strong>이다</div>
+</body>
+</html>

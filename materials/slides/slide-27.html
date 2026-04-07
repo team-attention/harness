@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 36pt 48pt 28pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
+  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 4pt; }
+  .subtitle { font-size: 11pt; color: #999999; margin-bottom: 12pt; }
+  .content { flex: 1; display: flex; gap: 16pt; }
+  .explain { flex: 1; }
+  .explain-title { font-size: 12pt; font-weight: 700; margin-bottom: 8pt; }
+  .explain-text { font-size: 11pt; color: #666666; line-height: 1.6; margin-bottom: 12pt; }
+  .explain-text strong { color: #1A1A1A; font-weight: 600; }
+  .code-box {
+    background: #1A1A1A; color: #F5F5F0;
+    border-radius: 6pt; padding: 10pt 14pt;
+    font-family: monospace; font-size: 9.5pt; line-height: 1.7;
+    margin-bottom: 10pt;
+  }
+  .code-comment { color: #666666; }
+  .code-file { color: #88AACC; }
+  .code-glob { color: #AADDAA; }
+  .example { flex: 1; }
+  .ex-title { font-size: 12pt; font-weight: 700; margin-bottom: 8pt; }
+  .rule-card { background: #FFFFFF; border: 1pt solid #E8E8E3; border-radius: 6pt; padding: 10pt 12pt; margin-bottom: 8pt; }
+  .rule-file { font-size: 10pt; font-weight: 700; font-family: monospace; margin-bottom: 4pt; }
+  .rule-glob { font-size: 9pt; color: #999999; font-family: monospace; margin-bottom: 4pt; }
+  .rule-content { font-size: 9pt; color: #666666; line-height: 1.4; }
+</style>
+</head>
+<body>
+  <p class="section-label">맥락</p>
+  <h1>.claude/rules/ 가이드</h1>
+  <p class="subtitle">CLAUDE.md가 길어지면 주제별로 분리 + glob 패턴으로 자동 매칭</p>
+  <div class="content">
+    <div class="explain">
+      <p class="explain-title">작동 방식</p>
+      <p class="explain-text"><strong>.claude/rules/</strong> 폴더에 .md 파일을 놓으면 Claude Code가 자동으로 읽습니다. 파일명에 <strong>glob 패턴</strong>을 넣으면 해당 파일 작업 시에만 로드됩니다.</p>
+      <div class="code-box">
+        <span class="code-comment"># .claude/rules/ 구조</span><br>
+        <span class="code-file">code-style.md</span> <span class="code-comment"># 항상 로드</span><br>
+        <span class="code-file">testing.md</span> <span class="code-comment"># 항상 로드</span><br>
+        <span class="code-file">react-*.md</span> <span class="code-glob"># *.tsx 작업 시만</span><br>
+        <span class="code-file">api-design.md</span> <span class="code-glob"># routes/ 작업 시만</span>
+      </div>
+      <p class="explain-text">규칙 파일 상단에 <strong>glob 패턴</strong>을 지정하면 조건부 로드가 됩니다.</p>
+    </div>
+    <div class="example">
+      <p class="ex-title">예시</p>
+      <div class="rule-card">
+        <p class="rule-file">security.md</p>
+        <p class="rule-glob">glob: **/*.sql, **/auth/**</p>
+        <p class="rule-content">.env 직접 수정 금지, SQL은 반드시 parameterized query</p>
+      </div>
+      <div class="rule-card">
+        <p class="rule-file">testing.md</p>
+        <p class="rule-glob">glob: **/*.test.*, **/__tests__/**</p>
+        <p class="rule-content">커버리지 80%+, mock 최소화, 통합테스트 우선</p>
+      </div>
+      <div class="rule-card">
+        <p class="rule-file">code-style.md</p>
+        <p class="rule-glob">(항상 로드)</p>
+        <p class="rule-content">함수 20줄 이내, camelCase, 주석은 영어</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

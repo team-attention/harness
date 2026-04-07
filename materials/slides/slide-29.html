@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 44pt 72pt 36pt;
+    overflow: hidden;
+  }
+  .section-label {
+    font-size: 10pt;
+    font-weight: 300;
+    color: #999999;
+    text-transform: uppercase;
+    letter-spacing: 1.5pt;
+    margin-bottom: 6pt;
+  }
+  h1 {
+    font-size: 26pt;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 28pt;
+  }
+  .diagram-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .loop-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .node {
+    width: 148pt;
+    height: 80pt;
+    border-radius: 6pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .node-plan {
+    background: #E8E8E3;
+  }
+  .node-execute {
+    background: #1A1A1A;
+    color: #F5F5F0;
+  }
+  .node-verify {
+    background: #E8E8E3;
+  }
+  .node-num {
+    font-size: 9pt;
+    font-weight: 300;
+    color: #999999;
+    margin-bottom: 4pt;
+  }
+  .node-execute .node-num {
+    color: #666666;
+  }
+  .node-title {
+    font-size: 18pt;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .node-sub {
+    font-size: 10pt;
+    font-weight: 400;
+    color: #666666;
+    margin-top: 4pt;
+  }
+  .node-execute .node-sub {
+    color: #999999;
+  }
+  .arrow-forward {
+    width: 36pt;
+    height: 2pt;
+    background: #D4D4D0;
+    position: relative;
+    margin: 0 4pt;
+  }
+  .arrow-forward::after {
+    content: '';
+    position: absolute;
+    right: -1pt;
+    top: -4pt;
+    width: 0;
+    height: 0;
+    border-top: 5pt solid transparent;
+    border-bottom: 5pt solid transparent;
+    border-left: 8pt solid #D4D4D0;
+  }
+  .feedback-area {
+    width: 520pt;
+    display: flex;
+    justify-content: center;
+    margin-top: 12pt;
+    position: relative;
+  }
+  .feedback-line {
+    width: 420pt;
+    height: 40pt;
+    border: 2pt solid #D4D4D0;
+    border-top: none;
+    border-radius: 0 0 8pt 8pt;
+    position: relative;
+  }
+  .feedback-line::before {
+    content: '';
+    position: absolute;
+    left: -1pt;
+    top: -5pt;
+    width: 0;
+    height: 0;
+    border-left: 5pt solid transparent;
+    border-right: 5pt solid transparent;
+    border-bottom: 8pt solid #D4D4D0;
+  }
+  .feedback-label {
+    position: absolute;
+    bottom: 6pt;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10pt;
+    font-weight: 400;
+    color: #999999;
+    white-space: nowrap;
+    background: #F5F5F0;
+    padding: 0 8pt;
+  }
+  .bottom-note {
+    margin-top: 16pt;
+    text-align: center;
+    font-size: 11pt;
+    font-weight: 400;
+    color: #999999;
+    line-height: 1.5;
+  }
+  .bottom-note strong {
+    color: #1A1A1A;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+  <p class="section-label">계획</p>
+  <h1>핵심 흐름: 계획 → 실행 → 검증</h1>
+  <div class="diagram-area">
+    <div class="loop-row">
+      <div class="node node-plan">
+        <p class="node-num">01</p>
+        <p class="node-title">계획</p>
+        <p class="node-sub">Plan</p>
+      </div>
+      <div class="arrow-forward"></div>
+      <div class="node node-execute">
+        <p class="node-num">02</p>
+        <p class="node-title">실행</p>
+        <p class="node-sub">Execute</p>
+      </div>
+      <div class="arrow-forward"></div>
+      <div class="node node-verify">
+        <p class="node-num">03</p>
+        <p class="node-title">검증</p>
+        <p class="node-sub">Verify</p>
+      </div>
+    </div>
+    <div class="feedback-area">
+      <div class="feedback-line">
+        <p class="feedback-label">미달 시 피드백 → 다시 계획부터</p>
+      </div>
+    </div>
+  </div>
+  <p class="bottom-note"><strong>한 번에 완벽하게</strong>가 아니라 <strong>반복해서 수렴</strong>하는 구조</p>
+</body>
+</html>

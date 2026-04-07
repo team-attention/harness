@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 36pt 56pt 28pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
+  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 12pt; }
+  .content { display: flex; gap: 16pt; flex: 1; }
+  .left { flex: 1; display: flex; flex-direction: column; gap: 8pt; }
+  .gauge { display: flex; align-items: center; gap: 8pt; padding: 10pt 12pt; background: #1A1A1A; border-radius: 6pt; }
+  .gauge-bar { flex: 1; height: 10pt; background: #333333; border-radius: 5pt; position: relative; overflow: hidden; }
+  .gauge-fill { position: absolute; left: 0; top: 0; height: 100%; border-radius: 5pt; }
+  .fill-green { width: 25%; background: #6B9B6B; }
+  .fill-yellow { width: 55%; background: #C4A84D; }
+  .fill-red { width: 85%; background: #B85C5C; }
+  .gauge-label { font-size: 9pt; color: #999999; min-width: 44pt; text-align: right; }
+  .gauge-action { font-size: 9pt; color: #F5F5F0; font-weight: 700; min-width: 80pt; }
+  .tip-box { padding: 10pt 12pt; background: #E8E8E3; border-radius: 6pt; }
+  .tip-title { font-size: 11pt; font-weight: 700; margin-bottom: 4pt; }
+  .tip-desc { font-size: 9.5pt; color: #666666; line-height: 1.5; }
+  .right { flex: 1; display: flex; flex-direction: column; gap: 6pt; }
+  .action-card { padding: 10pt 12pt; border-radius: 6pt; display: flex; gap: 10pt; align-items: flex-start; }
+  .a1 { background: #1A1A1A; color: #F5F5F0; }
+  .a2 { background: #E8E8E3; }
+  .a3 { background: #FFFFFF; border: 1pt solid #E8E8E3; }
+  .action-cmd { font-family: monospace; font-size: 11pt; font-weight: 700; min-width: 70pt; }
+  .a1 .action-cmd { color: #F5F5F0; }
+  .a2 .action-cmd, .a3 .action-cmd { color: #1A1A1A; }
+  .action-desc { font-size: 9.5pt; line-height: 1.4; }
+  .a1 .action-desc { color: #999999; }
+  .a2 .action-desc, .a3 .action-desc { color: #666666; }
+  .bottom { margin-top: 8pt; font-size: 10pt; color: #999999; text-align: center; }
+  .bottom strong { color: #1A1A1A; }
+</style>
+</head>
+<body>
+  <p class="section-label">맥락(Context Engineering)</p>
+  <h1>세션 맥락 관리 — 쌓이면 비워라</h1>
+  <div class="content">
+    <div class="left">
+      <div class="gauge">
+        <span class="gauge-label" style="color:#6B9B6B;">~20%</span>
+        <div class="gauge-bar"><div class="gauge-fill fill-green"></div></div>
+        <span class="gauge-action">쾌적</span>
+      </div>
+      <div class="gauge">
+        <span class="gauge-label" style="color:#C4A84D;">~50%</span>
+        <div class="gauge-bar"><div class="gauge-fill fill-yellow"></div></div>
+        <span class="gauge-action">/compact</span>
+      </div>
+      <div class="gauge">
+        <span class="gauge-label" style="color:#B85C5C;">~80%</span>
+        <div class="gauge-bar"><div class="gauge-fill fill-red"></div></div>
+        <span class="gauge-action">/clear 또는 새 세션</span>
+      </div>
+      <div class="tip-box">
+        <p class="tip-title">내 기준: 20~30% 되면 새로 시작</p>
+        <p class="tip-desc">아예 다른 맥락의 작업을 하게 되면 /clear. 이어가야 하면 handoff로 맥락을 넘긴다.</p>
+      </div>
+    </div>
+    <div class="right">
+      <div class="action-card a1">
+        <span class="action-cmd">/clear</span>
+        <p class="action-desc">컨텍스트 완전 초기화. 다른 주제로 전환할 때.</p>
+      </div>
+      <div class="action-card a2">
+        <span class="action-cmd">/compact</span>
+        <p class="action-desc">오래된 대화를 요약·압축. 같은 주제를 이어갈 때.</p>
+      </div>
+      <div class="action-card a3">
+        <span class="action-cmd">handoff</span>
+        <p class="action-desc">현재 세션의 맥락을 파일로 저장 → 새 세션에서 이어받기. 맥락 손실 없이 전환.</p>
+      </div>
+    </div>
+  </div>
+  <p class="bottom">컨텍스트는 <strong>채우는 것</strong>만큼 <strong>비우는 것</strong>도 중요하다</p>
+</body>
+</html>

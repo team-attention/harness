@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 36pt 56pt 28pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
+  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 12pt; }
+  .content { display: flex; gap: 16pt; flex: 1; }
+  .left { flex: 1; display: flex; flex-direction: column; gap: 8pt; }
+  .tree { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 10pt; line-height: 1.7; background: #1A1A1A; color: #C8C8C0; padding: 14pt 16pt; border-radius: 8pt; flex: 1; }
+  .tree .dir { color: #F5F5F0; font-weight: 700; }
+  .tree .comment { color: #666666; font-style: italic; }
+  .right { flex: 1; display: flex; flex-direction: column; gap: 8pt; }
+  .insight { padding: 12pt 14pt; border-radius: 6pt; }
+  .i1 { background: #1A1A1A; color: #F5F5F0; }
+  .i2 { background: #E8E8E3; }
+  .insight-title { font-size: 12pt; font-weight: 700; margin-bottom: 4pt; }
+  .insight-desc { font-size: 10pt; line-height: 1.4; }
+  .i1 .insight-desc { color: #999999; }
+  .i2 .insight-desc { color: #666666; }
+  .bottom { margin-top: 8pt; font-size: 10pt; color: #999999; text-align: center; }
+  .bottom strong { color: #1A1A1A; }
+</style>
+</head>
+<body>
+  <p class="section-label">구조(Scaffolding)</p>
+  <h1>역할별 폴더링 — 목적이 명확한 구조</h1>
+  <div class="content">
+    <div class="left">
+      <div class="tree">
+        <span class="dir">my-project/</span><br>
+        ├── <span class="dir">src/</span> <span class="comment"># 비즈니스 로직</span><br>
+        ├── <span class="dir">docs/</span> <span class="comment"># AI의 참고 문서</span><br>
+        ├── <span class="dir">tests/</span> <span class="comment"># 검증 인프라</span><br>
+        ├── <span class="dir">.dev/</span> <span class="comment"># 개발 도구/스크립트</span><br>
+        ├── <span class="dir">.claude/</span> <span class="comment"># AI 설정 (skills, hooks, rules)</span><br>
+        ├── <span class="dir">out/</span> <span class="comment"># 빌드 산출물</span><br>
+        └── CLAUDE.md <span class="comment"># 프로젝트 지도</span>
+      </div>
+    </div>
+    <div class="right">
+      <div class="insight i1">
+        <p class="insight-title">왜 폴더링이 중요한가</p>
+        <p class="insight-desc">AI가 "테스트 작성해줘"라고 하면 tests/에, "문서 업데이트"라고 하면 docs/에 자동으로 찾아간다</p>
+      </div>
+      <div class="insight i2">
+        <p class="insight-title">docs/ = AI의 참고서</p>
+        <p class="insight-desc">아키텍처 문서, 컨벤션, 스펙을 docs/에 놓으면 AI가 작업 전에 참고한다. 정적 문서가 아닌 살아있는 인프라.</p>
+      </div>
+      <div class="insight i2">
+        <p class="insight-title">out/ 분리</p>
+        <p class="insight-desc">빌드 산출물을 분리해야 AI가 소스와 산출물을 혼동하지 않는다</p>
+      </div>
+    </div>
+  </div>
+  <p class="bottom">폴더 이름만 명확해도 <strong>AI가 알아서 올바른 위치에 파일을 생성</strong>한다</p>
+</body>
+</html>

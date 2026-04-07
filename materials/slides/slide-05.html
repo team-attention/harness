@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 48pt 72pt 40pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 8pt; }
+  h1 { font-size: 24pt; font-weight: 700; line-height: 1.2; margin-bottom: 20pt; }
+  .toc { list-style: none; flex: 1; display: flex; flex-direction: column; gap: 4pt; }
+  .toc li {
+    display: flex;
+    align-items: baseline;
+    gap: 16pt;
+    padding-bottom: 4pt;
+    border-bottom: 1pt solid #E8E8E3;
+  }
+  .toc li:last-child { border-bottom: none; }
+  .toc-num { font-size: 12pt; font-weight: 700; color: #999999; min-width: 20pt; }
+  .toc-title { font-size: 14pt; font-weight: 700; line-height: 1.4; }
+  .toc-sub { font-size: 10pt; font-weight: 400; color: #666666; margin-left: 4pt; }
+</style>
+</head>
+<body>
+  <p class="section-label">Agenda</p>
+  <h1>오늘 다룰 내용</h1>
+  <ol class="toc">
+    <li><span class="toc-num">01</span><span class="toc-title">Harness Engineering이란</span></li>
+    <li><span class="toc-num">02</span><span class="toc-title">내 Harness 시연</span></li>
+    <li><span class="toc-num">03</span><span class="toc-title">구조(Scaffolding)</span><span class="toc-sub">— 폴더, 도구, 경계</span></li>
+    <li><span class="toc-num">04</span><span class="toc-title">맥락(Context Engineering)</span><span class="toc-sub">— CLAUDE.md, 규칙, 점진적 노출</span></li>
+    <li><span class="toc-num">05</span><span class="toc-title">계획(Planning)</span><span class="toc-sub">— Plan → Spec → 승인</span></li>
+    <li><span class="toc-num">06</span><span class="toc-title">실행(Orchestration)</span><span class="toc-sub">— 혼자, 부하 파견, 팀</span></li>
+    <li><span class="toc-num">07</span><span class="toc-title">검증(Verification)</span></li>
+    <li><span class="toc-num">08</span><span class="toc-title">개선(Compound)</span></li>
+  </ol>
+</body>
+</html>

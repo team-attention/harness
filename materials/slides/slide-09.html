@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 44pt 56pt 36pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
+  h1 { font-size: 26pt; font-weight: 700; line-height: 1.2; margin-bottom: 6pt; }
+  .definition { font-size: 15pt; font-weight: 400; color: #666666; line-height: 1.5; margin-bottom: 16pt; }
+  .definition strong { color: #1A1A1A; font-weight: 700; }
+  .visual { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0; }
+  .center-box {
+    width: 160pt; height: 100pt;
+    background: #1A1A1A; color: #F5F5F0;
+    border-radius: 8pt;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; z-index: 1;
+  }
+  .center-box p:first-child { font-size: 10pt; color: #666666; margin-bottom: 4pt; }
+  .center-box p:last-child { font-size: 16pt; font-weight: 700; }
+  .arm { display: flex; flex-direction: column; align-items: center; gap: 6pt; }
+  .arm-line { width: 28pt; height: 2pt; background: #D4D4D0; }
+  .arm-box {
+    width: 100pt; padding: 10pt 8pt;
+    background: #E8E8E3; border-radius: 6pt;
+    text-align: center;
+  }
+  .arm-box .arm-title { font-size: 12pt; font-weight: 700; margin-bottom: 2pt; }
+  .arm-box .arm-desc { font-size: 9pt; color: #666666; }
+  .refs { margin-top: 10pt; display: flex; gap: 16pt; justify-content: center; }
+  .ref { padding: 8pt 14pt; background: #E8E8E3; border-radius: 6pt; font-size: 9pt; color: #666666; text-align: center; line-height: 1.4; }
+  .ref strong { color: #1A1A1A; display: block; font-size: 10pt; margin-bottom: 2pt; }
+</style>
+</head>
+<body>
+  <p class="section-label">정의</p>
+  <h1>Harness Engineering</h1>
+  <p class="definition">AI가 혼자서도 잘 일할 수 있는 <strong>작업 환경을 만들어주는 것</strong></p>
+  <div class="visual">
+    <div class="arm">
+      <div class="arm-box"><p class="arm-title">맥락</p><p class="arm-desc">뭘 해야 하는지</p></div>
+      <div class="arm-line"></div>
+    </div>
+    <div class="arm">
+      <div class="arm-box"><p class="arm-title">제한</p><p class="arm-desc">뭘 하면 안 되는지</p></div>
+      <div class="arm-line"></div>
+    </div>
+    <div class="center-box">
+      <p>HARNESS</p>
+      <p>작업 환경</p>
+    </div>
+    <div class="arm">
+      <div class="arm-line"></div>
+      <div class="arm-box"><p class="arm-title">작업 흐름</p><p class="arm-desc">어떻게 일하는지</p></div>
+    </div>
+    <div class="arm">
+      <div class="arm-line"></div>
+      <div class="arm-box"><p class="arm-title">검증</p><p class="arm-desc">잘 했는지 확인</p></div>
+    </div>
+  </div>
+  <div class="refs">
+    <div class="ref"><strong>OpenAI</strong>"사람이 방향을 잡고, 에이전트가 실행한다."<br>openai.com/index/harness-engineering</div>
+    <div class="ref"><strong>Anthropic</strong>"규율은 코드가 아니라<br>스캐폴딩에서 드러난다."<br>anthropic.com/engineering/harness-design</div>
+  </div>
+</body>
+</html>

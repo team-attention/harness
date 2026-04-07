@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 40pt 56pt 32pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
+  h1 { font-size: 22pt; font-weight: 700; line-height: 1.2; margin-bottom: 18pt; }
+  .tools { display: flex; flex-wrap: wrap; gap: 10pt; flex: 1; }
+  .tool { width: calc(50% - 5pt); background: #FFFFFF; border: 1pt solid #E8E8E3; border-radius: 8pt; padding: 14pt 16pt; display: flex; gap: 12pt; align-items: flex-start; }
+  .tool-icon { width: 32pt; height: 32pt; border-radius: 6pt; display: flex; align-items: center; justify-content: center; font-size: 14pt; font-weight: 700; flex-shrink: 0; color: #F5F5F0; }
+  .ti-skill { background: #1A1A1A; }
+  .ti-hook { background: #444444; }
+  .ti-agent { background: #666666; }
+  .ti-mcp { background: #888888; }
+  .ti-plugin { background: #AAAAAA; }
+  .tool-info { flex: 1; }
+  .tool-name { font-size: 13pt; font-weight: 700; margin-bottom: 2pt; }
+  .tool-desc { font-size: 10pt; color: #666666; line-height: 1.4; }
+</style>
+</head>
+<body>
+  <p class="section-label">구조(Scaffolding)</p>
+  <h1>AI 도구 배치하기</h1>
+  <div class="tools">
+    <div class="tool">
+      <div class="tool-icon ti-skill">S</div>
+      <div class="tool-info">
+        <p class="tool-name">Skills</p>
+        <p class="tool-desc">반복 작업의 레시피화. /commit, /review 같은 슬래시 명령</p>
+      </div>
+    </div>
+    <div class="tool">
+      <div class="tool-icon ti-hook">H</div>
+      <div class="tool-info">
+        <p class="tool-name">Hooks</p>
+        <p class="tool-desc">자동 안전장치. Pre(차단) / Post(검사) / Stop(일지) / Notification(알림)</p>
+      </div>
+    </div>
+    <div class="tool">
+      <div class="tool-icon ti-agent">A</div>
+      <div class="tool-info">
+        <p class="tool-name">Agents</p>
+        <p class="tool-desc">전문가 팀원. 서브에이전트 파견 또는 팀 구성</p>
+      </div>
+    </div>
+    <div class="tool">
+      <div class="tool-icon ti-mcp">M</div>
+      <div class="tool-info">
+        <p class="tool-name">MCP</p>
+        <p class="tool-desc">외부 시스템 연결. DB, Slack, Linear 등 연동</p>
+      </div>
+    </div>
+    <div class="tool">
+      <div class="tool-icon ti-plugin">P</div>
+      <div class="tool-info">
+        <p class="tool-name">Plugins</p>
+        <p class="tool-desc">위 컴포넌트를 하나의 패키지로 묶어서 배포/공유</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
