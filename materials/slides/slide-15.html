@@ -16,55 +16,48 @@
     overflow: hidden;
   }
   .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
-  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 12pt; }
-  .content { display: flex; gap: 16pt; flex: 1; }
-  .left { flex: 1; display: flex; flex-direction: column; gap: 8pt; }
-  .tree { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 10pt; line-height: 1.7; background: #1A1A1A; color: #C8C8C0; padding: 14pt 16pt; border-radius: 8pt; flex: 1; }
-  .tree .dir { color: #F5F5F0; font-weight: 700; }
-  .tree .comment { color: #666666; font-style: italic; }
-  .right { flex: 1; display: flex; flex-direction: column; gap: 8pt; }
-  .insight { padding: 12pt 14pt; border-radius: 6pt; }
-  .i1 { background: #1A1A1A; color: #F5F5F0; }
-  .i2 { background: #E8E8E3; }
-  .insight-title { font-size: 12pt; font-weight: 700; margin-bottom: 4pt; }
-  .insight-desc { font-size: 10pt; line-height: 1.4; }
-  .i1 .insight-desc { color: #999999; }
-  .i2 .insight-desc { color: #666666; }
-  .bottom { margin-top: 8pt; font-size: 10pt; color: #999999; text-align: center; }
+  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 14pt; }
+  .cards { display: flex; gap: 12pt; flex: 1; }
+  .card { flex: 1; border-radius: 8pt; padding: 16pt; display: flex; flex-direction: column; }
+  .c1 { background: #1A1A1A; color: #F5F5F0; }
+  .c2 { background: #E8E8E3; }
+  .c3 { background: #FFFFFF; border: 1pt solid #E8E8E3; }
+  .card-num { font-size: 28pt; font-weight: 700; opacity: 0.2; margin-bottom: 6pt; }
+  .card-title { font-size: 13pt; font-weight: 700; margin-bottom: 6pt; }
+  .card-desc { font-size: 10.5pt; line-height: 1.5; flex: 1; }
+  .c1 .card-desc { color: #999999; }
+  .c2 .card-desc, .c3 .card-desc { color: #666666; }
+  .card-example { margin-top: 8pt; padding-top: 6pt; border-top: 1pt solid; font-size: 9pt; font-family: monospace; }
+  .c1 .card-example { border-color: #333333; color: #666666; }
+  .c2 .card-example { border-color: #D4D4D0; color: #999999; }
+  .c3 .card-example { border-color: #E8E8E3; color: #999999; }
+  .bottom { margin-top: 10pt; padding: 10pt 16pt; background: #E8E8E3; border-radius: 6pt; font-size: 12pt; color: #666666; text-align: center; }
   .bottom strong { color: #1A1A1A; }
 </style>
 </head>
 <body>
   <p class="section-label">구조(Scaffolding)</p>
-  <h1>역할별 폴더링 — 목적이 명확한 구조</h1>
-  <div class="content">
-    <div class="left">
-      <div class="tree">
-        <span class="dir">my-project/</span><br>
-        ├── <span class="dir">src/</span> <span class="comment"># 비즈니스 로직</span><br>
-        ├── <span class="dir">docs/</span> <span class="comment"># AI의 참고 문서</span><br>
-        ├── <span class="dir">tests/</span> <span class="comment"># 검증 인프라</span><br>
-        ├── <span class="dir">.dev/</span> <span class="comment"># 개발 도구/스크립트</span><br>
-        ├── <span class="dir">.claude/</span> <span class="comment"># AI 설정 (skills, hooks, rules)</span><br>
-        ├── <span class="dir">out/</span> <span class="comment"># 빌드 산출물</span><br>
-        └── CLAUDE.md <span class="comment"># 프로젝트 지도</span>
-      </div>
+  <h1>프로젝트 구조 설계</h1>
+  <div class="cards">
+    <div class="card c1">
+      <p class="card-num">1</p>
+      <p class="card-title">Monorepo로 묶기</p>
+      <p class="card-desc">소스코드, 문서, 테스트, 설정을 하나의 프로젝트에서 관리. AI가 전체 맥락을 한눈에 파악할 수 있다.</p>
+      <p class="card-example">src/ docs/ tests/ .claude/</p>
     </div>
-    <div class="right">
-      <div class="insight i1">
-        <p class="insight-title">왜 폴더링이 중요한가</p>
-        <p class="insight-desc">AI가 "테스트 작성해줘"라고 하면 tests/에, "문서 업데이트"라고 하면 docs/에 자동으로 찾아간다</p>
-      </div>
-      <div class="insight i2">
-        <p class="insight-title">docs/ = AI의 참고서</p>
-        <p class="insight-desc">아키텍처 문서, 컨벤션, 스펙을 docs/에 놓으면 AI가 작업 전에 참고한다. 정적 문서가 아닌 살아있는 인프라.</p>
-      </div>
-      <div class="insight i2">
-        <p class="insight-title">out/ 분리</p>
-        <p class="insight-desc">빌드 산출물을 분리해야 AI가 소스와 산출물을 혼동하지 않는다</p>
-      </div>
+    <div class="card c2">
+      <p class="card-num">2</p>
+      <p class="card-title">역할별 폴더링</p>
+      <p class="card-desc">목적이 명확한 폴더 구조. AI가 어디에 뭘 넣어야 하는지 바로 안다.</p>
+      <p class="card-example">docs/ tests/ .dev/ out/ .claude/</p>
+    </div>
+    <div class="card c3">
+      <p class="card-num">3</p>
+      <p class="card-title">아키텍처가 퀄리티를 결정</p>
+      <p class="card-desc">코드의 아키텍처가 잘 잡혀 있으면, 시간이 갈수록 AI 산출물의 퀄리티가 올라간다.</p>
+      <p class="card-example">clean arch → consistent output</p>
     </div>
   </div>
-  <p class="bottom">폴더 이름만 명확해도 <strong>AI가 알아서 올바른 위치에 파일을 생성</strong>한다</p>
+  <div class="bottom">프로젝트 구조를 잘 설계하면, <strong>AI는 그 구조에 맞춰 따라간다</strong></div>
 </body>
 </html>

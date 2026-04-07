@@ -12,63 +12,52 @@
     color: #1A1A1A;
     display: flex;
     flex-direction: column;
-    padding: 40pt 56pt 32pt;
+    padding: 44pt 56pt 32pt;
     overflow: hidden;
   }
-  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
+  .principle-num { font-size: 32pt; font-weight: 700; color: #E8E8E3; line-height: 1.2; margin-bottom: 6pt; }
   h1 { font-size: 22pt; font-weight: 700; line-height: 1.2; margin-bottom: 14pt; }
-  .content { flex: 1; display: flex; gap: 2pt; }
-  .col { flex: 1; padding: 14pt; border-radius: 8pt; display: flex; flex-direction: column; gap: 8pt; }
-  .col-observe { background: #E8E8E3; }
-  .col-improve { background: #1A1A1A; color: #F5F5F0; }
-  .col-title { font-size: 12pt; font-weight: 700; margin-bottom: 4pt; padding-bottom: 6pt; border-bottom: 2pt solid; }
-  .col-observe .col-title { border-color: #D4D4D0; color: #1A1A1A; }
-  .col-improve .col-title { border-color: #444444; color: #F5F5F0; }
-  .item { padding: 8pt 10pt; border-radius: 4pt; }
-  .col-observe .item { background: #F5F5F0; }
-  .col-improve .item { background: #2A2A2A; }
-  .item-title { font-size: 11pt; font-weight: 700; margin-bottom: 2pt; }
-  .item-desc { font-size: 9pt; line-height: 1.4; }
-  .col-observe .item-desc { color: #666666; }
-  .col-improve .item-desc { color: #999999; }
-  .loop-visual { margin-top: 8pt; padding: 10pt 14pt; background: #E8E8E3; border-radius: 6pt; text-align: center; }
-  .loop-flow { font-size: 11pt; color: #666666; }
-  .loop-flow strong { color: #1A1A1A; }
+  .subtitle { font-size: 11pt; color: #999999; margin-bottom: 14pt; }
+  .tools { display: flex; gap: 14pt; flex: 1; }
+  .tool-card { flex: 1; border-radius: 8pt; padding: 16pt; display: flex; flex-direction: column; }
+  .tc-1 { background: #1A1A1A; color: #F5F5F0; }
+  .tc-2 { background: #E8E8E3; }
+  .tc-name { font-size: 14pt; font-weight: 700; margin-bottom: 6pt; }
+  .tc-type { font-size: 9pt; font-weight: 600; opacity: 0.5; margin-bottom: 8pt; text-transform: uppercase; letter-spacing: 0.5pt; }
+  .tc-desc { font-size: 10pt; line-height: 1.5; }
+  .tc-1 .tc-desc { color: #999999; }
+  .tc-2 .tc-desc { color: #666666; }
+  .tc-example { margin-top: auto; padding-top: 8pt; font-size: 9pt; font-family: monospace; opacity: 0.5; }
+  .bottom { margin-top: 10pt; font-size: 11pt; color: #666666; text-align: center; }
+  .bottom strong { color: #1A1A1A; }
 </style>
 </head>
 <body>
-  <p class="section-label">개선</p>
-  <h1>관측하고 개선하기</h1>
-  <div class="content">
-    <div class="col col-observe">
-      <p class="col-title">관측하기</p>
-      <div class="item">
-        <p class="item-title">세션 분석</p>
-        <p class="item-desc">프롬프트 패턴 + Skill/Agent 호출 빈도를 분석. 어디서 시간을 쓰는지, 어디서 실패하는지.</p>
-      </div>
-      <div class="item">
-        <p class="item-title">AI Slop 감지</p>
-        <p class="item-desc">작업하다 보면 불필요한 코드, 중복 설정, 안 쓰는 규칙이 쌓인다. 이게 AI slop.</p>
-      </div>
+  <p class="section-label">검증</p>
+  <p class="principle-num">04</p>
+  <h1>에이전트에게 눈을 달아주기</h1>
+  <p class="subtitle">코드만 검증하는 게 아니라, 화면도 직접 보고 확인할 수 있어야 한다</p>
+  <div class="tools">
+    <div class="tool-card tc-1">
+      <p class="tc-name">Browser Agent</p>
+      <p class="tc-type">chrome-cdp / agent-browser</p>
+      <p class="tc-desc">실제 Chrome 브라우저를 제어. DOM 탐색, 클릭, 스크린샷, 네비게이션. 웹앱의 UX를 직접 검증.</p>
+      <p class="tc-example">chrome-cdp · agent-browser</p>
     </div>
-    <div class="col col-improve">
-      <p class="col-title">개선하기</p>
-      <div class="item">
-        <p class="item-title">3번 반복 → Skill로</p>
-        <p class="item-desc">같은 작업을 3번 반복하면 자동화할 타이밍. 스킬로 만들어서 재사용.</p>
-      </div>
-      <div class="item">
-        <p class="item-title">3번 틀리면 → Rule 또는 CLAUDE.md에</p>
-        <p class="item-desc">같은 실수 반복 → .claude/rules/ 에 규칙 추가하거나 CLAUDE.md에 명시.</p>
-      </div>
-      <div class="item">
-        <p class="item-title">Skill 개선 루프</p>
-        <p class="item-desc">만들기 → 사용 → 세션 분석 → 병목 → 개선. 스킬도 계속 다듬는다.</p>
-      </div>
+    <div class="tool-card tc-2">
+      <p class="tc-name">Computer Use</p>
+      <p class="tc-type">Built-in MCP</p>
+      <p class="tc-desc">스크린샷 + 마우스/키보드로 모든 앱 제어. 웹이 아닌 네이티브 앱, 디자인 도구도 검증 가능.</p>
+      <p class="tc-example">computer-use MCP (built-in)</p>
+    </div>
+    <div class="tool-card tc-2">
+      <p class="tc-name">시각 검증 루프</p>
+      <p class="tc-type">Pattern</p>
+      <p class="tc-desc">만든다 → 스크린샷 찍는다 → 보고 판단한다 → 수정한다. 사람이 눈으로 하는 것을 AI가 대신.</p>
+      <p class="tc-example">generate → screenshot → evaluate</p>
     </div>
   </div>
-  <div class="loop-visual">
-    <p class="loop-flow"><strong>작업</strong> → 관측(세션+사용 패턴) → <strong>패턴 발견</strong> → Skill 또는 Rule → <strong>더 나은 작업</strong></p>
-  </div>
+  <p class="bottom"><strong>검증 범위를 코드에서 화면까지 확장</strong>하면 사람이 끼어들 일이 줄어든다</p>
 </body>
 </html>

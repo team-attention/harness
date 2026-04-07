@@ -12,61 +12,94 @@
     color: #1A1A1A;
     display: flex;
     flex-direction: column;
-    padding: 36pt 56pt 28pt;
+    padding: 32pt 56pt 24pt;
     overflow: hidden;
   }
   .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
-  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 12pt; }
-  .content { display: flex; gap: 20pt; flex: 1; }
-  .col { flex: 1; display: flex; flex-direction: column; gap: 10pt; }
-  .arch-box { border-radius: 8pt; padding: 14pt 16pt; flex: 1; display: flex; flex-direction: column; }
-  .a-bad { background: #E8E8E3; }
-  .a-good { background: #1A1A1A; color: #F5F5F0; }
-  .arch-label { font-size: 9pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5pt; margin-bottom: 6pt; }
-  .a-bad .arch-label { color: #999999; }
-  .a-good .arch-label { color: #666666; }
-  .arch-title { font-size: 13pt; font-weight: 700; margin-bottom: 6pt; }
-  .arch-items { font-size: 10pt; line-height: 1.6; }
-  .a-bad .arch-items { color: #666666; }
-  .a-good .arch-items { color: #999999; }
-  .arch-result { margin-top: auto; padding-top: 8pt; border-top: 1pt solid; font-size: 11pt; font-weight: 700; }
-  .a-bad .arch-result { border-color: #D4D4D0; color: #999999; }
-  .a-good .arch-result { border-color: #333333; color: #F5F5F0; }
-  .timeline { display: flex; align-items: center; justify-content: center; gap: 8pt; margin-top: 10pt; padding: 10pt 16pt; background: #E8E8E3; border-radius: 6pt; }
-  .time-label { font-size: 10pt; color: #999999; }
-  .time-bar { flex: 1; height: 6pt; background: #D4D4D0; border-radius: 3pt; position: relative; }
-  .time-fill-bad { position: absolute; left: 0; top: 0; height: 100%; width: 30%; background: #999999; border-radius: 3pt; }
-  .time-fill-good { position: absolute; left: 0; top: 0; height: 100%; width: 85%; background: #1A1A1A; border-radius: 3pt; }
-  .time-note { font-size: 10pt; font-weight: 700; min-width: 40pt; text-align: right; }
+  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 4pt; }
+  .subtitle { font-size: 10pt; color: #999999; margin-bottom: 12pt; }
+  /* Top row: docs + .dev */
+  .top-row { display: flex; gap: 14pt; margin-bottom: 8pt; }
+  .top-card { flex: 1; border-radius: 8pt; padding: 12pt 14pt; display: flex; flex-direction: column; }
+  .card-human { background: #1A1A1A; color: #F5F5F0; }
+  .card-ai { background: #E8E8E3; }
+  .card-label { font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5pt; margin-bottom: 4pt; }
+  .card-human .card-label { color: #666666; }
+  .card-ai .card-label { color: #999999; }
+  .card-folder { font-family: monospace; font-size: 14pt; font-weight: 700; margin-bottom: 4pt; }
+  .card-items { list-style: none; display: flex; flex-direction: column; gap: 2pt; }
+  .card-items li { font-size: 9pt; line-height: 1.4; padding-left: 9pt; position: relative; }
+  .card-human .card-items li { color: #999999; }
+  .card-ai .card-items li { color: #666666; }
+  .card-items li::before { content: ''; position: absolute; left: 0; top: 5pt; width: 3pt; height: 3pt; border-radius: 50%; }
+  .card-human .card-items li::before { background: #444444; }
+  .card-ai .card-items li::before { background: #D4D4D0; }
+  /* Arrow connector */
+  .connector { display: flex; align-items: center; justify-content: center; gap: 6pt; margin-bottom: 8pt; }
+  .conn-line { flex: 1; height: 1pt; background: #D4D4D0; }
+  .conn-text { font-size: 8pt; color: #999999; white-space: nowrap; }
+  /* Bottom row: foundation */
+  .foundation { display: flex; gap: 10pt; }
+  .found-card { flex: 1; border-radius: 6pt; padding: 10pt 12pt; background: #FFFFFF; border: 1pt solid #E8E8E3; text-align: center; }
+  .found-folder { font-family: monospace; font-size: 11pt; font-weight: 700; margin-bottom: 3pt; }
+  .found-desc { font-size: 8pt; color: #666666; line-height: 1.4; }
+  .found-card.primary { background: #333333; color: #F5F5F0; border-color: #333333; }
+  .found-card.primary .found-desc { color: #999999; }
+  .bottom { margin-top: 8pt; padding: 7pt 14pt; background: #E8E8E3; border-radius: 6pt; font-size: 10pt; color: #666666; text-align: center; }
+  .bottom strong { color: #1A1A1A; }
 </style>
 </head>
 <body>
   <p class="section-label">구조(Scaffolding)</p>
-  <h1>아키텍처가 퀄리티를 결정한다</h1>
-  <div class="content">
-    <div class="col">
-      <div class="arch-box a-bad">
-        <p class="arch-label">구조 없음</p>
-        <p class="arch-title">모든 게 src/ 하나에</p>
-        <p class="arch-items">파일 100개가 평면적으로 나열<br>비즈니스 로직과 유틸이 혼재<br>테스트가 소스 옆에 산재</p>
-        <p class="arch-result">시간이 갈수록 AI 산출물 품질 하락</p>
-      </div>
+  <h1>사람의 문서 vs AI의 문서 — 분리해서 관리</h1>
+  <p class="subtitle">분리하지 않으면, 사람이 관리를 멈춘 순간 AI도 엉뚱한 맥락으로 일한다</p>
+
+  <div class="top-row">
+    <div class="top-card card-human">
+      <p class="card-label">사람이 관리 · 비즈니스의 진실</p>
+      <p class="card-folder">docs/</p>
+      <ul class="card-items">
+        <li>비즈니스 룰 · 도메인 정의</li>
+        <li>체크리스트 · 온보딩 가이드</li>
+        <li>ADR · API 스펙 · 외부 연동 규격</li>
+      </ul>
     </div>
-    <div class="col">
-      <div class="arch-box a-good">
-        <p class="arch-label">클린 아키텍처</p>
-        <p class="arch-title">레이어별 명확한 책임</p>
-        <p class="arch-items">도메인 / 서비스 / 인프라 분리<br>의존성 방향이 일관적<br>새 기능 = 기존 패턴 복제</p>
-        <p class="arch-result">시간이 갈수록 AI 산출물 품질 상승</p>
-      </div>
+    <div class="top-card card-ai">
+      <p class="card-label">AI가 남기는 기록 · 작업의 흔적</p>
+      <p class="card-folder">.dev/</p>
+      <ul class="card-items">
+        <li>learnings · troubleshooting 기록</li>
+        <li>작업 로그 · 디버깅 히스토리</li>
+        <li>실험 결과 · 스크래치패드</li>
+      </ul>
     </div>
   </div>
-  <div class="timeline">
-    <span class="time-label">3개월 후</span>
-    <div class="time-bar"><div class="time-fill-bad"></div></div>
-    <span class="time-note" style="color:#999999;">30%</span>
-    <div class="time-bar"><div class="time-fill-good"></div></div>
-    <span class="time-note">85%</span>
+
+  <div class="connector">
+    <div class="conn-line"></div>
+    <span class="conn-text">아래 설정 파일들이 위 문서를 참조하고 지탱한다</span>
+    <div class="conn-line"></div>
   </div>
+
+  <div class="foundation">
+    <div class="found-card primary">
+      <p class="found-folder">CLAUDE.md</p>
+      <p class="found-desc">프로젝트 지도 (~100줄)<br>docs/와 rules/로 포인팅</p>
+    </div>
+    <div class="found-card">
+      <p class="found-folder">.claude/rules/</p>
+      <p class="found-desc">코딩 규칙 · 테스트 컨벤션<br>glob 패턴으로 조건부 로드</p>
+    </div>
+    <div class="found-card">
+      <p class="found-folder">.claude/skills/</p>
+      <p class="found-desc">반복 작업 레시피<br>/commit, /review 등</p>
+    </div>
+    <div class="found-card">
+      <p class="found-folder">...</p>
+      <p class="found-desc">hooks, agents,<br>MCP, plugins 등</p>
+    </div>
+  </div>
+
+  <div class="bottom">위: 콘텐츠(사람+AI) / 아래: 설정(AI 행동 규칙). <strong>docs/는 사람의 책임</strong></div>
 </body>
 </html>

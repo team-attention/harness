@@ -12,79 +12,75 @@
     color: #1A1A1A;
     display: flex;
     flex-direction: column;
-    padding: 36pt 56pt 28pt;
+    padding: 36pt 48pt 28pt;
     overflow: hidden;
   }
   .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
-  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 12pt; }
-  .content { display: flex; gap: 16pt; flex: 1; }
+  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 4pt; }
+  .subtitle { font-size: 11pt; color: #999999; margin-bottom: 14pt; }
+  .content { flex: 1; display: flex; gap: 16pt; }
   .left { flex: 1; display: flex; flex-direction: column; gap: 8pt; }
-  .gauge { display: flex; align-items: center; gap: 8pt; padding: 10pt 12pt; background: #1A1A1A; border-radius: 6pt; }
-  .gauge-bar { flex: 1; height: 10pt; background: #333333; border-radius: 5pt; position: relative; overflow: hidden; }
-  .gauge-fill { position: absolute; left: 0; top: 0; height: 100%; border-radius: 5pt; }
-  .fill-green { width: 25%; background: #6B9B6B; }
-  .fill-yellow { width: 55%; background: #C4A84D; }
-  .fill-red { width: 85%; background: #B85C5C; }
-  .gauge-label { font-size: 9pt; color: #999999; min-width: 44pt; text-align: right; }
-  .gauge-action { font-size: 9pt; color: #F5F5F0; font-weight: 700; min-width: 80pt; }
-  .tip-box { padding: 10pt 12pt; background: #E8E8E3; border-radius: 6pt; }
-  .tip-title { font-size: 11pt; font-weight: 700; margin-bottom: 4pt; }
-  .tip-desc { font-size: 9.5pt; color: #666666; line-height: 1.5; }
+  .skill-box {
+    background: #1A1A1A; color: #F5F5F0;
+    border-radius: 6pt; padding: 10pt 14pt;
+  }
+  .skill-title { font-size: 11pt; font-weight: 700; margin-bottom: 6pt; }
+  .skill-line { font-size: 9.5pt; color: #999999; line-height: 1.7; font-family: monospace; }
+  .skill-line strong { color: #F5F5F0; font-weight: 600; }
   .right { flex: 1; display: flex; flex-direction: column; gap: 6pt; }
-  .action-card { padding: 10pt 12pt; border-radius: 6pt; display: flex; gap: 10pt; align-items: flex-start; }
-  .a1 { background: #1A1A1A; color: #F5F5F0; }
-  .a2 { background: #E8E8E3; }
-  .a3 { background: #FFFFFF; border: 1pt solid #E8E8E3; }
-  .action-cmd { font-family: monospace; font-size: 11pt; font-weight: 700; min-width: 70pt; }
-  .a1 .action-cmd { color: #F5F5F0; }
-  .a2 .action-cmd, .a3 .action-cmd { color: #1A1A1A; }
-  .action-desc { font-size: 9.5pt; line-height: 1.4; }
-  .a1 .action-desc { color: #999999; }
-  .a2 .action-desc, .a3 .action-desc { color: #666666; }
-  .bottom { margin-top: 8pt; font-size: 10pt; color: #999999; text-align: center; }
-  .bottom strong { color: #1A1A1A; }
+  .folder-box {
+    background: #FFFFFF; border: 1pt solid #E8E8E3;
+    border-radius: 6pt; padding: 8pt 12pt;
+    font-family: monospace; font-size: 10pt; line-height: 1.6;
+    color: #666666;
+  }
+  .folder-box strong { color: #1A1A1A; font-weight: 700; }
+  .folder-label { font-size: 9pt; font-weight: 700; color: #999999; margin-bottom: 4pt; font-family: 'Pretendard', sans-serif; }
+  .arrow-mid { display: flex; align-items: center; justify-content: center; width: 24pt; font-size: 16pt; color: #D4D4D0; flex-shrink: 0; }
+  .note { margin-top: 8pt; font-size: 10pt; color: #999999; text-align: center; }
+  .note strong { color: #1A1A1A; }
 </style>
 </head>
 <body>
-  <p class="section-label">맥락(Context Engineering)</p>
-  <h1>세션 맥락 관리 — 쌓이면 비워라</h1>
+  <p class="section-label">맥락</p>
+  <h1>Progressive Disclosure</h1>
+  <p class="subtitle">내용을 다 때려넣지 말고, "이런 상황에서는 이걸 참고해"라고 안내해서 필요한 것만 읽게 한다</p>
   <div class="content">
     <div class="left">
-      <div class="gauge">
-        <span class="gauge-label" style="color:#6B9B6B;">~20%</span>
-        <div class="gauge-bar"><div class="gauge-fill fill-green"></div></div>
-        <span class="gauge-action">쾌적</span>
+      <div class="skill-box">
+        <p class="skill-title">SKILL.md 또는 CLAUDE.md 안에서</p>
+        <p class="skill-line">코드 작성 시 → <strong>references/code-style.md</strong> 참고</p>
+        <p class="skill-line">테스트 시 → <strong>references/testing-guide.md</strong> 참고</p>
+        <p class="skill-line">API 설계 시 → <strong>references/api-convention.md</strong> 참고</p>
+        <p class="skill-line">배포 시 → <strong>references/deploy-checklist.md</strong> 참고</p>
       </div>
-      <div class="gauge">
-        <span class="gauge-label" style="color:#C4A84D;">~50%</span>
-        <div class="gauge-bar"><div class="gauge-fill fill-yellow"></div></div>
-        <span class="gauge-action">/compact</span>
-      </div>
-      <div class="gauge">
-        <span class="gauge-label" style="color:#B85C5C;">~80%</span>
-        <div class="gauge-bar"><div class="gauge-fill fill-red"></div></div>
-        <span class="gauge-action">/clear 또는 새 세션</span>
-      </div>
-      <div class="tip-box">
-        <p class="tip-title">내 기준: 20~30% 되면 새로 시작</p>
-        <p class="tip-desc">아예 다른 맥락의 작업을 하게 되면 /clear. 이어가야 하면 handoff로 맥락을 넘긴다.</p>
+      <div class="skill-box" style="background: #333333;">
+        <p class="skill-title">핵심 아이디어</p>
+        <p class="skill-line">프롬프트에 <strong>"이 상황에서는 이 문서를 읽어"</strong></p>
+        <p class="skill-line">라고 가이드를 주면 AI가 동적으로</p>
+        <p class="skill-line">필요한 문서만 읽는다</p>
       </div>
     </div>
+    <div class="arrow-mid">→</div>
     <div class="right">
-      <div class="action-card a1">
-        <span class="action-cmd">/clear</span>
-        <p class="action-desc">컨텍스트 완전 초기화. 다른 주제로 전환할 때.</p>
+      <p class="folder-label">폴더 구조로 구성</p>
+      <div class="folder-box">
+        <strong>my-skill/</strong><br>
+        &nbsp;&nbsp;SKILL.md<br>
+        &nbsp;&nbsp;<strong>references/</strong><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;code-style.md<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;testing-guide.md<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;api-convention.md<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;deploy-checklist.md
       </div>
-      <div class="action-card a2">
-        <span class="action-cmd">/compact</span>
-        <p class="action-desc">오래된 대화를 요약·압축. 같은 주제를 이어갈 때.</p>
-      </div>
-      <div class="action-card a3">
-        <span class="action-cmd">handoff</span>
-        <p class="action-desc">현재 세션의 맥락을 파일로 저장 → 새 세션에서 이어받기. 맥락 손실 없이 전환.</p>
+      <div class="folder-box">
+        <strong>CLAUDE.md</strong> (핵심만 30줄)<br>
+        <strong>docs/</strong><br>
+        &nbsp;&nbsp;architecture.md<br>
+        &nbsp;&nbsp;conventions.md
       </div>
     </div>
   </div>
-  <p class="bottom">컨텍스트는 <strong>채우는 것</strong>만큼 <strong>비우는 것</strong>도 중요하다</p>
+  <p class="note">SKILL/CLAUDE.md에 다 넣는 게 아니라 <strong>폴더로 분리하고 상황별로 참조</strong>시킨다 → 컨텍스트 절약</p>
 </body>
 </html>

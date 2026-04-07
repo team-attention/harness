@@ -12,18 +12,62 @@
     color: #F5F5F0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 60pt 72pt;
+    padding: 32pt 48pt 24pt;
     overflow: hidden;
   }
-  .num { font-size: 44pt; font-weight: 700; color: #333333; margin-bottom: 8pt; line-height: 1.2; }
-  h1 { font-size: 36pt; font-weight: 700; line-height: 1.2; margin-bottom: 12pt; }
-  .sub { font-size: 15pt; font-weight: 400; color: #666666; }
+  a { color: inherit; }
+  .header { display: flex; align-items: center; gap: 10pt; margin-bottom: 16pt; }
+  .badge { display: inline-block; padding: 4pt 10pt; background: #6B9B6B; color: #F5F5F0; border-radius: 4pt; font-size: 9pt; font-weight: 700; letter-spacing: 1pt; text-transform: uppercase; }
+  h1 { font-size: 20pt; font-weight: 700; }
+  .subtitle { font-size: 10pt; color: #777777; margin-bottom: 14pt; }
+  .cards { display: flex; flex-direction: column; gap: 8pt; flex: 1; }
+  .card { display: flex; gap: 14pt; align-items: center; padding: 12pt 16pt; border-radius: 6pt; background: #2A2A2A; }
+  .card-icon { width: 36pt; height: 36pt; border-radius: 6pt; background: #333333; display: flex; align-items: center; justify-content: center; font-size: 14pt; font-weight: 700; color: #6B9B6B; flex-shrink: 0; }
+  .card-body { flex: 1; }
+  .card-name { font-size: 12pt; font-weight: 700; margin-bottom: 2pt; }
+  .card-desc { font-size: 9.5pt; color: #999999; line-height: 1.4; }
+  .card-link { font-size: 8pt; color: #6B9B6B; text-decoration: underline; margin-top: 2pt; display: inline-block; }
+  .card-tags { display: flex; gap: 4pt; flex-shrink: 0; }
+  .tag { padding: 3pt 8pt; border-radius: 3pt; font-size: 8pt; font-weight: 600; background: #333333; color: #777777; }
+  .tip { margin-top: auto; padding: 8pt 14pt; border-left: 3pt solid #6B9B6B; font-size: 10pt; color: #999999; }
+  .tip strong { color: #F5F5F0; }
 </style>
 </head>
 <body>
-  <p class="num">01</p>
-  <h1>구조(Scaffolding)</h1>
-  <p class="sub">프로젝트 구조, 도구 배치, 경계 설정 — 한 번 해두면 계속 쓰는 것</p>
+  <div class="header">
+    <span class="badge">Resources</span>
+    <h1>참고 자료 & 리소스</h1>
+  </div>
+  <p class="subtitle">Harness Engineering 구성 요소를 스킬로 남겨놨습니다 — 플러그인 설치하거나 git 주소로 분석 요청하세요</p>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">H</div>
+      <div class="card-body">
+        <p class="card-name">team-attention/harness</p>
+        <p class="card-desc"><strong style="color:#F5F5F0">materials/slides</strong> 강의자료 · <strong style="color:#F5F5F0">harness-checklist.md</strong> 기본 체크리스트</p>
+        <a class="card-link" href="https://github.com/team-attention/harness" target="_blank">github.com/team-attention/harness</a>
+      </div>
+      <div class="card-tags"><span class="tag">Plugin</span><span class="tag">Slides</span></div>
+    </div>
+    <div class="card">
+      <div class="card-icon">@</div>
+      <div class="card-body">
+        <p class="card-name">team-attention/hoyeon</p>
+        <p class="card-desc">제 개인 Harness 전체 구성이 궁금하신 분은 이 레포를 참고하세요.</p>
+        <a class="card-link" href="https://github.com/team-attention/hoyeon" target="_blank">github.com/team-attention/hoyeon</a>
+      </div>
+      <div class="card-tags"><span class="tag">Example</span></div>
+    </div>
+    <div class="card">
+      <div class="card-icon">P</div>
+      <div class="card-body">
+        <p class="card-name">plugins-for-claude-natives</p>
+        <p class="card-desc">Team Attention에서 자주 쓰는 플러그인 모음. 실무에서 검증된 도구들.</p>
+        <a class="card-link" href="https://github.com/team-attention/plugins-for-claude-natives" target="_blank">github.com/team-attention/plugins-for-claude-natives</a>
+      </div>
+      <div class="card-tags"><span class="tag">Plugins</span></div>
+    </div>
+  </div>
+  <div class="tip"><strong>플러그인 설치</strong> 또는 Claude Code에 git 주소 넣고 <strong>"분석해줘"</strong> — 둘 다 됩니다</div>
 </body>
 </html>

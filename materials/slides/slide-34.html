@@ -8,94 +8,54 @@
   body {
     width: 720pt; height: 405pt;
     font-family: 'Pretendard', sans-serif;
-    background: #F5F5F0;
-    color: #1A1A1A;
+    background: #1A1A1A;
+    color: #F5F5F0;
     display: flex;
     flex-direction: column;
-    padding: 40pt 56pt 32pt;
+    padding: 32pt 48pt 24pt;
     overflow: hidden;
   }
-  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
-  h1 { font-size: 22pt; font-weight: 700; line-height: 1.2; margin-bottom: 20pt; }
-  .patterns { display: flex; gap: 14pt; flex: 1; }
-  .pattern { flex: 1; display: flex; flex-direction: column; border-radius: 8pt; overflow: hidden; }
-  .pattern-header { padding: 10pt 14pt; font-size: 12pt; font-weight: 700; }
-  .ph-single { background: #E8E8E3; }
-  .ph-sub { background: #D4D4D0; }
-  .ph-team { background: #1A1A1A; color: #F5F5F0; }
-  .pattern-body { flex: 1; padding: 12pt 14pt; background: #FFFFFF; border: 1pt solid #E8E8E3; border-top: none; border-radius: 0 0 8pt 8pt; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6pt; }
-  .ph-team + .pattern-body { border-color: #1A1A1A; }
-  /* Single: one box */
-  .agent-box { width: 56pt; height: 28pt; border-radius: 4pt; background: #E8E8E3; display: flex; align-items: center; justify-content: center; font-size: 9pt; font-weight: 600; color: #666666; }
-  .agent-box.dark { background: #1A1A1A; color: #F5F5F0; }
-  .agent-box.mid { background: #D4D4D0; }
-  /* arrows */
-  .diagram-arrow { font-size: 10pt; color: #D4D4D0; }
-  /* Sub: boss + workers */
-  .sub-diagram { display: flex; flex-direction: column; align-items: center; gap: 4pt; }
-  .sub-row { display: flex; gap: 6pt; }
-  /* Team: mesh */
-  .team-diagram { display: flex; flex-direction: column; align-items: center; gap: 4pt; position: relative; }
-  .team-row { display: flex; gap: 6pt; }
-  .team-lines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-  .pattern-desc { font-size: 9pt; color: #999999; text-align: center; margin-top: 6pt; line-height: 1.3; }
-  .stats-row { display: flex; gap: 14pt; margin-top: 10pt; }
-  .stat-box { flex: 1; padding: 8pt; background: #E8E8E3; border-radius: 6pt; text-align: center; }
-  .stat-val { font-size: 18pt; font-weight: 700; }
-  .stat-lbl { font-size: 9pt; color: #666666; margin-top: 2pt; }
+  a { color: inherit; }
+  .header { display: flex; align-items: center; gap: 10pt; margin-bottom: 4pt; }
+  .badge { display: inline-block; padding: 4pt 10pt; background: #6B9B6B; color: #F5F5F0; border-radius: 4pt; font-size: 9pt; font-weight: 700; letter-spacing: 1pt; text-transform: uppercase; }
+  .section-tag { font-size: 9pt; color: #777777; }
+  h1 { font-size: 20pt; font-weight: 700; margin-bottom: 4pt; }
+  .subtitle { font-size: 10pt; color: #777777; margin-bottom: 14pt; }
+  .tools { display: flex; gap: 10pt; flex: 1; }
+  .tool { flex: 1; background: #2A2A2A; border-radius: 8pt; padding: 16pt; display: flex; flex-direction: column; }
+  .tool-cmd { font-family: monospace; font-size: 18pt; font-weight: 700; color: #6B9B6B; margin-bottom: 6pt; }
+  .tool-type { font-size: 8pt; font-weight: 600; color: #555555; text-transform: uppercase; letter-spacing: 0.5pt; margin-bottom: 8pt; padding-bottom: 6pt; border-bottom: 1pt solid #333333; }
+  .tool-desc { font-size: 10pt; color: #999999; line-height: 1.5; flex: 1; }
+  .tool-link { font-size: 8pt; color: #6B9B6B; text-decoration: underline; margin-top: 8pt; display: inline-block; }
+  .tip { margin-top: 10pt; padding: 8pt 14pt; border-left: 3pt solid #6B9B6B; font-size: 10pt; color: #999999; }
+  .tip strong { color: #F5F5F0; }
 </style>
 </head>
 <body>
-  <p class="section-label">실행</p>
-  <h1>실행 패턴: 혼자 vs 부하 파견 vs 팀</h1>
-  <div class="patterns">
-    <div class="pattern">
-      <div class="pattern-header ph-single">혼자 · Single</div>
-      <div class="pattern-body">
-        <div class="agent-box">AI</div>
-        <p class="diagram-arrow">↓</p>
-        <div class="agent-box mid" style="font-size: 8pt;">결과물</div>
-        <p class="pattern-desc">단순 작업<br>대부분의 일상</p>
-      </div>
+  <div class="header">
+    <span class="badge">Try it</span>
+    <span class="section-tag">계획(Planning)</span>
+  </div>
+  <h1>계획을 더 잘 세우기 위한 스킬</h1>
+  <p class="subtitle">스펙을 명확하게, 모호함을 줄이고, unknown-unknown을 잡아내기</p>
+  <div class="tools">
+    <div class="tool">
+      <p class="tool-cmd">/specify</p>
+      <p class="tool-type">Skill · Harness Plugin</p>
+      <p class="tool-desc">스펙 파일을 더 잘 얻기 위한 스킬. 인터뷰 → 요구사항 도출 → 플랜 파일까지 자동화.</p>
     </div>
-    <div class="pattern">
-      <div class="pattern-header ph-sub">부하 파견 · Subagent</div>
-      <div class="pattern-body">
-        <div class="sub-diagram">
-          <div class="agent-box dark">메인</div>
-          <p class="diagram-arrow">↓ 위임</p>
-          <div class="sub-row">
-            <div class="agent-box" style="width: 44pt; font-size: 8pt;">조사</div>
-            <div class="agent-box" style="width: 44pt; font-size: 8pt;">작업</div>
-            <div class="agent-box" style="width: 44pt; font-size: 8pt;">검증</div>
-          </div>
-          <p class="diagram-arrow">↑ 종합</p>
-          <div class="agent-box mid" style="font-size: 8pt;">결과 종합</div>
-        </div>
-        <p class="pattern-desc">병렬/전문화<br>위임 → 종합</p>
-      </div>
+    <div class="tool">
+      <p class="tool-cmd">/deep-interview</p>
+      <p class="tool-type">Skill · Harness Plugin</p>
+      <p class="tool-desc">깊이 있는 인터뷰로 unknown-unknown을 줄인다. 미처 생각 못한 엣지 케이스까지 끌어낸다.</p>
     </div>
-    <div class="pattern">
-      <div class="pattern-header ph-team">팀 협업 · Team Mode</div>
-      <div class="pattern-body">
-        <div class="team-diagram">
-          <div class="team-row">
-            <div class="agent-box dark" style="width: 44pt; font-size: 8pt;">PM</div>
-            <div class="agent-box dark" style="width: 44pt; font-size: 8pt;">개발</div>
-          </div>
-          <p class="diagram-arrow">↕ 소통</p>
-          <div class="team-row">
-            <div class="agent-box dark" style="width: 44pt; font-size: 8pt;">디자인</div>
-            <div class="agent-box dark" style="width: 44pt; font-size: 8pt;">QA</div>
-          </div>
-        </div>
-        <p class="pattern-desc">다관점 · 복잡<br>에이전트 간 소통</p>
-      </div>
+    <div class="tool">
+      <p class="tool-cmd">/clarify</p>
+      <p class="tool-type">Plugin · plugins-for-claude-natives</p>
+      <p class="tool-desc">요구사항을 명확하게 하고 싶을 때. 모호한 지시를 구체적인 스펙으로 변환.</p>
+      <a class="tool-link" href="https://github.com/team-attention/plugins-for-claude-natives/tree/main/plugins/clarify" target="_blank">github.com/.../plugins/clarify</a>
     </div>
   </div>
-  <div class="stats-row">
-    <div class="stat-box"><p class="stat-val">90%</p><p class="stat-lbl">단일/서브에이전트로 충분</p></div>
-    <div class="stat-box"><p class="stat-val">~7x</p><p class="stat-lbl">팀 모드 토큰 비용</p></div>
-  </div>
+  <div class="tip">계획 단계에서 <strong>모호함을 줄이는 것</strong>이 실행 품질을 결정한다</div>
 </body>
 </html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #F5F5F0;
+    color: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    padding: 48pt 72pt 40pt;
+    overflow: hidden;
+  }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 8pt; }
+  h1 { font-size: 24pt; font-weight: 700; line-height: 1.2; margin-bottom: 16pt; }
+  .steps { display: flex; flex-direction: column; gap: 8pt; flex: 1; }
+  .step { display: flex; gap: 16pt; align-items: flex-start; }
+  .step-num { width: 36pt; height: 36pt; background: #1A1A1A; color: #F5F5F0; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14pt; font-weight: 700; flex-shrink: 0; }
+  .step-content { padding-top: 4pt; }
+  .step-title { font-size: 15pt; font-weight: 700; margin-bottom: 6pt; }
+  .step-tools { list-style: none; display: flex; flex-direction: column; gap: 3pt; }
+  .step-tools li { font-size: 11pt; color: #666666; padding-left: 12pt; position: relative; line-height: 1.4; }
+  .step-tools li::before { content: '\2022'; position: absolute; left: 0; color: #999999; }
+  .step-desc { font-size: 12pt; font-weight: 400; color: #666666; line-height: 1.5; }
+  .callout { margin-top: 8pt; padding: 8pt 14pt; background: #EAEAE5; border-left: 3pt solid #1A1A1A; border-radius: 0 4pt 4pt 0; }
+  .callout-title { font-size: 11pt; font-weight: 700; margin-bottom: 4pt; }
+  .callout-body { font-size: 11pt; font-weight: 400; color: #555555; line-height: 1.5; }
+</style>
+</head>
+<body>
+  <p class="section-label">마무리</p>
+  <h1>지금 할 수 있는 것</h1>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <p class="step-title">이미 잘 만들어진 도구부터 써보기</p>
+        <ul class="step-tools">
+          <li>gstack — github.com/garrytan/gstack</li>
+          <li>superpowers — github.com/obra/superpowers</li>
+          <li>oh-my-claudecode — github.com/Yeachan-Heo/oh-my-claudecode</li>
+        </ul>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <p class="step-title">내 현재 상태 진단하기</p>
+        <p class="step-desc">본인이 이해가능한 형태로 Harness를 사용하는 것이 중요함.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <p class="step-title">개선하고 점검하기 반복</p>
+        <p class="step-desc">한꺼번에 다 바꾸려 하지 말 것. 불편한 지점만 하나씩.</p>
+      </div>
+    </div>
+  </div>
+  <div class="callout">
+    <p class="callout-title">⚠ 조심할 점</p>
+    <p class="callout-body">Harness를 설계할 때 너무 옥죄려고 하지 말 것. 자유도를 높게 주고,<br>안 되는 것만 제한하기. 생각보다 Agent는 예측 가능하게 잘 움직인다.</p>
+  </div>
+</body>
+</html>

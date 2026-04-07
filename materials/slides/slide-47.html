@@ -12,100 +12,48 @@
     color: #1A1A1A;
     display: flex;
     flex-direction: column;
-    padding: 36pt 56pt 28pt;
+    padding: 44pt 56pt 36pt;
     overflow: hidden;
   }
   .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
-  h1 { font-size: 22pt; font-weight: 700; line-height: 1.2; margin-bottom: 16pt; }
-  .columns { display: flex; gap: 14pt; flex: 1; }
-  .col { flex: 1; border-radius: 8pt; padding: 16pt; display: flex; flex-direction: column; gap: 10pt; }
-  .col-good { background: #1A1A1A; color: #F5F5F0; }
-  .col-bad { background: #E8E8E3; }
-  .col-label { font-size: 10pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5pt; margin-bottom: 4pt; }
-  .col-good .col-label { color: #666666; }
-  .col-bad .col-label { color: #999999; }
-  .signal { display: flex; gap: 10pt; align-items: flex-start; }
-  .signal-icon { font-size: 14pt; min-width: 18pt; text-align: center; flex-shrink: 0; line-height: 1.3; }
-  .signal-text { font-size: 11pt; line-height: 1.4; }
-  .col-good .signal-text { color: #CCCCCC; }
-  .col-bad .signal-text { color: #666666; }
-  .signal-text strong { font-weight: 700; }
-  .col-good .signal-text strong { color: #F5F5F0; }
-  .col-bad .signal-text strong { color: #1A1A1A; }
-  .signal-meaning { font-size: 8.5pt; margin-top: 1pt; }
-  .col-good .signal-meaning { color: #777777; }
-  .col-bad .signal-meaning { color: #999999; }
-  .bottom { margin-top: 10pt; font-size: 11pt; color: #999999; text-align: center; }
-  .bottom strong { color: #1A1A1A; }
+  h1 { font-size: 24pt; font-weight: 700; line-height: 1.2; margin-bottom: 20pt; }
+  .safeguards { display: flex; gap: 16pt; flex: 1; }
+  .sg { flex: 1; border-radius: 8pt; padding: 16pt; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .sg-1 { background: #1A1A1A; color: #F5F5F0; }
+  .sg-2 { background: #E8E8E3; }
+  .sg-icon { font-size: 28pt; font-weight: 700; margin-bottom: 8pt; opacity: 0.4; }
+  .sg-title { font-size: 14pt; font-weight: 700; margin-bottom: 8pt; }
+  .sg-desc { font-size: 11pt; line-height: 1.5; }
+  .sg-1 .sg-desc { color: #999999; }
+  .sg-2 .sg-desc { color: #666666; }
+  .sg-example { margin-top: auto; padding-top: 8pt; font-size: 10pt; font-family: monospace; opacity: 0.5; }
+  .core { margin-top: 12pt; padding: 12pt 16pt; background: #E8E8E3; border-radius: 6pt; font-size: 13pt; color: #666666; text-align: center; }
+  .core strong { color: #1A1A1A; font-weight: 700; }
 </style>
 </head>
 <body>
-  <p class="section-label">개선</p>
-  <h1>잘 가고 있나? — 자가 진단</h1>
-  <div class="columns">
-    <div class="col col-good">
-      <p class="col-label">잘 가고 있다는 신호</p>
-      <div class="signal">
-        <span class="signal-icon">+</span>
-        <div>
-          <p class="signal-text"><strong>같은 말을 두 번 하지 않는다</strong></p>
-          <p class="signal-meaning">맥락 전달이 잘 되고 있다</p>
-        </div>
-      </div>
-      <div class="signal">
-        <span class="signal-icon">+</span>
-        <div>
-          <p class="signal-text"><strong>실수가 규칙이 된다</strong></p>
-          <p class="signal-meaning">개선 루프가 돌고 있다</p>
-        </div>
-      </div>
-      <div class="signal">
-        <span class="signal-icon">+</span>
-        <div>
-          <p class="signal-text"><strong>차단 장치가 뭔가를 막고 있다</strong></p>
-          <p class="signal-meaning">사고가 구조적으로 예방되고 있다</p>
-        </div>
-      </div>
-      <div class="signal">
-        <span class="signal-icon">+</span>
-        <div>
-          <p class="signal-text"><strong>불필요한 것이 줄어든다</strong></p>
-          <p class="signal-meaning">복잡해지는 게 아니라 단순해지고 있다</p>
-        </div>
-      </div>
+  <p class="section-label">검증</p>
+  <h1>안전장치</h1>
+  <div class="safeguards">
+    <div class="sg sg-1">
+      <p class="sg-icon">&#x1f6e1;</p>
+      <p class="sg-title">되돌릴 수 있는 환경</p>
+      <p class="sg-desc">브랜치/Worktree 격리에서 작업. 실수해도 메인은 안전.</p>
+      <p class="sg-example">git worktree add</p>
     </div>
-    <div class="col col-bad">
-      <p class="col-label">실패하고 있다는 징후</p>
-      <div class="signal">
-        <span class="signal-icon">-</span>
-        <div>
-          <p class="signal-text"><strong>검수에 시간이 더 오래 걸린다</strong></p>
-          <p class="signal-meaning">검증 자동화가 필요하다는 신호</p>
-        </div>
-      </div>
-      <div class="signal">
-        <span class="signal-icon">-</span>
-        <div>
-          <p class="signal-text"><strong>시켰는데 원하는 결과가 안 나온다</strong></p>
-          <p class="signal-meaning">맥락 전달 또는 계획 단계가 부족</p>
-        </div>
-      </div>
-      <div class="signal">
-        <span class="signal-icon">-</span>
-        <div>
-          <p class="signal-text"><strong>스킬·에이전트가 많은데 잘 안 쓴다</strong></p>
-          <p class="signal-meaning">context pollution + 제대로 동작 안 함</p>
-        </div>
-      </div>
-      <div class="signal">
-        <span class="signal-icon">-</span>
-        <div>
-          <p class="signal-text"><strong>가이드 파일이 길어지고 관리 안 된다</strong></p>
-          <p class="signal-meaning">CLAUDE.md·docs 분리/정리 없이 쌓임</p>
-        </div>
-      </div>
+    <div class="sg sg-2">
+      <p class="sg-icon">&#x1f6a7;</p>
+      <p class="sg-title">위험한 건 사람이 확인</p>
+      <p class="sg-desc">삭제, 배포, 외부 발송 같은 작업은 승인 후 실행.</p>
+      <p class="sg-example">Runtime Gate</p>
+    </div>
+    <div class="sg sg-2">
+      <p class="sg-icon">&#x1f4cb;</p>
+      <p class="sg-title">Dry-run 먼저</p>
+      <p class="sg-desc">"이렇게 할 건데 맞나?" 미리보기 후 실행.</p>
+      <p class="sg-example">--dry-run</p>
     </div>
   </div>
-  <div class="bottom"><strong>좋은 Harness는 점점 단순해진다.</strong> 복잡해지고 있다면 뭔가 잘못된 것.</div>
+  <p class="core"><strong>"실수해도 괜찮은 구조"</strong>를 만드는 것이 핵심</p>
 </body>
 </html>

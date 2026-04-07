@@ -12,38 +12,65 @@
     color: #1A1A1A;
     display: flex;
     flex-direction: column;
-    padding: 48pt 72pt 40pt;
+    padding: 36pt 56pt 28pt;
     overflow: hidden;
   }
-  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 8pt; }
-  h1 { font-size: 26pt; font-weight: 700; line-height: 1.2; margin-bottom: 28pt; }
-  .guides { display: flex; flex-direction: column; gap: 12pt; flex: 1; }
-  .guide { display: flex; gap: 16pt; align-items: baseline; padding-bottom: 12pt; border-bottom: 1pt solid #E8E8E3; }
-  .guide:last-child { border-bottom: none; }
-  .guide-level { font-size: 11pt; font-weight: 700; color: #999999; min-width: 60pt; }
-  .guide-content { font-size: 14pt; font-weight: 400; color: #666666; line-height: 1.6; }
-  .guide-content strong { color: #1A1A1A; font-weight: 700; }
-  .tip { margin-top: auto; padding: 14pt 18pt; background: #E8E8E3; border-radius: 6pt; font-size: 13pt; font-weight: 400; color: #666666; }
-  .tip strong { color: #1A1A1A; }
+  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 4pt; }
+  h1 { font-size: 20pt; font-weight: 700; line-height: 1.2; margin-bottom: 12pt; }
+  .diagram { display: flex; flex-direction: column; gap: 0; flex: 1; align-items: center; justify-content: center; }
+  .layer { display: flex; align-items: center; gap: 12pt; width: 540pt; padding: 10pt 16pt; border-radius: 6pt; position: relative; }
+  .l1 { background: #1A1A1A; color: #F5F5F0; }
+  .l2 { background: #444444; color: #F5F5F0; }
+  .l3 { background: #888888; color: #F5F5F0; }
+  .layer-scope { font-size: 9pt; font-weight: 700; min-width: 60pt; opacity: 0.6; }
+  .layer-file { font-size: 11pt; font-weight: 700; font-family: monospace; min-width: 200pt; }
+  .layer-desc { font-size: 9pt; opacity: 0.7; flex: 1; }
+  .arrow-down { text-align: center; font-size: 12pt; color: #D4D4D0; padding: 2pt 0; }
+  .inherit-label { font-size: 8pt; color: #999999; }
+  .example { display: flex; gap: 12pt; margin-top: 12pt; }
+  .ex-box { flex: 1; padding: 10pt 12pt; border-radius: 6pt; background: #FFFFFF; border: 1pt solid #E8E8E3; }
+  .ex-title { font-size: 10pt; font-weight: 700; margin-bottom: 4pt; }
+  .ex-content { font-size: 9pt; color: #666666; line-height: 1.5; font-family: monospace; }
+  .ex-result { font-size: 9pt; color: #1A1A1A; font-weight: 700; margin-top: 4pt; }
 </style>
 </head>
 <body>
-  <p class="section-label">맥락</p>
-  <h1>CLAUDE.md 실전 가이드</h1>
-  <div class="guides">
-    <div class="guide">
-      <span class="guide-level">User</span>
-      <p class="guide-content"><strong>내 작업 습관</strong>, 선호하는 코딩 스타일, 공통 규칙</p>
+  <p class="section-label">맥락(Context Engineering)</p>
+  <h1>설정 파일 상속 구조 — 하위가 상위를 덮어쓴다</h1>
+  <div class="diagram">
+    <div class="layer l1">
+      <span class="layer-scope">USER</span>
+      <span class="layer-file">~/.claude/CLAUDE.md</span>
+      <span class="layer-desc">모든 프로젝트 공통 (내 습관, 스타일)</span>
     </div>
-    <div class="guide">
-      <span class="guide-level">Project</span>
-      <p class="guide-content"><strong>이 프로젝트의 기술 스택</strong>, 컨벤션, 중요한 제약</p>
+    <div class="arrow-down">↓ <span class="inherit-label">상속</span></div>
+    <div class="layer l2">
+      <span class="layer-scope">PROJECT</span>
+      <span class="layer-file">my-app/CLAUDE.md</span>
+      <span class="layer-desc">이 프로젝트 전용 (스택, 컨벤션)</span>
     </div>
-    <div class="guide">
-      <span class="guide-level">Folder</span>
-      <p class="guide-content"><strong>특정 모듈의 특수한 규칙</strong></p>
+    <div class="arrow-down">↓ <span class="inherit-label">상속 + 오버라이드</span></div>
+    <div class="layer l3">
+      <span class="layer-scope">FOLDER</span>
+      <span class="layer-file">src/auth/CLAUDE.md</span>
+      <span class="layer-desc">이 폴더 작업 시만 (특수 규칙)</span>
     </div>
   </div>
-  <div class="tip"><strong>팁:</strong> "최대 200줄 정도를 유지하며 계속 업데이트하라. 너무 길어지면 AI 성능이 급격히 저하된다."</div>
+  <div class="example">
+    <div class="ex-box">
+      <p class="ex-title">예: User에 "camelCase 사용"</p>
+      <p class="ex-content">→ 모든 프로젝트에 적용</p>
+    </div>
+    <div class="ex-box">
+      <p class="ex-title">예: Project에 "snake_case 사용"</p>
+      <p class="ex-content">→ 이 프로젝트만 snake_case</p>
+      <p class="ex-result">Project가 User를 오버라이드</p>
+    </div>
+    <div class="ex-box">
+      <p class="ex-title">예: auth/에 "JWT만 사용"</p>
+      <p class="ex-content">→ auth 폴더 작업 시만 적용</p>
+      <p class="ex-result">가장 좁은 범위가 우선</p>
+    </div>
+  </div>
 </body>
 </html>

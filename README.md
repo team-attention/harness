@@ -15,8 +15,29 @@ AI 에이전트가 잘 일하는 환경을 설계하는 기술 — Harness Engin
 
 ## Materials
 
-- `materials/harness-checklist.md` — Harness Engineering 3단계 성숙도 체크리스트
-- `materials/slides/` — 세션 발표 슬라이드 (HTML, 50장)
+### Harness Engineering 체크리스트
+
+`materials/harness-checklist.md`
+
+AI가 잘 일하는 환경을 설계하기 위한 자가진단 체크리스트. 3단계 성숙도(L1 시작하기 → L2 내 것으로 만들기 → L3 자율 운영)로 나뉘며, 5개 축에 걸쳐 35개 항목을 점검한다.
+
+- **준비 (Scaffolding)** — AI가 프로젝트를 스스로 파악할 수 있는가
+- **맥락 (Context)** — CLAUDE.md, 규칙, 점진적 노출
+- **실행 설계 (Execution)** — 계획, 위임, 오케스트레이션
+- **검증 (Verification)** — 테스트, 리뷰, 품질 관리
+- **개선 (Improvement)** — 학습, 피드백 루프
+
+### 발표 슬라이드
+
+`materials/slides/`
+
+"Harness Engineering — AI가 잘 일하는 환경을 설계하는 기술" 세션 발표 자료.
+HTML 슬라이드 50장 + `viewer.html`로 로컬에서 바로 열어볼 수 있다.
+
+```bash
+# 슬라이드 뷰어 열기
+open materials/slides/viewer.html
+```
 
 ## Quick Start
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 720pt; height: 405pt;
+    font-family: 'Pretendard', sans-serif;
+    background: #1A1A1A;
+    color: #F5F5F0;
+    display: flex;
+    flex-direction: column;
+    padding: 32pt 48pt 24pt;
+    overflow: hidden;
+  }
+  a { color: inherit; }
+  .header { display: flex; align-items: center; gap: 10pt; margin-bottom: 4pt; }
+  .badge { display: inline-block; padding: 4pt 10pt; background: #6B9B6B; color: #F5F5F0; border-radius: 4pt; font-size: 9pt; font-weight: 700; letter-spacing: 1pt; text-transform: uppercase; }
+  .section-tag { font-size: 9pt; color: #777777; }
+  h1 { font-size: 20pt; font-weight: 700; margin-bottom: 4pt; }
+  .subtitle { font-size: 10pt; color: #777777; margin-bottom: 18pt; }
+  .main-card { background: #2A2A2A; border-radius: 8pt; padding: 24pt; flex: 1; display: flex; flex-direction: column; gap: 12pt; }
+  .card-cmd { font-family: monospace; font-size: 20pt; font-weight: 700; color: #6B9B6B; margin-bottom: 2pt; }
+  .card-type { font-size: 8pt; font-weight: 600; color: #555555; text-transform: uppercase; letter-spacing: 0.5pt; margin-bottom: 8pt; padding-bottom: 6pt; border-bottom: 1pt solid #333333; }
+  .card-desc { font-size: 11pt; color: #999999; line-height: 1.6; }
+  .card-features { display: flex; gap: 10pt; margin-top: auto; }
+  .feature { flex: 1; padding: 10pt 12pt; background: #333333; border-radius: 6pt; }
+  .feature-title { font-size: 10pt; font-weight: 700; color: #F5F5F0; margin-bottom: 2pt; }
+  .feature-desc { font-size: 9pt; color: #777777; line-height: 1.4; }
+  .card-link { font-size: 8pt; color: #6B9B6B; text-decoration: underline; margin-top: 8pt; display: inline-block; }
+  .tip { margin-top: 10pt; padding: 8pt 14pt; border-left: 3pt solid #6B9B6B; font-size: 10pt; color: #999999; }
+  .tip strong { color: #F5F5F0; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <span class="badge">Try it</span>
+    <span class="section-tag">개선(Compound)</span>
+  </div>
+  <h1>세션에서 인사이트 추출하기</h1>
+  <p class="subtitle">작업 세션을 분석해서 패턴, 실수, 개선점을 자동으로 뽑아내기</p>
+  <div class="main-card">
+    <p class="card-cmd">session-wrap</p>
+    <p class="card-type">Plugin · plugins-for-claude-natives</p>
+    <p class="card-desc">Claude Code 세션이 끝난 뒤, 세션 내용을 분석해서 인사이트를 추출하는 플러그인. 반복 패턴, 실수, 자동화 기회를 찾아냅니다.</p>
+    <div class="card-features">
+      <div class="feature">
+        <p class="feature-title">패턴 발견</p>
+        <p class="feature-desc">반복 작업 패턴을 감지해서 Skill 후보로 제안</p>
+      </div>
+      <div class="feature">
+        <p class="feature-title">실수 추출</p>
+        <p class="feature-desc">세션 중 실수를 정리해서 Rule 후보로 제안</p>
+      </div>
+      <div class="feature">
+        <p class="feature-title">문서 업데이트</p>
+        <p class="feature-desc">CLAUDE.md, docs 업데이트 필요 항목 감지</p>
+      </div>
+    </div>
+    <a class="card-link" href="https://github.com/team-attention/plugins-for-claude-natives/tree/main/plugins/session-wrap" target="_blank">github.com/.../plugins/session-wrap</a>
+  </div>
+  <div class="tip"><strong>세션 분석 → 패턴 발견 → Skill/Rule 추가</strong> — 이것이 개선 루프의 핵심</div>
+</body>
+</html>

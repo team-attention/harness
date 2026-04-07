@@ -8,59 +8,22 @@
   body {
     width: 720pt; height: 405pt;
     font-family: 'Pretendard', sans-serif;
-    background: #F5F5F0;
-    color: #1A1A1A;
+    background: #1A1A1A;
+    color: #F5F5F0;
     display: flex;
     flex-direction: column;
-    padding: 44pt 56pt 32pt;
+    justify-content: center;
+    padding: 60pt 72pt;
     overflow: hidden;
   }
-  .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
-  .principle-num { font-size: 32pt; font-weight: 700; color: #E8E8E3; line-height: 1.2; margin-bottom: 6pt; }
-  h1 { font-size: 24pt; font-weight: 700; line-height: 1.2; margin-bottom: 16pt; }
-  .models { display: flex; gap: 12pt; flex: 1; }
-  .model { flex: 1; border-radius: 8pt; padding: 14pt; display: flex; flex-direction: column; }
-  .m-code { background: #1A1A1A; color: #F5F5F0; }
-  .m-doc { background: #444444; color: #F5F5F0; }
-  .m-tier { background: #E8E8E3; }
-  .model-name { font-size: 16pt; font-weight: 700; margin-bottom: 4pt; }
-  .model-role { font-size: 11pt; margin-bottom: 8pt; }
-  .m-code .model-role, .m-doc .model-role { color: #999999; }
-  .m-tier .model-role { color: #666666; }
-  .model-detail { font-size: 9pt; line-height: 1.5; margin-top: auto; }
-  .m-code .model-detail, .m-doc .model-detail { color: #666666; }
-  .m-tier .model-detail { color: #999999; }
-  .warning { margin-top: 10pt; padding: 10pt 14pt; background: #E8E8E3; border-radius: 6pt; border-left: 3pt solid #1A1A1A; }
-  .warning-text { font-size: 10pt; color: #666666; line-height: 1.5; font-style: italic; }
-  .warning-text strong { color: #1A1A1A; font-style: normal; }
-  .bottom { margin-top: 10pt; font-size: 11pt; color: #999999; text-align: center; }
-  .bottom strong { color: #1A1A1A; }
+  .num { font-size: 44pt; font-weight: 700; color: #333333; margin-bottom: 8pt; line-height: 1.2; }
+  h1 { font-size: 36pt; font-weight: 700; line-height: 1.2; margin-bottom: 12pt; }
+  .sub { font-size: 15pt; font-weight: 400; color: #666666; }
 </style>
 </head>
 <body>
-  <p class="section-label">검증 원칙</p>
-  <p class="principle-num">03</p>
-  <h1>모델도 나누고, 역할도 나눈다</h1>
-  <div class="models">
-    <div class="model m-code">
-      <p class="model-name">Codex</p>
-      <p class="model-role">코드 리뷰</p>
-      <p class="model-detail">로직 오류, 보안 취약점,<br>테스트 누락 검출</p>
-    </div>
-    <div class="model m-doc">
-      <p class="model-name">Gemini</p>
-      <p class="model-role">문서 리뷰</p>
-      <p class="model-detail">일관성, 정확성,<br>구조 검증</p>
-    </div>
-    <div class="model m-tier">
-      <p class="model-name">Opus / Sonnet</p>
-      <p class="model-role">성능별 분업</p>
-      <p class="model-detail">Opus: 복잡한 판단, 아키텍처<br>Sonnet: 빠른 확인, 반복 검증</p>
-    </div>
-  </div>
-  <div class="warning">
-    <p class="warning-text">"Out of the box, Claude is a poor QA agent." — <strong>검증 에이전트도 튜닝이 필요하다.</strong> 기준을 구체적으로, 회의적으로 설정해야 쓸 수 있다.</p>
-  </div>
-  <p class="bottom"><strong>다른 모델, 다른 역할</strong>로 교차 검증 — 한 모델의 맹점을 다른 모델이 잡는다</p>
+  <p class="num">05</p>
+  <h1>검증</h1>
+  <p class="sub">결과물을 어떻게 믿을 것인가</p>
 </body>
 </html>

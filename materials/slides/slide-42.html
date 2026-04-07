@@ -12,52 +12,54 @@
     color: #1A1A1A;
     display: flex;
     flex-direction: column;
-    padding: 44pt 56pt 32pt;
+    padding: 48pt 56pt 36pt;
     overflow: hidden;
   }
   .section-label { font-size: 10pt; font-weight: 300; color: #999999; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
   .principle-num { font-size: 32pt; font-weight: 700; color: #E8E8E3; line-height: 1.2; margin-bottom: 6pt; }
-  h1 { font-size: 22pt; font-weight: 700; line-height: 1.2; margin-bottom: 14pt; }
-  .subtitle { font-size: 11pt; color: #999999; margin-bottom: 14pt; }
-  .tools { display: flex; gap: 14pt; flex: 1; }
-  .tool-card { flex: 1; border-radius: 8pt; padding: 16pt; display: flex; flex-direction: column; }
-  .tc-1 { background: #1A1A1A; color: #F5F5F0; }
-  .tc-2 { background: #E8E8E3; }
-  .tc-name { font-size: 14pt; font-weight: 700; margin-bottom: 6pt; }
-  .tc-type { font-size: 9pt; font-weight: 600; opacity: 0.5; margin-bottom: 8pt; text-transform: uppercase; letter-spacing: 0.5pt; }
-  .tc-desc { font-size: 10pt; line-height: 1.5; }
-  .tc-1 .tc-desc { color: #999999; }
-  .tc-2 .tc-desc { color: #666666; }
-  .tc-example { margin-top: auto; padding-top: 8pt; font-size: 9pt; font-family: monospace; opacity: 0.5; }
-  .bottom { margin-top: 10pt; font-size: 11pt; color: #666666; text-align: center; }
-  .bottom strong { color: #1A1A1A; }
+  h1 { font-size: 26pt; font-weight: 700; line-height: 1.2; margin-bottom: 16pt; }
+  .content { flex: 1; display: flex; gap: 20pt; align-items: center; }
+  .left { flex: 1; }
+  .principle-box { padding: 16pt; background: #1A1A1A; color: #F5F5F0; border-radius: 8pt; margin-bottom: 12pt; }
+  .pb-title { font-size: 14pt; font-weight: 700; margin-bottom: 6pt; }
+  .pb-desc { font-size: 11pt; color: #999999; line-height: 1.5; }
+  .right { flex: 1; display: flex; flex-direction: column; gap: 10pt; }
+  .check-item { display: flex; gap: 10pt; align-items: flex-start; }
+  .check-icon { width: 28pt; height: 28pt; border-radius: 50%; background: #E8E8E3; display: flex; align-items: center; justify-content: center; font-size: 12pt; font-weight: 700; color: #999999; flex-shrink: 0; }
+  .check-text { font-size: 11pt; color: #666666; line-height: 1.5; padding-top: 4pt; }
+  .check-text strong { color: #1A1A1A; }
+  .loop-hint { padding: 10pt 14pt; background: #E8E8E3; border-radius: 6pt; font-size: 10pt; color: #666666; text-align: center; margin-top: auto; }
+  .loop-hint strong { color: #1A1A1A; }
+  .bottom { margin-top: 12pt; font-size: 11pt; color: #999999; text-align: center; }
 </style>
 </head>
 <body>
-  <p class="section-label">검증</p>
-  <p class="principle-num">04</p>
-  <h1>에이전트에게 눈을 달아주기</h1>
-  <p class="subtitle">코드만 검증하는 게 아니라, 화면도 직접 보고 확인할 수 있어야 한다</p>
-  <div class="tools">
-    <div class="tool-card tc-1">
-      <p class="tc-name">Browser Agent</p>
-      <p class="tc-type">chrome-cdp / agent-browser</p>
-      <p class="tc-desc">실제 Chrome 브라우저를 제어. DOM 탐색, 클릭, 스크린샷, 네비게이션. 웹앱의 UX를 직접 검증.</p>
-      <p class="tc-example">chrome-cdp · agent-browser</p>
+  <p class="section-label">검증 원칙</p>
+  <p class="principle-num">01</p>
+  <h1>기준이 있어야 검증이 가능하다</h1>
+  <div class="content">
+    <div class="left">
+      <div class="principle-box">
+        <p class="pb-title">Sprint Contract</p>
+        <p class="pb-desc">작업 전에 "뭘 만들고 어떻게 검증할지" 합의한다. 기준 없이 시키면 AI가 끝없이 하거나 대충 끝냈다고 한다.</p>
+      </div>
+      <div class="loop-hint"><strong>Ralph Loop</strong> — 기준 달성까지 반복시킨다. 기준이 명확하면 자동화가 가능.</div>
     </div>
-    <div class="tool-card tc-2">
-      <p class="tc-name">Computer Use</p>
-      <p class="tc-type">Built-in MCP</p>
-      <p class="tc-desc">스크린샷 + 마우스/키보드로 모든 앱 제어. 웹이 아닌 네이티브 앱, 디자인 도구도 검증 가능.</p>
-      <p class="tc-example">computer-use MCP (built-in)</p>
-    </div>
-    <div class="tool-card tc-2">
-      <p class="tc-name">시각 검증 루프</p>
-      <p class="tc-type">Pattern</p>
-      <p class="tc-desc">만든다 → 스크린샷 찍는다 → 보고 판단한다 → 수정한다. 사람이 눈으로 하는 것을 AI가 대신.</p>
-      <p class="tc-example">generate → screenshot → evaluate</p>
+    <div class="right">
+      <div class="check-item">
+        <div class="check-icon">1</div>
+        <p class="check-text"><strong>완료 조건을 먼저 정한다</strong><br>"이 3가지가 되면 끝" — 시작 전에 합의</p>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">2</div>
+        <p class="check-text"><strong>조건을 측정 가능하게 쓴다</strong><br>"잘 되게" 말고 "테스트 통과 + 빌드 성공"</p>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">3</div>
+        <p class="check-text"><strong>미달이면 다시 돌린다</strong><br>기준이 있으니 자동 반복이 가능해진다</p>
+      </div>
     </div>
   </div>
-  <p class="bottom"><strong>검증 범위를 코드에서 화면까지 확장</strong>하면 사람이 끼어들 일이 줄어든다</p>
+  <p class="bottom">"뭐가 되면 끝인가"를 작업 시작 전에 정한다</p>
 </body>
 </html>

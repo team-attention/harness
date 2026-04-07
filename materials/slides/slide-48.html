@@ -12,63 +12,18 @@
     color: #F5F5F0;
     display: flex;
     flex-direction: column;
-    padding: 36pt 56pt 28pt;
+    justify-content: center;
+    padding: 60pt 72pt;
     overflow: hidden;
   }
-  .section-label { font-size: 10pt; font-weight: 300; color: #666666; text-transform: uppercase; letter-spacing: 1.5pt; margin-bottom: 6pt; }
-  h1 { font-size: 22pt; font-weight: 700; line-height: 1.3; margin-bottom: 18pt; }
-  .roles { display: flex; gap: 12pt; flex: 1; }
-  .role { flex: 1; border-radius: 8pt; padding: 14pt 14pt 10pt; display: flex; flex-direction: column; }
-  .r1 { background: #F5F5F0; color: #1A1A1A; }
-  .r2 { background: #2E2E2E; }
-  .r3 { background: #2E2E2E; }
-  .role-icon { font-size: 24pt; margin-bottom: 6pt; }
-  .role-title { font-size: 13pt; font-weight: 700; margin-bottom: 4pt; }
-  .r1 .role-title { color: #1A1A1A; }
-  .role-en { font-size: 9pt; font-weight: 400; color: #999999; margin-bottom: 8pt; }
-  .role-items { list-style: none; display: flex; flex-direction: column; gap: 4pt; flex: 1; }
-  .role-items li { font-size: 9.5pt; line-height: 1.4; padding-left: 10pt; position: relative; }
-  .r1 .role-items li { color: #666666; }
-  .r2 .role-items li, .r3 .role-items li { color: #888888; }
-  .role-items li::before { content: ''; position: absolute; left: 0; top: 6pt; width: 4pt; height: 4pt; border-radius: 50%; }
-  .r1 .role-items li::before { background: #D4D4D0; }
-  .r2 .role-items li::before, .r3 .role-items li::before { background: #555555; }
-  .bottom { margin-top: 12pt; padding: 10pt 16pt; background: #2E2E2E; border-radius: 6pt; font-size: 11pt; color: #888888; text-align: center; line-height: 1.5; }
-  .bottom strong { color: #F5F5F0; font-weight: 700; }
+  .num { font-size: 44pt; font-weight: 700; color: #333333; margin-bottom: 8pt; line-height: 1.2; }
+  h1 { font-size: 36pt; font-weight: 700; line-height: 1.2; margin-bottom: 12pt; }
+  .sub { font-size: 15pt; font-weight: 400; color: #666666; }
 </style>
 </head>
 <body>
-  <p class="section-label">마무리</p>
-  <h1>그럼 사람은 앞으로 뭘 해야 할까요?</h1>
-  <div class="roles">
-    <div class="role r1">
-      <p class="role-title">구조(Scaffold)</p>
-      <p class="role-en">환경을 설계하고 유지하기</p>
-      <ul class="role-items">
-        <li>비즈니스 요구사항이 바뀔 때마다 코드베이스 구조 발전시키기</li>
-        <li>새 도구/서비스 도입 시 폴더링과 경계 재설계</li>
-        <li>AI가 따라올 수 있는 아키텍처 유지</li>
-      </ul>
-    </div>
-    <div class="role r2">
-      <p class="role-title">맥락(Context)</p>
-      <p class="role-en">AI가 아는 것을 최신으로 유지</p>
-      <ul class="role-items">
-        <li>CLAUDE.md와 docs/를 코드와 함께 갱신</li>
-        <li>새 컨벤션이 생기면 rules/에 추가</li>
-        <li>오래된 규칙은 정리 — 가비지 컬렉션</li>
-      </ul>
-    </div>
-    <div class="role r3">
-      <p class="role-title">개선(Compound)</p>
-      <p class="role-en">AI Slop이 나오지 않도록 점검</p>
-      <ul class="role-items">
-        <li>AI 산출물의 품질을 지속적으로 모니터링</li>
-        <li>반복되는 실수 → 규칙으로, 반복 작업 → 스킬로</li>
-        <li>안 쓰는 건 치우고, 쓰는 건 날카롭게</li>
-      </ul>
-    </div>
-  </div>
-  <div class="bottom">AI가 코드를 쓰는 시대, 사람의 역할은 <strong>"잘 짜기"에서 "잘 일하는 환경을 만들기"</strong>로 바뀐다</div>
+  <p class="num">06</p>
+  <h1>개선</h1>
+  <p class="sub">어떻게 계속 나아질 것인가</p>
 </body>
 </html>
