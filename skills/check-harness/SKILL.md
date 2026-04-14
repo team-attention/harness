@@ -34,9 +34,13 @@ allowed-tools:
 
 **산출물 2가지:**
 1. **스코어카드** — 4축별 PASS/WEAK_PASS/FAIL/N/A + Overall/Project 성숙도 레벨
-2. **액션 리포트** — Findings(Missing/Broken/Opportunity) + Quick Wins Top 3
+2. **액션 리포트** — Findings + 제안 액션 (TL;DR 상단)
 
-리포트 저장 위치: `.harness/check-reports/check-harness-{YYYY-MM-DD}-{scope}.md`
+**출력 방식: 대화에 직접 출력 + 파일 저장 (둘 다)**
+- 같은 내용을 대화창에 그대로 출력 (사용자가 즉시 확인)
+- 동시에 `.harness/check-reports/check-harness-{YYYY-MM-DD}-{scope}.md` 에 Write
+  (다음 진단과 비교용 기록)
+- 저장 경로는 리포트 끝 한 줄로만 안내: `📁 Saved: {path}`
 
 ---
 
