@@ -1,9 +1,10 @@
 ---
 name: skill-portfolio-analyzer
 description: |
-  Analyzes installed skills/plugins against ~/.claude.json skillUsage to detect
-  dead, ghost, duplicate, and collision-prone entries. Returns a structured JSON
-  report. Read-only — does not modify any files. Use from /check-harness.
+  Analyzes installed skills/plugins/MCP servers against ~/.claude.json to detect
+  dead, ghost, duplicate, and collision-prone entries AND report the current
+  accessible state (enabled plugins, runtime skills, connected MCP servers).
+  Returns a structured JSON report. Read-only. Use from /check-harness.
 tools:
   - Read
   - Grep
@@ -35,17 +36,26 @@ tools:
 
 ## Procedure
 
-### Step 1 — 사용량 맵 로드
+### Step 1 — 현재 상태 로드 (skillUsage + enabledPlugins + MCP)
 
 ```bash
 python3 -c "
 import json, os
 d = json.load(open(os.path.expanduser('~/.claude.json')))
-print(json.dumps(d.get('skillUsage', {}), ensure_ascii=False))
-" > /tmp/skill_usage.json
+out = {
+  'skillUsage': d.get('skillUsage', {}),
+  'enabledPlugins': d.get('enabledPlugins', {}),
+  'mcpServers': d.get('mcpServers', {}),
+}
+print(json.dumps(out, ensure_ascii=False))
+" > /tmp/cc_state.json
 ```
 
-키 형식은 `{plugin}:{name}` 또는 bare `{name}` 혼재. 둘 다 보존.
+- `skillUsage`: `{plugin}:{name}` 또는 bare `{name}` 혼재. 둘 다 보존.
+- `enabledPlugins`: 프로젝트 경로별로 어떤 플러그인이 켜져 있는지 (user 레벨 vs project 레벨 구분).
+- `mcpServers`: 등록된 MCP 서버 목록 (user 레벨). 프로젝트 `.mcp.json`도 따로 읽어 병합.
+
+프로젝트 MCP 병합: `{PROJECT_ROOT}/.mcp.json` 이 있으면 읽어서 `mcpServers`에 project 레벨로 마킹.
 
 ### Step 2 — 설치된 스킬 전수 스캔
 
@@ -57,6 +67,15 @@ print(json.dumps(d.get('skillUsage', {}), ensure_ascii=False))
 - `{PROJECT_ROOT}/skills/**/SKILL.md`
 
 각 파일에서 frontmatter의 `name`, `description` 첫 200자, 플러그인명(경로 유추)을 추출.
+
+### Step 2.5 — 플러그인/MCP 인벤토리
+
+- **설치된 플러그인**: `~/.claude/plugins/*/` 디렉토리 전수 (plugin.json의 name/version 읽기)
+- **활성화 상태**:
+  - User 레벨: `~/.claude.json` → `enabledPlugins` 루트 키
+  - Project 레벨: `{PROJECT_ROOT}/.claude/settings.json` + `{PROJECT_ROOT}/.claude.json` → `enabledPlugins`
+- **MCP 서버**: user (`~/.claude.json` mcpServers) + project (`.mcp.json`) 각각 구분해서 수집.
+  각 서버의 type/command 정도만 메타로 보관 (secret 값은 절대 복사하지 않음).
 
 ### Step 3 — 조인 & 분류
 
@@ -73,6 +92,10 @@ print(json.dumps(d.get('skillUsage', {}), ensure_ascii=False))
 
 중복 클러스터는 의미 기반으로 묶는다 (예: "review"/"reviewer"/"simplify").
 
+### Step 3.5 — MCP 사용도 추정
+
+MCP 서버는 skillUsage에 안 잡히므로, 세션 로그에서 `mcp__{server}__*` 도구 호출 존재 여부로 사용 여부 추정 (최근 30일 `~/.claude/projects/**/*.jsonl` grep). 호출 0회인 MCP = `unused_mcp`.
+
 ### Step 4 — JSON 출력
 
 ```json
@@ -85,7 +108,26 @@ print(json.dumps(d.get('skillUsage', {}), ensure_ascii=False))
     "ghost_count": N,
     "duplicate_clusters": N,
     "prefix_duplicates": N,
-    "trigger_collisions": N
+    "trigger_collisions": N,
+    "plugins_installed": N,
+    "plugins_enabled_user": N,
+    "plugins_enabled_project": N,
+    "mcp_servers_total": N,
+    "mcp_servers_unused_30d": N
+  },
+  "current_state": {
+    "plugins": [
+      {"name": "hoyeon", "version": "1.5.4", "enabled_scope": ["user","project"], "skills_count": 28}
+    ],
+    "mcp_servers": [
+      {"name": "context7", "scope": "user", "type": "stdio", "used_last_30d": true, "call_count": 12},
+      {"name": "pencil", "scope": "project", "type": "sse", "used_last_30d": false, "call_count": 0}
+    ],
+    "skills_by_source": {
+      "user_standalone": N,
+      "from_plugins": N,
+      "project_local": N
+    }
   },
   "dead": [
     {"name": "...", "plugin": "...", "usageCount": 0, "lastUsedAt": null, "path": "..."}
@@ -108,6 +150,13 @@ print(json.dumps(d.get('skillUsage', {}), ensure_ascii=False))
   ],
   "trigger_collisions": [
     {"trigger": "/commit", "skills": ["commit", "hoyeon:commit"]}
+  ],
+  "unused_mcp": [
+    {"name": "pencil", "scope": "project", "reason": "30일간 mcp__pencil__* 호출 0회"}
+  ],
+  "plugin_findings": [
+    {"type": "installed_not_enabled", "plugin": "geo", "scope_missing": "project", "reason": "user에는 활성 · 이 프로젝트에선 비활성 → geo-* 스킬이 컨텍스트에 안 뜸 (의도한 것이면 OK)"},
+    {"type": "enabled_unused", "plugin": "ouroboros", "reason": "활성화돼 있지만 30일간 해당 스킬 호출 0회"}
   ],
   "quick_wins": [
     {"action": "삭제", "target": "...", "reason": "...", "effort": "low"}
