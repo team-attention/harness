@@ -1,0 +1,26 @@
+{
+  "skill_name": "check-harness",
+  "evals": [
+    {
+      "id": 1,
+      "name": "default-scope-asks",
+      "prompt": "/check-harness",
+      "expected_output": "Phase 0에서 AskUserQuestion으로 스코프 묻고, 선택된 스코프에 맞는 서브에이전트를 병렬 실행 후 리포트 파일 생성",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "overall-scope-explicit",
+      "prompt": "/check-harness overall — 내 클로드 코드 전체 설정 점검해줘. 어떤 스킬이 죽어있고 어떻게 일시키고 있는지 보고 싶어.",
+      "expected_output": "Per-Project 서브에이전트(CONTEXT, AUTOMATION)는 안 띄우고, Overall 2개(PORTFOLIO, SESSION)만 병렬 실행. 리포트에 Portfolio Health + Execution Pattern만 포함",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "natural-language-trigger",
+      "prompt": "하네스 뭐가 부족한지 봐줘. 이 프로젝트 전체 진단으로.",
+      "expected_output": "트리거가 /check-harness를 부르고 'project' 또는 'all' 스코프로 판단. Per-Project 서브에이전트 실행 후 CLAUDE.md/rules/hooks 품질 리포트 포함",
+      "files": []
+    }
+  ]
+}
