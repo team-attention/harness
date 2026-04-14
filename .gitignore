@@ -10,3 +10,6 @@
 
 # Session state (runtime)
 .hoyeon/
+
+# check-harness workspace
+check-harness-workspace/
