@@ -363,7 +363,26 @@ AskUserQuestion(
 )
 ```
 
+### 3-3.5. CLAUDE.md Structure (Progressive Disclosure)
+
+CLAUDE.md should stay lean — put stable rules in `docs/` and load conditionally with `@` refs.
+
+```markdown
+# {project}
+
+{3-5 lines: purpose, stack, directory map}
+
+## Context (loaded on demand)
+@docs/domain.md       # business terms, invariants
+@docs/policies.md     # team conventions, commit style
+@docs/architecture.md # decisions, boundaries
+```
+
+Rationale: monolithic CLAUDE.md inflates context every turn. `check-harness` axis 2 (C6) checks `conditional_load_evidence ≥ 1`. Keep the root file under ~80 lines.
+
 ### 3-4. Skills Detection (auto-suggest + ask)
+
+**Start minimal.** Only scaffold skills that the L2 tech stack directly requires — dead skills pollute trigger matching (check-harness axis 1). Rule of thumb: *if you can't name 3 times you'd call it next week, don't scaffold it.*
 
 Scan L2 decisions for recurring task patterns and suggest project-specific skills:
 
@@ -472,7 +491,7 @@ R2: "Test Infrastructure -- Framework setup with patterns matching the exemplar"
   R2.2: "Test directory structure mirrors source structure"
 
 R3: "Guard Rails -- CLAUDE.md + enforcement mechanisms for drift resistance"
-  R3.1: "CLAUDE.md with architectural rules, domain context, team conventions, dependency direction, file placement conventions, available project skills summary, and active hooks summary"
+  R3.1: "CLAUDE.md (lean — under ~80 lines) with architectural rules, domain context, team conventions, dependency direction, file placement conventions, available project skills summary, and active hooks summary. Stable long-form content lives in `docs/` and loads via Progressive Disclosure `@docs/*.md` references."
   R3.2: "Linter + formatter configured with project-specific rules"
   R3.3: "CI pipeline running lint + typecheck + test"
   R3.4: ".env.example with all required environment variables documented"
@@ -635,6 +654,20 @@ AskUserQuestion(
 
 - If **Implement now**: proceed with task execution following the Task DAG order.
 - If **Later**: confirm the spec file location and end.
+
+### After Implementation: Establish Harness Baseline
+
+Once TF (verification) passes, suggest running `/check-harness` to establish a maturity baseline for the new project. This closes the scaffold → audit → compound loop.
+
+```
+AskUserQuestion(
+  question: "Run /check-harness now to baseline the new harness?",
+  options: [
+    { label: "Yes, baseline now", description: "Audit axes 1-6 and save report to .harness/check-reports/" },
+    { label: "Skip", description: "Baseline later" }
+  ]
+)
+```
 
 ---
 
