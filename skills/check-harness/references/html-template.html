@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>Harness Maturity Report — {{PROJECT_NAME}}</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --panel-2: #1f2430;
+    --line: #2a2f3a;
+    --fg: #e6e9ef;
+    --muted: #8a94a7;
+    --accent: #7aa2ff;
+    --pass: #58d68d;
+    --weak: #f4d36b;
+    --fail: #ef6e7a;
+    --na: #6b7280;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg:#fafbfc; --panel:#fff; --panel-2:#f4f6fa; --line:#e4e8ef; --fg:#1a1f2b; --muted:#5b6472; --accent:#2f5bf0; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font: 15px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Apple SD Gothic Neo", sans-serif; }
+  main { max-width: 1080px; margin: 0 auto; padding: 32px 24px 80px; }
+  header.top { display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom: 24px; }
+  header.top h1 { font-size: 22px; margin:0; letter-spacing:-0.01em; }
+  header.top .meta { color:var(--muted); font-size:13px; font-variant-numeric: tabular-nums; }
+  .hero { background: linear-gradient(180deg, var(--panel-2), var(--panel)); border:1px solid var(--line); border-radius:16px; padding:28px; margin-bottom:24px; }
+  .hero .score-row { display:grid; grid-template-columns: auto 1fr; gap:24px; align-items:center; }
+  .score-gauge { width:140px; height:140px; border-radius:50%;
+    background: conic-gradient(var(--accent) calc(var(--pct, 0) * 1%), var(--line) 0);
+    display:grid; place-items:center; }
+  .score-gauge .inner { width:114px; height:114px; border-radius:50%; background:var(--panel); display:grid; place-items:center; text-align:center; }
+  .score-gauge .num { font-size:36px; font-weight:700; letter-spacing:-0.02em; }
+  .score-gauge .grade { font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; }
+  .hero h2 { font-size: 18px; margin:0 0 8px; }
+  .hero p.headline { font-size:16px; line-height:1.5; margin:0 0 16px; }
+  .hero .sub-scores { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top:12px; }
+  .sub-score { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 14px; }
+  .sub-score .lbl { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; }
+  .sub-score .val { font-size:22px; font-weight:600; margin-top:4px; }
+  .sub-score .bar { height:4px; background:var(--line); border-radius:2px; overflow:hidden; margin-top:8px; }
+  .sub-score .bar > span { display:block; height:100%; background:var(--accent); }
+  .strength-weak { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+  .strength-weak div { padding:12px; border-radius:10px; border:1px solid var(--line); }
+  .strength-weak .s { background: color-mix(in srgb, var(--pass) 8%, transparent); border-color: color-mix(in srgb, var(--pass) 40%, var(--line)); }
+  .strength-weak .w { background: color-mix(in srgb, var(--fail) 8%, transparent); border-color: color-mix(in srgb, var(--fail) 40%, var(--line)); }
+  .strength-weak .lbl { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px; }
+  section.cycle { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-bottom:24px; }
+  section.cycle h2 { font-size:16px; margin:0 0 12px; }
+  section.cycle ol { padding-left: 22px; margin:0; }
+  section.cycle li { padding: 4px 0; color:var(--fg); }
+  section.cycle li .tag { color:var(--muted); font-size:12px; margin-right:6px; }
+  .axes { display:grid; grid-template-columns: repeat(2, 1fr); gap:16px; }
+  @media (max-width: 720px) { .axes { grid-template-columns:1fr; } .hero .score-row { grid-template-columns:1fr; } .hero .sub-scores { grid-template-columns:1fr; } }
+  article.axis { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px 20px; display:flex; flex-direction:column; gap:10px; }
+  article.axis[data-status="fail"] { border-left: 4px solid var(--fail); }
+  article.axis[data-status="weak"] { border-left: 4px solid var(--weak); }
+  article.axis[data-status="pass"] { border-left: 4px solid var(--pass); }
+  article.axis[data-status="na"]   { border-left: 4px solid var(--na); }
+  article.axis header { display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+  article.axis h3 { margin:0; font-size:15px; }
+  article.axis .score { display:flex; align-items:center; gap:8px; font-variant-numeric: tabular-nums; }
+  article.axis .score-num { font-size:18px; font-weight:700; }
+  article.axis .bar { width:70px; height:6px; background:var(--line); border-radius:3px; overflow:hidden; }
+  article.axis .bar > span { display:block; height:100%; background:var(--accent); }
+  article.axis .level { color:var(--muted); font-size:12px; }
+  article.axis p.axis-headline { margin:0; color:var(--fg); font-size:14px; line-height:1.5; }
+  article.axis details { background:var(--panel-2); border-radius:8px; padding:10px 12px; border:1px solid var(--line); }
+  article.axis details summary { cursor:pointer; font-size:13px; color:var(--muted); }
+  article.axis details[open] summary { margin-bottom:8px; color:var(--fg); }
+  article.axis table { width:100%; border-collapse: collapse; font-size:12.5px; }
+  article.axis th, article.axis td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+  article.axis th { color:var(--muted); font-weight:500; }
+  article.axis td .st { display:inline-block; padding:1px 8px; border-radius:10px; font-size:11px; font-weight:600; }
+  article.axis td .st.pass { background: color-mix(in srgb, var(--pass) 18%, transparent); color: var(--pass); }
+  article.axis td .st.weak { background: color-mix(in srgb, var(--weak) 18%, transparent); color: var(--weak); }
+  article.axis td .st.fail { background: color-mix(in srgb, var(--fail) 18%, transparent); color: var(--fail); }
+  article.axis td .st.na   { background: color-mix(in srgb, var(--na) 18%, transparent);   color: var(--na); }
+  article.axis .next-move { margin:0; font-size:13px; color:var(--accent); }
+  section.actions { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; margin-top:24px; }
+  section.actions h2 { font-size:16px; margin:0 0 12px; }
+  .action-buckets { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; }
+  @media (max-width: 900px) { .action-buckets { grid-template-columns:1fr; } }
+  .bucket { background:var(--panel-2); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+  .bucket h4 { margin:0 0 10px; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); }
+  .bucket.green h4 { color: var(--pass); }
+  .bucket.yellow h4 { color: var(--weak); }
+  .bucket.red h4 { color: var(--fail); }
+  .bucket ul { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+  .bucket li { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:10px 12px; font-size:13.5px; }
+  .bucket li .title { font-weight:600; }
+  .bucket li .why { color:var(--muted); font-size:12px; margin-top:4px; }
+  .bucket li code { font-family: "SF Mono", ui-monospace, Menlo, monospace; font-size:12px; background:var(--panel-2); padding:1px 5px; border-radius:4px; display:inline-block; margin-top:4px; }
+  section.extra { display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-top:24px; }
+  @media (max-width: 900px) { section.extra { grid-template-columns:1fr; } }
+  section.extra > div { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px 20px; }
+  section.extra h3 { font-size:14px; margin:0 0 10px; }
+  section.extra table { width:100%; border-collapse:collapse; font-size:13px; }
+  section.extra th, section.extra td { padding:6px 8px; border-bottom:1px solid var(--line); text-align:left; }
+  footer.foot { color:var(--muted); font-size:12px; text-align:center; margin-top:40px; }
+</style>
+</head>
+<body>
+<main>
+  <header class="top">
+    <h1>🧭 Harness Maturity Report</h1>
+    <div class="meta">{{GENERATED_AT}} · scope: <b>{{SCOPE}}</b> · project: <b>{{PROJECT_NAME}}</b></div>
+  </header>
+
+  <section class="hero">
+    <div class="score-row">
+      <div class="score-gauge" style="--pct: {{HARNESS_SCORE}};">
+        <div class="inner">
+          <div class="num">{{HARNESS_SCORE}}</div>
+          <div class="grade">{{HARNESS_GRADE}}</div>
+        </div>
+      </div>
+      <div>
+        <h2>🎯 한 줄 요약</h2>
+        <p class="headline">{{HEADLINE}}</p>
+        <div class="sub-scores">
+          <div class="sub-score"><div class="lbl">👤 User · L{{USER_LEVEL}}</div><div class="val">{{USER_SCORE}}</div><div class="bar"><span style="width:{{USER_SCORE}}%"></span></div></div>
+          <div class="sub-score"><div class="lbl">📁 Project · L{{PROJECT_LEVEL}}</div><div class="val">{{PROJECT_SCORE}}</div><div class="bar"><span style="width:{{PROJECT_SCORE}}%"></span></div></div>
+          <div class="sub-score"><div class="lbl">🔁 Compounding · L{{COMPOUNDING_LEVEL}}</div><div class="val">{{COMPOUNDING_SCORE}}</div><div class="bar"><span style="width:{{COMPOUNDING_SCORE}}%"></span></div></div>
+        </div>
+        <div class="strength-weak">
+          <div class="s"><div class="lbl">✅ 잘 되고 있는 것</div>{{STRENGTH}}</div>
+          <div class="w"><div class="lbl">⚠️ 개선하면 좋을 것</div>{{WEAKNESS}}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cycle">
+    <h2>🔄 사이클 한눈에 보기</h2>
+    <ol>{{CYCLE_ROWS}}</ol>
+  </section>
+
+  <section>
+    <h2 style="font-size:16px;margin:0 0 12px;">📊 축별 리포트 (6축)</h2>
+    <div class="axes">{{AXIS_CARDS}}</div>
+  </section>
+
+  <section class="actions">
+    <h2>✅ 지금 하면 좋은 것</h2>
+    <div class="action-buckets">
+      <div class="bucket green"><h4>🟢 바로 해볼 만한 것</h4><ul>{{ACTIONS_GREEN}}</ul></div>
+      <div class="bucket yellow"><h4>🟡 한 번 정리하면 좋을 것</h4><ul>{{ACTIONS_YELLOW}}</ul></div>
+      <div class="bucket red"><h4>🔴 시간 내서 다뤄볼 것</h4><ul>{{ACTIONS_RED}}</ul></div>
+    </div>
+  </section>
+
+  <section class="extra">
+    <div>
+      <h3>🔌 Runtime Inventory</h3>
+      {{INVENTORY_TABLE}}
+    </div>
+    <div>
+      <h3>🧭 2×3 Matrix (Static / Behavioral / Growth)</h3>
+      {{MATRIX_TABLE}}
+    </div>
+  </section>
+
+  <section class="extra" style="grid-template-columns:1fr;">
+    <div>
+      <h3>🔍 Findings</h3>
+      {{FINDINGS_LIST}}
+    </div>
+  </section>
+
+  <footer class="foot">Generated by <code>/check-harness</code> · harness-session</footer>
+</main>
+</body>
+</html>

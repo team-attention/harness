@@ -13,3 +13,4 @@
 
 # check-harness workspace
 check-harness-workspace/
+.harness/

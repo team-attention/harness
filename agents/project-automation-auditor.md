@@ -45,6 +45,11 @@ find .claude/skills .claude/agents skills agents -name "*.md" 2>/dev/null
 
 # Docker/격리
 ls Dockerfile docker-compose*.yml .devcontainer/devcontainer.json 2>/dev/null
+
+# Compounding signals (축 6)
+git log --since="30 days ago" --name-only --pretty=format: -- CLAUDE.md 2>/dev/null | sort -u
+git log --since="90 days ago" --name-only --pretty=format: -- '.claude/rules/*' 'docs/learnings/*' 'skills/*' '.claude/skills/*' 'hooks/*' '.claude/hooks/*' 2>/dev/null | sort -u
+ls docs/learnings/ 2>/dev/null
 ```
 
 ## Step 2 — 평가 항목
@@ -69,6 +74,13 @@ ls Dockerfile docker-compose*.yml .devcontainer/devcontainer.json 2>/dev/null
 
 ### E2E 격리 (보너스)
 - Dockerfile + docker-compose 또는 devcontainer.json + CI에서 `services:` 사용
+
+### Compounding signals (축 6 — 개선)
+- `claude_md_updated_30d`: 최근 30일 내 CLAUDE.md 커밋 존재
+- `rules_added_90d`: 최근 90일 내 `.claude/rules/` 에 추가된 파일 수
+- `skills_added_90d`: 최근 90일 내 `skills/` 또는 `.claude/skills/` 에 추가된 파일 수 (SKILL.md 기준)
+- `hooks_added_90d`: 최근 90일 내 `hooks/` 또는 `.claude/settings.json` 변경 건수
+- `docs_learnings_exist`: `docs/learnings/` 디렉토리 존재 또는 파일 ≥1
 
 ### Risk findings
 - force-push 정책 (마지막 10커밋에 리셋/리베이스 흔적이 있는지) — 있으면 warning
@@ -95,6 +107,14 @@ ls Dockerfile docker-compose*.yml .devcontainer/devcontainer.json 2>/dev/null
     "dockerfile": false,
     "devcontainer": false,
     "ci_containers": false
+  },
+  "compounding": {
+    "claude_md_updated_30d": true,
+    "rules_added_90d": 2,
+    "skills_added_90d": 1,
+    "hooks_added_90d": 0,
+    "docs_learnings_exist": false,
+    "evidence": ["CLAUDE.md updated 2026-04-02", ".claude/rules/testing.md added 2026-03-15"]
   },
   "risk_findings": [],
   "weak_pass_flags": [
