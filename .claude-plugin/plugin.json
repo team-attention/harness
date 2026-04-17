@@ -1,5 +1,5 @@
 {
   "name": "harness-session",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Session harness plugin for Claude Code workflow automation"
 }
